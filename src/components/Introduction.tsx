@@ -5,22 +5,22 @@ import { User } from "lucide-react";
 const Introduction = () => {
   const teachers = [
     {
-      name: "Sarah Johnson",
-      role: "Tennis Coach",
-      description: "Former professional player with 10 years of teaching experience.",
-      image: "/placeholder.svg"
+      name: "Tóth Regina",
+      role: "Rock Climbing Instructor",
+      description: "Professional climber with expertise in teaching youth athletics.",
+      image: "/lovable-uploads/799f524e-05e6-4728-80a0-0876cfda2097.png"
     },
     {
-      name: "Mike Peters",
-      role: "Swimming Instructor",
-      description: "Certified swimming instructor specializing in children's aquatics.",
-      image: "/placeholder.svg"
+      name: "Emma Wilson",
+      role: "Swimming Coach",
+      description: "Certified swimming instructor with focus on youth development.",
+      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158"
     },
     {
-      name: "Emily Chen",
-      role: "Athletics Coach",
-      description: "Physical education specialist focusing on child development.",
-      image: "/placeholder.svg"
+      name: "Sophie Chen",
+      role: "Gymnastics Trainer",
+      description: "Former competitive gymnast dedicated to training young athletes.",
+      image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7"
     }
   ];
 
