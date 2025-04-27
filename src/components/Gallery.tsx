@@ -3,10 +3,26 @@ import { motion } from "framer-motion";
 
 const Gallery = () => {
   const images = [
-    { src: "/placeholder.svg", alt: "Children playing volleyball" },
-    { src: "/placeholder.svg", alt: "Tennis practice" },
-    { src: "/placeholder.svg", alt: "Cycling activity" },
-    { src: "/placeholder.svg", alt: "Team building activities" },
+    { 
+      src: "https://images.unsplash.com/photo-1518005020951-eccb494ad742", 
+      alt: "Children playing soccer in a field",
+      title: "Soccer Training" 
+    },
+    { 
+      src: "https://images.unsplash.com/photo-1452378174528-3090a4bba7b2", 
+      alt: "Kids practicing tennis",
+      title: "Tennis Classes" 
+    },
+    { 
+      src: "/lovable-uploads/9fc4733a-7118-4bc3-a0b0-3090405285e1.png", 
+      alt: "Basketball practice",
+      title: "Basketball Training" 
+    },
+    { 
+      src: "https://images.unsplash.com/photo-1452378174528-3090a4bba7b2", 
+      alt: "Swimming lessons",
+      title: "Swimming Classes" 
+    },
   ];
 
   return (
@@ -27,6 +43,9 @@ const Gallery = () => {
                 alt={image.alt}
                 className="w-full h-48 object-cover"
               />
+              <div className="p-4 bg-white">
+                <h3 className="text-lg font-semibold text-gray-800">{image.title}</h3>
+              </div>
             </motion.div>
           ))}
         </div>
