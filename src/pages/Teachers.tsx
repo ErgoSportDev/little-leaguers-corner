@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card";
-import { User, ChevronLeft } from "lucide-react";
+import { User, ChevronLeft, Bike, Tennis, Volleyball } from "lucide-react";
 import { Link } from "react-router-dom";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -48,8 +48,41 @@ const Teachers = () => {
         {/* Stylish header background with gradient */}
         <div className="absolute inset-0 bg-gradient-to-r from-red-700 to-red-500 -z-10"></div>
         
-        {/* Decorative pattern overlay */}
-        <div className="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48cGF0aCBkPSJNMzAgMEMxMy40MzEgMCAwIDEzLjQzMSAwIDMwQzAgNDYuNTY5IDEzLjQzMSA2MCAzMCA2MEM0Ni41NjkgNjAgNjAgNDYuNTY5IDYwIDMwQzYwIDEzLjQzMSA0Ni41NjkgMCAzMCAwWk0zMC4wOSA0OUMyMC4wNDkgNDkgMTIgNDAuOTUgMTIgMzAuOTA5QzEyIDIwLjg2OSAyMC4wNDkgMTIuODE5IDMwLjA5IDEyLjgxOUM0MC4xMyAxMi44MTkgNDguMTgxIDIwLjg2OSA0OC4xODEgMzAuOTA5QzQ4LjE4MSA0MC45NSA0MC4xMyA0OSAzMC4wOSA0OVoiIGZpbGw9IiNmZmYiLz48L3N2Zz4=')]"></div>
+        {/* Sports equipment pattern overlay */}
+        <div className="absolute inset-0 -z-5">
+          {/* Tennis rackets scattered around */}
+          <div className="absolute top-[10%] left-[5%] opacity-15">
+            <Tennis className="w-16 h-16 text-white" />
+          </div>
+          <div className="absolute top-[70%] left-[20%] opacity-15">
+            <Tennis className="w-12 h-12 text-white" />
+          </div>
+          <div className="absolute top-[40%] right-[15%] opacity-15">
+            <Tennis className="w-20 h-20 text-white" />
+          </div>
+          
+          {/* Volleyballs scattered around */}
+          <div className="absolute top-[30%] left-[30%] opacity-15">
+            <Volleyball className="w-14 h-14 text-white" />
+          </div>
+          <div className="absolute top-[60%] right-[30%] opacity-15">
+            <Volleyball className="w-16 h-16 text-white" />
+          </div>
+          <div className="absolute top-[20%] right-[5%] opacity-15">
+            <Volleyball className="w-10 h-10 text-white" />
+          </div>
+          
+          {/* Bikes scattered around */}
+          <div className="absolute bottom-[10%] right-[10%] opacity-15">
+            <Bike className="w-20 h-20 text-white" />
+          </div>
+          <div className="absolute top-[50%] left-[10%] opacity-15">
+            <Bike className="w-16 h-16 text-white" />
+          </div>
+          <div className="absolute bottom-[20%] left-[40%] opacity-15">
+            <Bike className="w-12 h-12 text-white" />
+          </div>
+        </div>
         
         <div className="container mx-auto px-4 py-12 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
