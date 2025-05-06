@@ -6,20 +6,20 @@ const Introduction = () => {
   const teachers = [
     {
       name: "Tóth Regina",
-      role: "Rock Climbing Instructor",
-      description: "Professional climber with expertise in teaching youth athletics.",
+      role: "Sziklamászás Oktató",
+      description: "Professzionális hegymászó, ifjúsági atlétikai oktatási szakértelemmel.",
       image: "/lovable-uploads/799f524e-05e6-4728-80a0-0876cfda2097.png"
     },
     {
       name: "Emma Wilson",
-      role: "Swimming Coach",
-      description: "Certified swimming instructor with focus on youth development.",
+      role: "Úszás Edző",
+      description: "Képesített úszásoktató, ifjúsági fejlesztésre specializálódva.",
       image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158"
     },
     {
       name: "Sophie Chen",
-      role: "Gymnastics Trainer",
-      description: "Former competitive gymnast dedicated to training young athletes.",
+      role: "Tornász Edző",
+      description: "Egykori versenyző tornász, aki fiatal sportolók képzésére szakosodott.",
       image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7"
     }
   ];
@@ -27,7 +27,7 @@ const Introduction = () => {
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">Meet Our Teachers</h2>
+        <h2 className="text-3xl font-bold text-center mb-12">Ismerd Meg Oktatóinkat</h2>
         <div className="grid md:grid-cols-3 gap-8">
           {teachers.map((teacher, index) => (
             <motion.div

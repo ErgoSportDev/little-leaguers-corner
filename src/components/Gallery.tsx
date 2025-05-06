@@ -5,30 +5,30 @@ const Gallery = () => {
   const images = [
     { 
       src: "https://images.unsplash.com/photo-1518005020951-eccb494ad742", 
-      alt: "Children playing soccer in a field",
-      title: "Soccer Training" 
+      alt: "Gyerekek fociznak a pályán",
+      title: "Foci Edzés" 
     },
     { 
       src: "https://images.unsplash.com/photo-1452378174528-3090a4bba7b2", 
-      alt: "Kids practicing tennis",
-      title: "Tennis Classes" 
+      alt: "Gyerekek teniszezni tanulnak",
+      title: "Tenisz Órák" 
     },
     { 
       src: "/lovable-uploads/9fc4733a-7118-4bc3-a0b0-3090405285e1.png", 
-      alt: "Basketball practice",
-      title: "Basketball Training" 
+      alt: "Kosárlabda gyakorlat",
+      title: "Kosárlabda Edzés" 
     },
     { 
       src: "https://images.unsplash.com/photo-1452378174528-3090a4bba7b2", 
-      alt: "Swimming lessons",
-      title: "Swimming Classes" 
+      alt: "Úszás oktatás",
+      title: "Úszás Órák" 
     },
   ];
 
   return (
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">Our Activities</h2>
+        <h2 className="text-3xl font-bold text-center mb-12">Tevékenységeink</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {images.map((image, index) => (
             <motion.div

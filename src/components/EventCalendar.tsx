@@ -15,24 +15,24 @@ const EventCalendar = () => {
   const events = [
     {
       date: new Date(2025, 3, 28),
-      title: "Tennis Tournament",
-      description: "Junior tennis tournament for ages 8-12",
-      time: "2:00 PM - 5:00 PM",
-      location: "Main Tennis Court"
+      title: "Tenisz Bajnokság",
+      description: "Junior tenisz verseny 8-12 éves korosztály számára",
+      time: "14:00 - 17:00",
+      location: "Fő Teniszpálya"
     },
     {
       date: new Date(2025, 3, 30),
-      title: "Swimming Class",
-      description: "Regular swimming practice session",
-      time: "4:00 PM - 5:30 PM",
-      location: "Indoor Pool"
+      title: "Úszás Óra",
+      description: "Rendszeres úszás edzés",
+      time: "16:00 - 17:30",
+      location: "Beltéri Medence"
     },
   ];
 
   return (
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">Upcoming Events</h2>
+        <h2 className="text-3xl font-bold text-center mb-12">Közelgő Események</h2>
         <div className="grid md:grid-cols-2 gap-8">
           <div className="flex justify-center">
             <Calendar
