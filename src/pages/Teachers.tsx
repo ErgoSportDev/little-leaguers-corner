@@ -4,6 +4,7 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card";
 import { User } from "lucide-react";
 import { Link } from "react-router-dom";
+import Footer from "@/components/Footer";
 
 const Teachers = () => {
   const teachers = [
@@ -101,6 +102,8 @@ const Teachers = () => {
           </div>
         </div>
       </section>
+      
+      <Footer />
     </div>
   );
 };
