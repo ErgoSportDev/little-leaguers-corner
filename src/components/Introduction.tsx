@@ -1,6 +1,7 @@
 
 import { motion } from "framer-motion";
 import { User } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Introduction = () => {
   const teachers = [
@@ -55,6 +56,14 @@ const Introduction = () => {
               <p className="text-gray-600">{teacher.description}</p>
             </motion.div>
           ))}
+        </div>
+        <div className="mt-10 text-center">
+          <Link 
+            to="/oktatoink" 
+            className="inline-flex items-center justify-center bg-red-600 text-white px-6 py-3 rounded-md font-medium hover:bg-red-700 transition-colors"
+          >
+            Részletes bemutatkozás
+          </Link>
         </div>
       </div>
     </section>

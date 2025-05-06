@@ -1,5 +1,6 @@
 
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -17,6 +18,14 @@ const Hero = () => {
         />
         <h1 className="text-4xl md:text-6xl font-bold mb-4">Ergo Sport Klub</h1>
         <p className="text-xl md:text-2xl mb-8">Közösség · Mozgás · Játék</p>
+        <div className="flex flex-wrap justify-center gap-4">
+          <Link 
+            to="/oktatoink" 
+            className="bg-white text-red-600 px-6 py-3 rounded-md font-medium hover:bg-red-100 transition-colors"
+          >
+            Találkozz Oktatóinkkal
+          </Link>
+        </div>
       </div>
       <div className="absolute inset-0 bg-gradient-to-b from-red-700/30 to-red-600/10 z-0"></div>
     </motion.section>
