@@ -2,9 +2,10 @@
 import { motion } from "framer-motion";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card";
-import { User } from "lucide-react";
+import { User, ChevronLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import Footer from "@/components/Footer";
+import { Button } from "@/components/ui/button";
 
 const Teachers = () => {
   const teachers = [
@@ -42,15 +43,51 @@ const Teachers = () => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="py-8 bg-red-600 text-white"
+        className="relative overflow-hidden"
       >
-        <div className="container mx-auto px-4">
-          <h1 className="text-3xl md:text-4xl font-bold mb-2">Oktatóink</h1>
-          <p className="text-lg">Ismerje meg szakképzett oktatóinkat, akik segítenek gyermeke fejlődésében</p>
-          <div className="mt-4">
-            <Link to="/" className="text-white underline hover:text-red-200 transition">
-              Vissza a főoldalra
-            </Link>
+        {/* Stylish header background with gradient */}
+        <div className="absolute inset-0 bg-gradient-to-r from-red-700 to-red-500 -z-10"></div>
+        
+        {/* Decorative pattern overlay */}
+        <div className="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48cGF0aCBkPSJNMzAgMEMxMy40MzEgMCAwIDEzLjQzMSAwIDMwQzAgNDYuNTY5IDEzLjQzMSA2MCAzMCA2MEM0Ni41NjkgNjAgNjAgNDYuNTY5IDYwIDMwQzYwIDEzLjQzMSA0Ni41NjkgMCAzMCAwWk0zMC4wOSA0OUMyMC4wNDkgNDkgMTIgNDAuOTUgMTIgMzAuOTA5QzEyIDIwLjg2OSAyMC4wNDkgMTIuODE5IDMwLjA5IDEyLjgxOUM0MC4xMyAxMi44MTkgNDguMTgxIDIwLjg2OSA0OC4xODEgMzAuOTA5QzQ4LjE4MSA0MC45NSA0MC4xMyA0OSAzMC4wOSA0OVoiIGZpbGw9IiNmZmYiLz48L3N2Zz4=')]"></div>
+        
+        <div className="container mx-auto px-4 py-12 relative z-10">
+          <div className="max-w-3xl mx-auto text-center">
+            <motion.h1 
+              className="text-4xl md:text-5xl font-bold text-white mb-2"
+              initial={{ y: -20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.1 }}
+            >
+              Oktatóink
+            </motion.h1>
+            
+            <motion.p 
+              className="text-lg md:text-xl text-white/90 mb-8"
+              initial={{ y: -20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.2 }}
+            >
+              Ismerje meg szakképzett oktatóinkat, akik segítenek gyermeke fejlődésében
+            </motion.p>
+            
+            <motion.div
+              initial={{ y: -20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.3 }}
+            >
+              <Button 
+                variant="secondary"
+                size="lg"
+                className="group"
+                asChild
+              >
+                <Link to="/" className="flex items-center">
+                  <ChevronLeft className="mr-1 w-5 h-5 group-hover:-translate-x-1 transition-transform" />
+                  <span>Vissza a főoldalra</span>
+                </Link>
+              </Button>
+            </motion.div>
           </div>
         </div>
       </motion.div>
