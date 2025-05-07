@@ -1,6 +1,7 @@
 
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { Bike, Volleyball } from "lucide-react";
 
 const Hero = () => {
   return (
@@ -10,6 +11,42 @@ const Hero = () => {
       transition={{ duration: 0.6 }}
       className="relative h-[60vh] bg-red-600 text-white flex items-center justify-center overflow-hidden"
     >
+      {/* Sports equipment pattern overlay - smaller size, less opacity */}
+      <div className="absolute inset-0 -z-5">
+        {/* Smaller sports equipment icons */}
+        <div className="absolute top-[10%] left-[5%] opacity-10">
+          <Bike className="w-8 h-8 text-white" />
+        </div>
+        <div className="absolute top-[70%] left-[20%] opacity-10">
+          <Bike className="w-6 h-6 text-white" />
+        </div>
+        <div className="absolute top-[40%] right-[15%] opacity-10">
+          <Bike className="w-10 h-10 text-white" />
+        </div>
+        
+        {/* Volleyballs scattered around */}
+        <div className="absolute top-[30%] left-[30%] opacity-10">
+          <Volleyball className="w-7 h-7 text-white" />
+        </div>
+        <div className="absolute top-[60%] right-[30%] opacity-10">
+          <Volleyball className="w-8 h-8 text-white" />
+        </div>
+        <div className="absolute top-[20%] right-[5%] opacity-10">
+          <Volleyball className="w-5 h-5 text-white" />
+        </div>
+        
+        {/* More bike icons */}
+        <div className="absolute bottom-[10%] right-[10%] opacity-10">
+          <Bike className="w-10 h-10 text-white" />
+        </div>
+        <div className="absolute top-[50%] left-[10%] opacity-10">
+          <Bike className="w-8 h-8 text-white" />
+        </div>
+        <div className="absolute bottom-[20%] left-[40%] opacity-10">
+          <Bike className="w-6 h-6 text-white" />
+        </div>
+      </div>
+
       <div className="container mx-auto px-4 text-center z-10">
         <img 
           src="/lovable-uploads/9fc4733a-7118-4bc3-a0b0-3090405285e1.png" 
