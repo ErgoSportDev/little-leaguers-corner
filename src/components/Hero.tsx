@@ -49,7 +49,8 @@ const Hero = () => {
 
       <div className="container mx-auto px-4 text-center z-10">
         <div className="relative inline-block">
-          <div className="absolute inset-0 bg-gradient-to-b from-red-500/50 to-transparent rounded-full blur-md"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-red-500/30 via-red-400/40 to-red-500/30 rounded-full blur-xl transform scale-110"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-red-400/50 to-transparent rounded-full blur-md animate-pulse" style={{ animationDuration: '3s' }}></div>
           <img 
             src="/lovable-uploads/9fc4733a-7118-4bc3-a0b0-3090405285e1.png" 
             alt="Ergo Sport Logó" 
