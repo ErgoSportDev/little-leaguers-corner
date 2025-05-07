@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card";
-import { User, ChevronLeft, Bike, Tennis, Volleyball } from "lucide-react";
+import { User, ChevronLeft, Bike, Volleyball } from "lucide-react";
 import { Link } from "react-router-dom";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -48,46 +48,46 @@ const Teachers = () => {
         {/* Stylish header background with gradient */}
         <div className="absolute inset-0 bg-gradient-to-r from-red-700 to-red-500 -z-10"></div>
         
-        {/* Sports equipment pattern overlay */}
+        {/* Sports equipment pattern overlay - smaller size, less opacity */}
         <div className="absolute inset-0 -z-5">
-          {/* Tennis rackets scattered around */}
-          <div className="absolute top-[10%] left-[5%] opacity-15">
-            <Tennis className="w-16 h-16 text-white" />
+          {/* Smaller sports equipment icons */}
+          <div className="absolute top-[10%] left-[5%] opacity-10">
+            <Bike className="w-8 h-8 text-white" />
           </div>
-          <div className="absolute top-[70%] left-[20%] opacity-15">
-            <Tennis className="w-12 h-12 text-white" />
+          <div className="absolute top-[70%] left-[20%] opacity-10">
+            <Bike className="w-6 h-6 text-white" />
           </div>
-          <div className="absolute top-[40%] right-[15%] opacity-15">
-            <Tennis className="w-20 h-20 text-white" />
+          <div className="absolute top-[40%] right-[15%] opacity-10">
+            <Bike className="w-10 h-10 text-white" />
           </div>
           
           {/* Volleyballs scattered around */}
-          <div className="absolute top-[30%] left-[30%] opacity-15">
-            <Volleyball className="w-14 h-14 text-white" />
+          <div className="absolute top-[30%] left-[30%] opacity-10">
+            <Volleyball className="w-7 h-7 text-white" />
           </div>
-          <div className="absolute top-[60%] right-[30%] opacity-15">
-            <Volleyball className="w-16 h-16 text-white" />
+          <div className="absolute top-[60%] right-[30%] opacity-10">
+            <Volleyball className="w-8 h-8 text-white" />
           </div>
-          <div className="absolute top-[20%] right-[5%] opacity-15">
-            <Volleyball className="w-10 h-10 text-white" />
+          <div className="absolute top-[20%] right-[5%] opacity-10">
+            <Volleyball className="w-5 h-5 text-white" />
           </div>
           
-          {/* Bikes scattered around */}
-          <div className="absolute bottom-[10%] right-[10%] opacity-15">
-            <Bike className="w-20 h-20 text-white" />
+          {/* More bike icons */}
+          <div className="absolute bottom-[10%] right-[10%] opacity-10">
+            <Bike className="w-10 h-10 text-white" />
           </div>
-          <div className="absolute top-[50%] left-[10%] opacity-15">
-            <Bike className="w-16 h-16 text-white" />
+          <div className="absolute top-[50%] left-[10%] opacity-10">
+            <Bike className="w-8 h-8 text-white" />
           </div>
-          <div className="absolute bottom-[20%] left-[40%] opacity-15">
-            <Bike className="w-12 h-12 text-white" />
+          <div className="absolute bottom-[20%] left-[40%] opacity-10">
+            <Bike className="w-6 h-6 text-white" />
           </div>
         </div>
         
-        <div className="container mx-auto px-4 py-12 relative z-10">
+        <div className="container mx-auto px-4 py-8 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <motion.h1 
-              className="text-4xl md:text-5xl font-bold text-white mb-2"
+              className="text-3xl md:text-4xl font-bold text-white mb-2"
               initial={{ y: -20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.1 }}
@@ -95,28 +95,20 @@ const Teachers = () => {
               Oktatóink
             </motion.h1>
             
-            <motion.p 
-              className="text-lg md:text-xl text-white/90 mb-8"
-              initial={{ y: -20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.2 }}
-            >
-              Ismerje meg szakképzett oktatóinkat, akik segítenek gyermeke fejlődésében
-            </motion.p>
-            
             <motion.div
               initial={{ y: -20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.3 }}
+              className="mt-4"
             >
               <Button 
                 variant="secondary"
-                size="lg"
+                size="sm"
                 className="group"
                 asChild
               >
                 <Link to="/" className="flex items-center">
-                  <ChevronLeft className="mr-1 w-5 h-5 group-hover:-translate-x-1 transition-transform" />
+                  <ChevronLeft className="mr-1 w-4 h-4 group-hover:-translate-x-1 transition-transform" />
                   <span>Vissza a főoldalra</span>
                 </Link>
               </Button>
@@ -125,9 +117,9 @@ const Teachers = () => {
         </div>
       </motion.div>
 
-      <section className="py-12 bg-white flex-grow">
+      <section className="py-8 bg-white flex-grow">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-10">
+          <div className="grid md:grid-cols-3 gap-8">
             {teachers.map((teacher, index) => (
               <motion.div
                 key={index}
@@ -137,7 +129,7 @@ const Teachers = () => {
               >
                 <Card className="h-full flex flex-col">
                   <CardHeader className="text-center">
-                    <div className="w-40 h-40 mx-auto mb-4 rounded-full overflow-hidden bg-gray-100">
+                    <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-gray-100">
                       {teacher.image ? (
                         <img
                           src={teacher.image}
@@ -150,7 +142,7 @@ const Teachers = () => {
                         </div>
                       )}
                     </div>
-                    <h3 className="text-2xl font-semibold">{teacher.name}</h3>
+                    <h3 className="text-xl font-semibold">{teacher.name}</h3>
                     <p className="text-red-600 font-medium mb-2">{teacher.role}</p>
                   </CardHeader>
                   <CardContent className="flex-grow">
@@ -170,6 +162,27 @@ const Teachers = () => {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+      
+      <section className="bg-red-50 py-12">
+        <div className="container mx-auto px-4">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="max-w-3xl mx-auto text-center"
+          >
+            <h2 className="text-3xl font-bold text-red-700 mb-6">Oktatóink</h2>
+            <p className="text-gray-600 mb-8 text-lg">
+              Tapasztalt és szenvedélyes oktatóink segítenek minden sportolónak elérni a kitűzött céljaikat. 
+              Akár kezdő, akár haladó, nálunk személyre szabott figyelmet és szakértelmet kap.
+            </p>
+            <Button asChild>
+              <Link to="/kapcsolat">
+                Kapcsolatfelvétel oktatóinkkal
+              </Link>
+            </Button>
+          </motion.div>
         </div>
       </section>
       
