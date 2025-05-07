@@ -48,11 +48,14 @@ const Hero = () => {
       </div>
 
       <div className="container mx-auto px-4 text-center z-10">
-        <img 
-          src="/lovable-uploads/9fc4733a-7118-4bc3-a0b0-3090405285e1.png" 
-          alt="Ergo Sport Logó" 
-          className="w-24 h-24 mx-auto mb-4"
-        />
+        <div className="relative inline-block">
+          <div className="absolute inset-0 bg-gradient-to-b from-red-500/50 to-transparent rounded-full blur-md"></div>
+          <img 
+            src="/lovable-uploads/9fc4733a-7118-4bc3-a0b0-3090405285e1.png" 
+            alt="Ergo Sport Logó" 
+            className="w-24 h-24 mx-auto mb-4 relative z-10 drop-shadow-lg"
+          />
+        </div>
         <h1 className="text-3xl md:text-5xl font-bold mb-3">Ergo Sport Klub</h1>
         <p className="text-lg md:text-xl mb-6">Közösség · Mozgás · Játék</p>
         <div className="flex flex-wrap justify-center gap-4">
