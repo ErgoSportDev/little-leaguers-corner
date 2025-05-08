@@ -9,10 +9,18 @@ const Index = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Hero />
-      <Gallery />
-      <EventCalendar />
-      <Introduction />
-      <Footer />
+      <div id="activities">
+        <Gallery />
+      </div>
+      <div id="events">
+        <EventCalendar />
+      </div>
+      <div id="teachers">
+        <Introduction />
+      </div>
+      <div id="contact">
+        <Footer />
+      </div>
     </div>
   );
 };

@@ -1,9 +1,18 @@
 
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Bike, Volleyball } from "lucide-react";
+import { Bike, Volleyball, Calendar, Activity, User, Phone } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const Hero = () => {
+  // Function to scroll to section
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <motion.section 
       initial={{ opacity: 0 }}
@@ -11,6 +20,44 @@ const Hero = () => {
       transition={{ duration: 0.6 }}
       className="relative h-[40vh] bg-red-600 text-white flex items-center justify-center overflow-hidden"
     >
+      {/* Navigation buttons at the top */}
+      <div className="absolute top-4 left-0 right-0 z-20 flex justify-center">
+        <div className="bg-red-700/60 backdrop-blur-sm rounded-full px-2 py-1 flex gap-2">
+          <Button 
+            onClick={() => scrollToSection('activities')} 
+            variant="ghost" 
+            className="text-white hover:bg-red-500/50"
+            size="sm"
+          >
+            <Activity size={16} className="mr-1" /> Tevékenységeink
+          </Button>
+          <Button 
+            onClick={() => scrollToSection('events')} 
+            variant="ghost" 
+            className="text-white hover:bg-red-500/50"
+            size="sm"
+          >
+            <Calendar size={16} className="mr-1" /> Események
+          </Button>
+          <Button 
+            onClick={() => scrollToSection('teachers')} 
+            variant="ghost" 
+            className="text-white hover:bg-red-500/50"
+            size="sm"
+          >
+            <User size={16} className="mr-1" /> Oktatók
+          </Button>
+          <Button 
+            onClick={() => scrollToSection('contact')} 
+            variant="ghost" 
+            className="text-white hover:bg-red-500/50"
+            size="sm"
+          >
+            <Phone size={16} className="mr-1" /> Kapcsolat
+          </Button>
+        </div>
+      </div>
+
       {/* Sports equipment pattern overlay - more visible */}
       <div className="absolute inset-0 -z-5">
         {/* Bikes with higher visibility */}
