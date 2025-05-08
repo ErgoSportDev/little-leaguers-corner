@@ -24,6 +24,17 @@ const Hero = () => {
           <Bike className="w-12 h-12 text-white" />
         </div>
         
+        {/* Additional bikes */}
+        <div className="absolute top-[15%] left-[40%] opacity-30">
+          <Bike className="w-11 h-11 text-white" />
+        </div>
+        <div className="absolute top-[65%] left-[50%] opacity-30">
+          <Bike className="w-9 h-9 text-white" />
+        </div>
+        <div className="absolute top-[25%] right-[40%] opacity-30">
+          <Bike className="w-10 h-10 text-white" />
+        </div>
+        
         {/* Volleyballs with higher visibility */}
         <div className="absolute top-[30%] left-[30%] opacity-25">
           <Volleyball className="w-9 h-9 text-white" />
@@ -35,6 +46,17 @@ const Hero = () => {
           <Volleyball className="w-7 h-7 text-white" />
         </div>
         
+        {/* Additional volleyballs */}
+        <div className="absolute top-[50%] left-[15%] opacity-30">
+          <Volleyball className="w-8 h-8 text-white" />
+        </div>
+        <div className="absolute top-[40%] right-[50%] opacity-30">
+          <Volleyball className="w-12 h-12 text-white" />
+        </div>
+        <div className="absolute top-[80%] right-[25%] opacity-30">
+          <Volleyball className="w-9 h-9 text-white" />
+        </div>
+        
         {/* More bike icons */}
         <div className="absolute bottom-[10%] right-[10%] opacity-25">
           <Bike className="w-12 h-12 text-white" />
@@ -44,6 +66,14 @@ const Hero = () => {
         </div>
         <div className="absolute bottom-[20%] left-[40%] opacity-25">
           <Bike className="w-8 h-8 text-white" />
+        </div>
+        
+        {/* Additional patterns */}
+        <div className="absolute bottom-[15%] left-[5%] opacity-30">
+          <Volleyball className="w-11 h-11 text-white" />
+        </div>
+        <div className="absolute bottom-[30%] right-[5%] opacity-30">
+          <Bike className="w-10 h-10 text-white" />
         </div>
       </div>
 
