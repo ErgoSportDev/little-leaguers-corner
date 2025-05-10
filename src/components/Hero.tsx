@@ -9,7 +9,7 @@ const Hero = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className="relative h-[40vh] bg-red-600 text-white flex items-center justify-center overflow-hidden pt-12"
+      className="relative h-[40vh] bg-red-600 text-white flex items-center justify-center overflow-hidden pt-16"
     >
       {/* Sports equipment pattern overlay - more visible */}
       <div className="absolute inset-0 -z-5">
