@@ -1,16 +1,10 @@
 
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Bike, Volleyball } from "lucide-react";
 
 const Hero = () => {
   return (
-    <motion.section 
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.6 }}
-      className="relative h-[40vh] bg-red-600 text-white flex items-center justify-center overflow-hidden pt-16"
-    >
+    <div className="relative h-[40vh] bg-red-600 text-white flex items-center justify-center overflow-hidden pt-16">
       {/* Sports equipment pattern overlay - more visible */}
       <div className="absolute inset-0 -z-5">
         {/* Bikes with higher visibility */}
@@ -87,19 +81,20 @@ const Hero = () => {
             className="w-24 h-24 mx-auto mb-4 relative z-10 drop-shadow-lg"
           />
         </div>
-        <h1 className="text-3xl md:text-5xl font-bold mb-3">Ergo Sport Klub</h1>
-        <p className="text-lg md:text-xl mb-6">Közösség · Mozgás · Játék</p>
+        {/*<h1 className="text-3xl md:text-5xl font-bold mb-3">Ergo Sport Klub</h1>
+        <p className="text-lg md:text-xl mb-6">Közösség · Mozgás · Játék</p>*/}
         <div className="flex flex-wrap justify-center gap-4">
           <Link 
             to="/oktatoink" 
             className="bg-white text-red-600 px-5 py-2 rounded-md font-medium hover:bg-red-100 transition-colors"
           >
-            Találkozz Oktatóinkkal
+            🏀 Jelentkezz! ⚽
           </Link>
         </div>
       </div>
       <div className="absolute inset-0 bg-gradient-to-b from-red-700/30 to-red-600/10 z-0"></div>
-    </motion.section>
+      </div>
+
   );
 };
 

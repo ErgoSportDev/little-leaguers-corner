@@ -11,30 +11,33 @@ const Teachers = () => {
   const teachers = [
     {
       name: "Tóth Regina",
-      role: "Sziklamászás Oktató",
-      description: "Professzionális hegymászó, ifjúsági atlétikai oktatási szakértelemmel. Regina több mint 10 éve foglalkozik sziklamászással, és különleges figyelmet fordít a gyerekek biztonságára és a megfelelő technika oktatására.",
+      role: "Ergo Sport szakmai vezető",
+      description: "Tóth Regina Eszter vagyok és életem szerves részét a sport alakította/ alakítja. Leányfalui gyökereim és a sport szeretetem motivált leginkább arra, hogy a Dunakanyarban egy sport közösséget építsünk ki, ahol a gyermekek a személyiség fejlődésük mellett a koordináció és kondicionális képességeikben is fejlődjenek. Az Ergo ezen célok mentén alakul! Szeretnénk, hogy a gyermekek mellett mi is fejlődjünk a gyerekek/edzőtársak/szülők visszajelzéseiből, ezért a reflexióra szeretnénk nagy hangsúlyt fektetni a szakosztályunkban. A Magyar Testnevelési Egyetemen töltött éveimben megismerkedhettem a legtöbb - egy hétköznapi ember által elért - sporttal, és az ott megszerzett tudást szeretném tovább adni másoknak! Leányfalun, a cserkész éveim alatt kezdtem először gyermekekkel foglalkozni, ami segített abban, hogy a hivatásomat megtaláljam.",
       experience: "10+ év szakmai tapasztalat",
       specialization: "Gyermek és ifjúsági sziklamászás, biztonsági technikák",
       education: "Testnevelési Egyetem, Sport szakedző",
-      image: "/lovable-uploads/799f524e-05e6-4728-80a0-0876cfda2097.png"
+      image: "/lovable-uploads/Regi.png",
+      motto: "Az ember igazi jelleme játék közben nyilvánul meg"
     },
     {
-      name: "Emma Wilson",
-      role: "Úszás Edző",
-      description: "Képesített úszásoktató, ifjúsági fejlesztésre specializálódva. Emma különösen jó az úszni tanuló kisgyermekekkel, és minden korosztály számára egyedi megközelítést alkalmaz.",
+      name: "Horváth Luca",
+      role: "Ergo Sport szakág vezető",
+      description: "Amióta az eszemet tudom a sport, a mozgás szerves része az életemnek. Nem csak kikapcsolódás és fejlődés, hanem önmegvalósítás és lelki feltöltődés is számomra. Nálam a labdarúgás a befutó, de az össze sportágban képes vagyok megélni egy olyan önfeledt állapotot, ami rengeteget hozzáad a személyiségemhez. A közösség ereje és a játék adaléka olyan helyzetekkel fűszerezi a testem lendületbe ugrását, amivel a lelkem belül mosolyogni tud. Azért hoztuk létre ezt a szakágat mert szeretném, ha ezt az érzést amit a sport nekem nyújtani tud mások is megízlelhetnék. Szerintem mindenkinek van egy sportja és ha ezt elég korán megtalálja az Ember, akkor, egész életét mankóként kíséri végig. Szeretek gyerekekkel foglalkozni, mert ők igazán őszintén élik meg a játék örömét, és az, az energia amit közben mozgatnak rendkívül felemelő érzés. Amit ezért viszontadhatok, az a figyelmem, ami segít kibontani a bennük lakozó tehetségüket, amiben boldogan önmaguk lehetnek. Mellettem pedig egy olyan Csapat áll, akik ugyanazzal az odaadással és szakmai hozzáértésükkel, minden lehetőséget megadnak a gyerekeknek ahhoz hogy megtalálják önmagukat a mozgás örömében. Várom hogy megismerjük egymást!",
       experience: "8 év szakmai tapasztalat",
       specialization: "Úszástechnikák, vízhez szoktatás, úszásoktatás minden korosztálynak",
       education: "Sportoktatói diploma, Úszóedzői minősítés",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158"
+      image: "/lovable-uploads/Luca.jpg",
+      motto: "Az ember igazi jelleme játék közben nyilvánul meg"
     },
     {
-      name: "Sophie Chen",
-      role: "Tornász Edző",
+      name: "Ferbert Csenge",
+      role: "Ergo Sport szakmai vezető",
       description: "Egykori versenyző tornász, aki fiatal sportolók képzésére szakosodott. Sophie technikai tudása és türelme segít a gyerekeknek a tornász alapok elsajátításában.",
       experience: "12 év szakmai tapasztalat",
       specialization: "Művészi torna, egyensúly fejlesztés, rugalmasság fokozása",
       education: "Sporttudományi Egyetem, Tornász szakképesítés",
-      image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7"
+      image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7",
+      motto: "Az ember igazi jelleme játék közben nyilvánul meg"
     }
   ];
 
@@ -155,7 +158,7 @@ const Teachers = () => {
                   </CardContent>
                   <CardFooter className="border-t pt-4">
                     <p className="text-sm text-gray-500 italic w-full text-center">
-                      "A sport nem csak mozgás, hanem életforma és közösség is."
+                      "{teacher.motto}"
                     </p>
                   </CardFooter>
                 </Card>

@@ -17,7 +17,7 @@ const Footer = () => {
           <div className="space-y-3">
             <div className="flex items-center gap-3">
               <Mail className="h-5 w-5" />
-              <span>info@ergosportclub.com</span>
+              <span>ergosportinfo@gmail.com</span>
             </div>
             <div className="flex items-center gap-3">
               <Phone className="h-5 w-5" />
@@ -37,11 +37,8 @@ const Footer = () => {
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-200 transition-colors">
               <Instagram className="h-6 w-6" />
             </a>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-200 transition-colors">
+            <a href="https://www.facebook.com/rgosport" target="_blank" rel="noopener noreferrer" className="hover:text-gray-200 transition-colors">
               <Facebook className="h-6 w-6" />
-            </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-200 transition-colors">
-              <Twitter className="h-6 w-6" />
             </a>
           </div>
         </div>

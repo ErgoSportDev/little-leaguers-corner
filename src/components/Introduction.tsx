@@ -7,20 +7,20 @@ const Introduction = () => {
   const teachers = [
     {
       name: "Tóth Regina",
-      role: "Sziklamászás Oktató",
-      description: "Professzionális hegymászó, ifjúsági atlétikai oktatási szakértelemmel.",
-      image: "/lovable-uploads/799f524e-05e6-4728-80a0-0876cfda2097.png"
+      role: "Ergo Sport szakmai vezető",
+      //description: "Ergo Sport szakmai vezető, Tóth Regina",
+      image: "/lovable-uploads/Regi.png"
     },
     {
-      name: "Emma Wilson",
-      role: "Úszás Edző",
-      description: "Képesített úszásoktató, ifjúsági fejlesztésre specializálódva.",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158"
+      name: "Horváth Luca",
+      role: "Ergo Sport szakág vezető",
+      //description: "Ergo Sport szakág vezető, Horváth Luca",
+      image: "/lovable-uploads/Luca.jpg"
     },
     {
-      name: "Sophie Chen",
-      role: "Tornász Edző",
-      description: "Egykori versenyző tornász, aki fiatal sportolók képzésére szakosodott.",
+      name: "Ferbert Csenge",
+      role: "Ergo Sport szakág vezető",
+      //description: "Ergo Sport szakág vezető, Ferbert Csenge",
       image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7"
     }
   ];
@@ -53,7 +53,7 @@ const Introduction = () => {
               </div>
               <h3 className="text-xl font-semibold mb-2">{teacher.name}</h3>
               <p className="text-red-600 font-medium mb-3">{teacher.role}</p>
-              <p className="text-gray-600">{teacher.description}</p>
+              {/*<p className="text-gray-600">{teacher.description}</p>*/}
             </motion.div>
           ))}
         </div>
