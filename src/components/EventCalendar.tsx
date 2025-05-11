@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Calendar } from "@/components/ui/calendar";
 import {
   Card,
@@ -8,9 +8,25 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import supabase from "../supabase-client";
 
 const EventCalendar = () => {
   const [date, setDate] = useState<Date | undefined>(new Date());
+
+  useEffect(() => {
+    fetchTodos();
+  }, []);
+
+  const [esemenyek, setEsemenyek] = useState([]);
+
+  const fetchTodos = async () => {
+    const { data, error } = await supabase.from("Events").select("*");
+    if (error) {
+      console.log("Error fetching: ", error);
+    } else {
+      setEsemenyek(data)
+    }
+  };
 
   const events = [
     {
@@ -47,20 +63,21 @@ const EventCalendar = () => {
             />
           </div>
           <div className="space-y-4">
-            {events.map((event, index) => (
+            {esemenyek.map((event, index) => (
               <Card key={index} className="hover:shadow-md transition-shadow">
                 <CardHeader className="space-y-1">
-                  <CardTitle className="text-xl">{event.title}</CardTitle>
+                  <CardTitle className="text-xl">{event.event_name}</CardTitle>
                   <CardDescription>
-                    {event.date.toLocaleDateString()} • {event.time}
+                    {new Date(event.start_date).toLocaleDateString()} • {new Date(event.start_date).toLocaleTimeString()}
+                    {/*console.log(new Date(event.start_date).toLocaleTimeString())*/}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-gray-600 mb-2">
-                    {event.description}
+                    {event.event_description}
                   </p>
                   <p className="text-sm text-gray-500">
-                    📍 {event.location}
+                    📍 {event.event_place}
                   </p>
                 </CardContent>
               </Card>

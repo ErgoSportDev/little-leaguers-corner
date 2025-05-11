@@ -4,7 +4,8 @@ import { Bike, Volleyball } from "lucide-react";
 
 const Hero = () => {
   return (
-    <div className="relative h-[40vh] bg-red-600 text-white flex items-center justify-center overflow-hidden pt-16">
+    <div>
+    <div className="relative h-[70vh] bg-red-600 text-white flex items-center justify-center overflow-hidden pt-16">
       {/* Sports equipment pattern overlay - more visible */}
       <div className="absolute inset-0 -z-5">
         {/* Bikes with higher visibility */}
@@ -73,16 +74,16 @@ const Hero = () => {
 
       <div className="container mx-auto px-4 text-center z-10">
         <div className="relative inline-block">
-          <div className="absolute inset-0 bg-gradient-to-r from-red-500/30 via-red-400/40 to-red-500/30 rounded-full blur-xl transform scale-110"></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-red-400/50 to-transparent rounded-full blur-md animate-pulse" style={{ animationDuration: '3s' }}></div>
+          {/* <div className="absolute inset-0 bg-gradient-to-r from-red-500/30 via-red-400/40 to-red-500/30 rounded-full blur-xl transform scale-110"></div> */}
+          {/* <div className="absolute inset-0 bg-gradient-to-b from-red-400/50 to-transparent rounded-full blur-md animate-pulse" style={{ animationDuration: '3s' }}></div> */}
           <img 
-            src="/lovable-uploads/9fc4733a-7118-4bc3-a0b0-3090405285e1.png" 
+            src="/lovable-uploads/logo.png" 
             alt="Ergo Sport Logó" 
-            className="w-24 h-24 mx-auto mb-4 relative z-10 drop-shadow-lg"
+            className="w-60 h-60 mx-auto mb-10 relative z-10 rounded shadow-lg" //drop-shadow-lg
           />
         </div>
-        {/*<h1 className="text-3xl md:text-5xl font-bold mb-3">Ergo Sport Klub</h1>
-        <p className="text-lg md:text-xl mb-6">Közösség · Mozgás · Játék</p>*/}
+        {/* <h1 className="text-3xl md:text-5xl font-bold mb-3">Ergo Sport Klub</h1>
+        <p className="text-lg md:text-xl mb-6">Közösség · Mozgás · Játék</p> */}
         <div className="flex flex-wrap justify-center gap-4">
           <Link 
             to="/oktatoink" 
@@ -92,8 +93,24 @@ const Hero = () => {
           </Link>
         </div>
       </div>
+
+        
+
       <div className="absolute inset-0 bg-gradient-to-b from-red-700/30 to-red-600/10 z-0"></div>
       </div>
+
+{/* <div className="">
+<img 
+    src="/lovable-uploads/logo.png" 
+    alt="Ergo Sport Logó" 
+    className="w-60 h-60"
+    // className="w-26 h-26"
+  /> */}
+{/* </div> */}
+
+
+
+</div>
 
   );
 };
