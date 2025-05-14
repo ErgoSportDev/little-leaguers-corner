@@ -32,12 +32,12 @@ const Teachers = () => {
     {
       name: "Ferbert Csenge",
       role: "Ergo Sport szakmai vezető",
-      description: "Egykori versenyző tornász, aki fiatal sportolók képzésére szakosodott. Sophie technikai tudása és türelme segít a gyerekeknek a tornász alapok elsajátításában.",
+      description: "Kedves Ergosok! Rólam még kevés szó esett itt a Facebook csoportban, mert nem vagyok egy nagy író, de ami késik az nem múlik. 2 éve végeztem a Testnevelesi egyetemen osztatlan tanári képzésen. Egyetemi képzésemmel  párhuzamosan elvégzetem IWI nemzetközi fitnesz instruktór  képzését. Egyeteme mellett végig dolgozatm úszó oktatóként. Egyetem elvégzését követően  haza költöztem a Dunakanyarba és Tahitótfaluba helyezkedtem  el, mint testnevelő. Tanítás mellett úszást oktatok a dunabogdanyi tanuszodában és segéd oktatóként síelés tartok Budakalászon. Mindig fejleszteni akarom magam, ezért is jelentkeztem izgő-mozgó torna tanfolyamra, amelyen az ovis gyermekek mozgás fejlesztéséről tanulunk.",
       experience: "12 év szakmai tapasztalat",
       specialization: "Művészi torna, egyensúly fejlesztés, rugalmasság fokozása",
       education: "Sporttudományi Egyetem, Tornász szakképesítés",
       image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7",
-      motto: "Az ember igazi jelleme játék közben nyilvánul meg"
+      motto: "A sport nemcsak testnevelés, hanem léleknek is az egyik legerőteljesebb nevelőeszköze"
     }
   ];
 
@@ -50,7 +50,7 @@ const Teachers = () => {
       >
         {/* Stylish header background with gradient */}
         <div className="absolute inset-0 bg-gradient-to-r from-red-700 to-red-500 -z-10"></div>
-        
+
         {/* Sports equipment pattern overlay - smaller size, less opacity */}
         <div className="absolute inset-0 -z-5">
           {/* Smaller sports equipment icons */}
@@ -63,7 +63,7 @@ const Teachers = () => {
           <div className="absolute top-[40%] right-[15%] opacity-10">
             <Bike className="w-10 h-10 text-white" />
           </div>
-          
+
           {/* Volleyballs scattered around */}
           <div className="absolute top-[30%] left-[30%] opacity-10">
             <Volleyball className="w-7 h-7 text-white" />
@@ -74,7 +74,7 @@ const Teachers = () => {
           <div className="absolute top-[20%] right-[5%] opacity-10">
             <Volleyball className="w-5 h-5 text-white" />
           </div>
-          
+
           {/* More bike icons */}
           <div className="absolute bottom-[10%] right-[10%] opacity-10">
             <Bike className="w-10 h-10 text-white" />
@@ -86,25 +86,25 @@ const Teachers = () => {
             <Bike className="w-6 h-6 text-white" />
           </div>
         </div>
-        
+
         <div className="container mx-auto px-4 py-8 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <motion.h1 
+            <motion.h1
               className="text-3xl md:text-4xl font-bold text-white mb-2"
               initial={{ y: -20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.1 }}
             >
-              Oktatóink
+              Edzőink
             </motion.h1>
-            
+
             <motion.div
               initial={{ y: -20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.3 }}
               className="mt-4"
             >
-              <Button 
+              <Button
                 variant="secondary"
                 size="sm"
                 className="group"
@@ -167,28 +167,28 @@ const Teachers = () => {
           </div>
         </div>
       </section>
-      
+
       <section className="bg-red-50 py-12">
         <div className="container mx-auto px-4">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             className="max-w-3xl mx-auto text-center"
           >
-            <h2 className="text-3xl font-bold text-red-700 mb-6">Oktatóink</h2>
+            <h2 className="text-3xl font-bold text-red-700 mb-6">Jelentkezz</h2>
             <p className="text-gray-600 mb-8 text-lg">
-              Tapasztalt és szenvedélyes oktatóink segítenek minden sportolónak elérni a kitűzött céljaikat. 
-              Akár kezdő, akár haladó, nálunk személyre szabott figyelmet és szakértelmet kap.
+              Fedezd fel a mozgás örömét, szerezz új barátokat, és válj igazi csapattaggá a sporton keresztül.
+              Csatlakozz most, és élvezd a sport minden percét!
             </p>
             <Button asChild>
               <Link to="/kapcsolat">
-                Kapcsolatfelvétel oktatóinkkal
+                🏀 Jelentkezek! ⚽
               </Link>
             </Button>
           </motion.div>
         </div>
       </section>
-      
+
       <Footer />
     </div>
   );

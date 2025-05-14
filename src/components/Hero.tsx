@@ -5,112 +5,112 @@ import { Bike, Volleyball } from "lucide-react";
 const Hero = () => {
   return (
     <div>
-    <div className="relative h-[70vh] bg-red-600 text-white flex items-center justify-center overflow-hidden pt-16">
-      {/* Sports equipment pattern overlay - more visible */}
-      <div className="absolute inset-0 -z-5">
-        {/* Bikes with higher visibility */}
-        <div className="absolute top-[10%] left-[5%] opacity-25">
-          <Bike className="w-10 h-10 text-white" />
-        </div>
-        <div className="absolute top-[70%] left-[20%] opacity-25">
-          <Bike className="w-8 h-8 text-white" />
-        </div>
-        <div className="absolute top-[40%] right-[15%] opacity-25">
-          <Bike className="w-12 h-12 text-white" />
-        </div>
-        
-        {/* Additional bikes */}
-        <div className="absolute top-[15%] left-[40%] opacity-30">
-          <Bike className="w-11 h-11 text-white" />
-        </div>
-        <div className="absolute top-[65%] left-[50%] opacity-30">
-          <Bike className="w-9 h-9 text-white" />
-        </div>
-        <div className="absolute top-[25%] right-[40%] opacity-30">
-          <Bike className="w-10 h-10 text-white" />
-        </div>
-        
-        {/* Volleyballs with higher visibility */}
-        <div className="absolute top-[30%] left-[30%] opacity-25">
-          <Volleyball className="w-9 h-9 text-white" />
-        </div>
-        <div className="absolute top-[60%] right-[30%] opacity-25">
-          <Volleyball className="w-10 h-10 text-white" />
-        </div>
-        <div className="absolute top-[20%] right-[5%] opacity-25">
-          <Volleyball className="w-7 h-7 text-white" />
-        </div>
-        
-        {/* Additional volleyballs */}
-        <div className="absolute top-[50%] left-[15%] opacity-30">
-          <Volleyball className="w-8 h-8 text-white" />
-        </div>
-        <div className="absolute top-[40%] right-[50%] opacity-30">
-          <Volleyball className="w-12 h-12 text-white" />
-        </div>
-        <div className="absolute top-[80%] right-[25%] opacity-30">
-          <Volleyball className="w-9 h-9 text-white" />
-        </div>
-        
-        {/* More bike icons */}
-        <div className="absolute bottom-[10%] right-[10%] opacity-25">
-          <Bike className="w-12 h-12 text-white" />
-        </div>
-        <div className="absolute top-[50%] left-[10%] opacity-25">
-          <Bike className="w-10 h-10 text-white" />
-        </div>
-        <div className="absolute bottom-[20%] left-[40%] opacity-25">
-          <Bike className="w-8 h-8 text-white" />
-        </div>
-        
-        {/* Additional patterns */}
-        <div className="absolute bottom-[15%] left-[5%] opacity-30">
-          <Volleyball className="w-11 h-11 text-white" />
-        </div>
-        <div className="absolute bottom-[30%] right-[5%] opacity-30">
-          <Bike className="w-10 h-10 text-white" />
-        </div>
-      </div>
+      <div className="relative h-[70vh] bg-red-600 text-white flex items-center justify-center overflow-hidden pt-16">
+        {/* Sports equipment pattern overlay - more visible */}
+        <div className="absolute inset-0 -z-5">
+          {/* Bikes with higher visibility */}
+          <div className="absolute top-[10%] left-[5%] opacity-25">
+            <Bike className="w-10 h-10 text-white" />
+          </div>
+          <div className="absolute top-[70%] left-[20%] opacity-25">
+            <Bike className="w-8 h-8 text-white" />
+          </div>
+          <div className="absolute top-[40%] right-[15%] opacity-25">
+            <Bike className="w-12 h-12 text-white" />
+          </div>
 
-      <div className="container mx-auto px-4 text-center z-10">
-        <div className="relative inline-block">
-          {/* <div className="absolute inset-0 bg-gradient-to-r from-red-500/30 via-red-400/40 to-red-500/30 rounded-full blur-xl transform scale-110"></div> */}
-          {/* <div className="absolute inset-0 bg-gradient-to-b from-red-400/50 to-transparent rounded-full blur-md animate-pulse" style={{ animationDuration: '3s' }}></div> */}
-          <img 
-            src="/lovable-uploads/logo.png" 
-            alt="Ergo Sport Logó" 
-            className="w-60 h-60 mx-auto mb-10 relative z-10 rounded shadow-lg" //drop-shadow-lg
-          />
+          {/* Additional bikes */}
+          <div className="absolute top-[15%] left-[40%] opacity-30">
+            <Bike className="w-11 h-11 text-white" />
+          </div>
+          <div className="absolute top-[65%] left-[50%] opacity-30">
+            <Bike className="w-9 h-9 text-white" />
+          </div>
+          <div className="absolute top-[25%] right-[40%] opacity-30">
+            <Bike className="w-10 h-10 text-white" />
+          </div>
+
+          {/* Volleyballs with higher visibility */}
+          <div className="absolute top-[30%] left-[30%] opacity-25">
+            <Volleyball className="w-9 h-9 text-white" />
+          </div>
+          <div className="absolute top-[60%] right-[30%] opacity-25">
+            <Volleyball className="w-10 h-10 text-white" />
+          </div>
+          <div className="absolute top-[20%] right-[5%] opacity-25">
+            <Volleyball className="w-7 h-7 text-white" />
+          </div>
+
+          {/* Additional volleyballs */}
+          <div className="absolute top-[50%] left-[15%] opacity-30">
+            <Volleyball className="w-8 h-8 text-white" />
+          </div>
+          <div className="absolute top-[40%] right-[50%] opacity-30">
+            <Volleyball className="w-12 h-12 text-white" />
+          </div>
+          <div className="absolute top-[80%] right-[25%] opacity-30">
+            <Volleyball className="w-9 h-9 text-white" />
+          </div>
+
+          {/* More bike icons */}
+          <div className="absolute bottom-[10%] right-[10%] opacity-25">
+            <Bike className="w-12 h-12 text-white" />
+          </div>
+          <div className="absolute top-[50%] left-[10%] opacity-25">
+            <Bike className="w-10 h-10 text-white" />
+          </div>
+          <div className="absolute bottom-[20%] left-[40%] opacity-25">
+            <Bike className="w-8 h-8 text-white" />
+          </div>
+
+          {/* Additional patterns */}
+          <div className="absolute bottom-[15%] left-[5%] opacity-30">
+            <Volleyball className="w-11 h-11 text-white" />
+          </div>
+          <div className="absolute bottom-[30%] right-[5%] opacity-30">
+            <Bike className="w-10 h-10 text-white" />
+          </div>
         </div>
-        {/* <h1 className="text-3xl md:text-5xl font-bold mb-3">Ergo Sport Klub</h1>
+
+        <div className="container mx-auto px-4 text-center z-10">
+          <div className="relative inline-block">
+            {/* <div className="absolute inset-0 bg-gradient-to-r from-red-500/30 via-red-400/40 to-red-500/30 rounded-full blur-xl transform scale-110"></div> */}
+            {/* <div className="absolute inset-0 bg-gradient-to-b from-red-400/50 to-transparent rounded-full blur-md animate-pulse" style={{ animationDuration: '3s' }}></div> */}
+            <img
+              src="/lovable-uploads/logo.png"
+              alt="Ergo Sport Logó"
+              className="w-60 h-60 mx-auto mb-10 relative z-10 rounded shadow-lg" //drop-shadow-lg
+            />
+          </div>
+          {/* <h1 className="text-3xl md:text-5xl font-bold mb-3">Ergo Sport Klub</h1>
         <p className="text-lg md:text-xl mb-6">Közösség · Mozgás · Játék</p> */}
-        <div className="flex flex-wrap justify-center gap-4">
-          <Link 
-            to="/oktatoink" 
-            className="bg-white text-red-600 px-5 py-2 rounded-md font-medium hover:bg-red-100 transition-colors"
-          >
-            🏀 Jelentkezz! ⚽
-          </Link>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link
+              to="/oktatoink"
+              className="bg-white text-red-600 px-5 py-2 rounded-md font-medium hover:bg-red-100 transition-colors"
+            >
+              🏀 Jelentkezz! ⚽
+            </Link>
+          </div>
         </div>
+
+
+
+        <div className="absolute inset-0 bg-gradient-to-b from-red-700/30 to-red-600/10 z-0"></div>
       </div>
 
-        
-
-      <div className="absolute inset-0 bg-gradient-to-b from-red-700/30 to-red-600/10 z-0"></div>
-      </div>
-
-{/* <div className="">
+      {/* <div className="">
 <img 
     src="/lovable-uploads/logo.png" 
     alt="Ergo Sport Logó" 
     className="w-60 h-60"
     // className="w-26 h-26"
   /> */}
-{/* </div> */}
+      {/* </div> */}
 
 
 
-</div>
+    </div>
 
   );
 };
