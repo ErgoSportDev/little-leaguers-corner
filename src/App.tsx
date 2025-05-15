@@ -8,6 +8,8 @@ import Index from "./pages/Index";
 import Teachers from "./pages/Teachers";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
+import BlogTitles from "./pages/BlogTitles";
+import Layout from "./components/Layout";
 
 const queryClient = new QueryClient();
 
@@ -19,10 +21,13 @@ const App = () => (
       <BrowserRouter>
         <ScrollToTop />
         <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/oktatoink" element={<Teachers />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Index />} />
+            <Route path="edzoink" element={<Teachers />} />
+            <Route path="blog" element={<BlogTitles />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </TooltipProvider>

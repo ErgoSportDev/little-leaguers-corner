@@ -10,7 +10,7 @@ const Footer = () => {
       transition={{ duration: 0.5 }}
       className="bg-red-600 text-white py-12 px-4"
     >
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 place-items-center">
+      <div id="contact" className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 place-items-center">
         {/* Contact Information */}
         <div>
           <h3 className="text-xl font-bold mb-4">Kapcsolat</h3>

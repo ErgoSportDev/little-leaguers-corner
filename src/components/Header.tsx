@@ -1,5 +1,6 @@
 
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Activity, Calendar, User, Phone, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -49,15 +50,17 @@ const Header = ({ scrollToSection }: HeaderProps) => {
       <div className="container mx-auto flex justify-between items-center px-4">
         {isMobile ? (
           <>
-            <div className="bg-gradient-to-b from-[#ff0000] to-[#b91c1ce6] p-2 rounded-full">
-              <motion.img
-                src="/lovable-uploads/logo.png"
-                className="w-[2rem] h-[2rem] rounded-[2rem]"
-                alt="Ergo Sport Logo"
-                initial={{ opacity: 1, scale: 0, y: -100, }}
-                animate={controls}
-              />
-            </div>
+            <Link to="/">
+              <div className="bg-gradient-to-b from-[#ff0000] to-[#b91c1ce6] p-2 rounded-full">
+                <motion.img
+                  src="/lovable-uploads/logo.png"
+                  className="w-[2rem] h-[2rem] rounded-[2rem]"
+                  alt="Ergo Sport Logo"
+                  initial={{ opacity: 1, scale: 0, y: -100, }}
+                  animate={controls}
+                />
+              </div>
+            </Link>
             <div className="text-white font-bold text-[1.3rem]">Ergo Sport</div>
             <Button
               onClick={toggleMenu}
@@ -75,7 +78,7 @@ const Header = ({ scrollToSection }: HeaderProps) => {
                   variant="ghost"
                   className="text-white hover:bg-red-500/50 w-full justify-start px-4 py-3"
                 >
-                  <Activity size={16} className="mr-2" /> Tevékenységeink
+                  <Activity size={16} className="mr-2" /> Aktuális
                 </Button>
                 <Button
                   onClick={() => handleNavClick('events')}
@@ -103,15 +106,17 @@ const Header = ({ scrollToSection }: HeaderProps) => {
           </>
         ) : (
           <div className="flex justify-center w-full">
-            <div className="bg-gradient-to-b from-[#ff0000] to-[#b91c1ce6] p-2 rounded-full">
-              <motion.img
-                src="/lovable-uploads/logo.png"
-                className="w-[1.6rem] h-[1.6rem] rounded-[1rem]"
-                alt="Ergo Sport Logo"
-                initial={{ opacity: 1, scale: 0, y: -100, }}
-                animate={controls}
-              />
-            </div>
+            <Link to="/">
+              <div className="bg-gradient-to-b from-[#ff0000] to-[#b91c1ce6] p-2 rounded-full">
+                <motion.img
+                  src="/lovable-uploads/logo.png"
+                  className="w-[1.6rem] h-[1.6rem] rounded-[1rem]"
+                  alt="Ergo Sport Logo"
+                  initial={{ opacity: 1, scale: 0, y: -100, }}
+                  animate={controls}
+                />
+              </div>
+            </Link>
             <div className="flex gap-4">
               <Button
                 onClick={() => scrollToSection('activities')}
@@ -119,7 +124,7 @@ const Header = ({ scrollToSection }: HeaderProps) => {
                 className="text-white hover:bg-red-500/50"
                 size="sm"
               >
-                <Activity size={16} className="mr-1" /> Tevékenységeink
+                <Activity size={16} className="mr-1" /> Aktuális
               </Button>
               <Button
                 onClick={() => scrollToSection('events')}

@@ -4,36 +4,30 @@ import Introduction from "@/components/Introduction";
 import Gallery from "@/components/Gallery";
 import EventCalendar from "@/components/EventCalendar";
 import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import { useLocation } from 'react-router-dom';
-import { useEffect } from "react";
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useEffect, useRef } from "react";
 
 const Index = () => {
   const location = useLocation();
-
-  // Function to scroll to section
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const navigate = useNavigate();
+  const hasScrolledRef = useRef(false);
 
   //scroll to from different page with link
   useEffect(() => {
-    if (location.state?.scrollTo) {
+    if (!hasScrolledRef.current && location.state?.scrollTo) {
       const el = document.getElementById(location.state.scrollTo);
       if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        el.scrollIntoView({ behavior: 'smooth' });
+        hasScrolledRef.current = true;
+
+        // Clear the scrollTo from history state to prevent reuse on refresh
+        navigate(location.pathname, { replace: true, state: {} });
       }
-    } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-  }, [location])
+  }, [location, navigate]);
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Header scrollToSection={scrollToSection} />
       <Hero />
       <div id="activities">
         <Gallery />
@@ -43,9 +37,6 @@ const Index = () => {
       </div>
       <div id="teachers">
         <Introduction />
-      </div>
-      <div id="contact">
-        <Footer />
       </div>
     </div>
   );
