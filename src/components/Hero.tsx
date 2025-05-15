@@ -47,8 +47,8 @@ const Hero = () => {
             className="w-full h-full object-cover"
             aria-label="Kids Playing"
           >
-            <source src="/lovable-uploads/sport-video.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
+            <source src="/lovable-uploads/video.mp4" type="video/mp4" />
+            <img src="/lovable-uploads/logo.png" title="Your browser does not support the <video> tag"></img>
           </video>
           {/* Overlay to ensure text is readable */}
           <div className="absolute inset-0 bg-black/30 z-10"></div>
