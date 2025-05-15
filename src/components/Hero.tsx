@@ -47,7 +47,8 @@ const Hero = () => {
             className="w-full h-full object-cover"
             aria-label="Kids Playing"
           >
-            <source src="/lovable-uploads/video.mp4" type="video/mp4" />
+            <source src="https://vwcicmjfgefjlumdetva.supabase.co/storage/v1/object/sign/video/video.mp4?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzhhZGZmZTAyLTEzNTUtNGIwYS1hOGEzLWNjMGI0ZTRhNzNiNSJ9.eyJ1cmwiOiJ2aWRlby92aWRlby5tcDQiLCJpYXQiOjE3NDczMDkxOTIsImV4cCI6MTc2NDU4OTE5Mn0.2ipiDv3LaoYId_TtXR1r6EjUwQMJWWWgDO1nvQK90-U"
+              type="video/mp4" />
             <img src="/lovable-uploads/logo.png" title="Your browser does not support the <video> tag"></img>
           </video>
           {/* Overlay to ensure text is readable */}
