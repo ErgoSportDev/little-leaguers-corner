@@ -73,7 +73,7 @@ const EventCalendar = () => {
     if (error) {
       console.log("Error fetching: ", error);
     } else {
-      console.log(data)
+      // console.log(data)
       setEsemenyek(createDate(data))
     }
   };

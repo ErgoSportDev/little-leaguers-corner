@@ -89,7 +89,7 @@ const Header = ({ scrollToSection }: HeaderProps) => {
                   variant="ghost"
                   className="text-white hover:bg-red-500/50 w-full justify-start px-4 py-3"
                 >
-                  <User size={16} className="mr-2" /> Oktatók
+                  <User size={16} className="mr-2" /> Edzők
                 </Button>
                 <Button
                   onClick={() => handleNavClick('contact')}
@@ -135,7 +135,7 @@ const Header = ({ scrollToSection }: HeaderProps) => {
                 className="text-white hover:bg-red-500/50"
                 size="sm"
               >
-                <User size={16} className="mr-1" /> Oktatók
+                <User size={16} className="mr-1" /> Edzők
               </Button>
               <Button
                 onClick={() => scrollToSection('contact')}

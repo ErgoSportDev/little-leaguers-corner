@@ -181,7 +181,10 @@ const Teachers = () => {
               Csatlakozz most, és élvezd a sport minden percét!
             </p>
             <Button asChild>
-              <Link to="/kapcsolat">
+              <Link
+                to="/"
+                state={{ scrollTo: 'test-id' }}
+              >
                 🏀 Jelentkezek! ⚽
               </Link>
             </Button>

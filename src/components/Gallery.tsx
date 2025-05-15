@@ -1,56 +1,67 @@
 
-import { motion } from "framer-motion";
+import supabase from "../supabase-client";
+import { useEffect, useState } from "react";
 
 const Gallery = () => {
-  const images = [
-    { 
-      src: "https://images.unsplash.com/photo-1518005020951-eccb494ad742", 
-      alt: "Gyerekek fociznak a pályán",
-      title: "Foci Edzés" 
-    },
-    { 
-      src: "https://images.unsplash.com/photo-1452378174528-3090a4bba7b2", 
-      alt: "Gyerekek teniszezni tanulnak",
-      title: "Tenisz Órák" 
-    },
-    { 
-      src: "/lovable-uploads/9fc4733a-7118-4bc3-a0b0-3090405285e1.png", 
-      alt: "Kosárlabda gyakorlat",
-      title: "Kosárlabda Edzés" 
-    },
-    { 
-      src: "https://images.unsplash.com/photo-1452378174528-3090a4bba7b2", 
-      alt: "Úszás oktatás",
-      title: "Úszás Órák" 
-    },
-  ];
+
+  const [news, setNews] = useState([])
+  const [showNews, setShowNews] = useState([])
+
+  useEffect(() => {
+    fetchNews();
+  }, []);
+
+  //fetching from supabase
+  const fetchNews = async () => {
+    const { data, error } = await supabase.from("News").select("*");
+    if (error) {
+      console.log("Error fetching: ", error);
+    } else {
+      console.log(data)
+      setNews(filterNewsToShow(data))
+    }
+  };
+
+  const filterNewsToShow = (news) =>{
+    return news.filter(item => item.highlight);
+  }
 
   return (
-    <section className="py-16 bg-gray-50">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">Tevékenységeink</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {images.map((image, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              className="rounded-lg overflow-hidden shadow-lg"
-            >
-              <img
-                src={image.src}
-                alt={image.alt}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-4 bg-white">
-                <h3 className="text-lg font-semibold text-gray-800">{image.title}</h3>
-              </div>
-            </motion.div>
+    <>
+      <section className="pb-16 pt-[8rem] bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">Aktuális</h2>
+
+          {news.map((e, index) => (
+            <div key={e.id}>
+              {index % 2 == 0 ?
+                <div key={e.id} className="flex flex-col lg:flex-row items-center pt-5">
+                  <a href="#" className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow-lg md:flex-row md:max-w-xl hover:shadow-md dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                    <img className="object-cover w-full rounded-t-lg h-96 md:h-[11rem] md:w-48 md:rounded-none md:rounded-s-lg sm: h-[15rem]" src={e.picture} alt="" />
+                    <div className="flex flex-col justify-between p-4 leading-normal">
+                      <h5 className="mb-2 text-xl font-[600] tracking-tight text-gray-900 dark:text-white">{e.title}</h5>
+                      <p className="mb-3 font-normal text-[rgb(75,85,99)] dark:text-gray-400">{e.desc}</p>
+                    </div>
+                  </a>
+                </div>
+                :
+                <div key={e.id} className="flex flex-col lg:flex-row-reverse items-center pt-5">
+                  <a href="#" className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow-lg md:flex-row md:max-w-xl hover:shadow-md dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                    <div className="flex flex-col justify-between p-4 leading-normal">
+                      <h5 className="mb-2 text-xl font-[600] tracking-tight text-gray-900 dark:text-white">{e.title}</h5>
+                      <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{e.desc}</p>
+                    </div>
+                    <img className="object-cover w-full rounded-r-lg h-96 md:h-[11rem] md:w-48 md:rounded-none md:rounded-r-lg sm: h-[15rem]" src={e.picture} alt="" />
+                  </a>
+                </div>
+              }
+            </div>
           ))}
+
+
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 
