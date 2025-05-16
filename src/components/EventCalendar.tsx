@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useCallback, useRef } from "react";
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 // import 'react-big-calendar/lib/css/react-big-calendar.css';
@@ -118,29 +117,27 @@ const EventCalendar = () => {
   }
 
   //calendar handler functions
-  const customEventProps = useCallback((event) => {
+  const customEventPropGetter = (event) => {
     let newStyle = {
       color: 'white',
       borderRadius: "5px",
-      border: "none"
+      border: "none",
+      backgroundColor: "" // Initialize the backgroundColor property
     };
-
-    switch (event.location) {
-      case "Leányfalu":
-        newStyle.backgroundColor = "rgba(220,38,38)"
-        break;
-      case "Tahitótfalu":
-        newStyle.backgroundColor = "#3786c9"
-        break;
-      default:
-        newStyle.backgroundColor = "#904ba1"
+    
+    if (event.event_type === 'vezérelt gyakorlás') {
+      newStyle.backgroundColor = "#167152";
+      return { style: newStyle };
     }
-
-    return {
-      className: "",
-      style: newStyle
-    };
-  }, []);
+    else if (event.event_type === 'nyitott gyakorlás') {
+      newStyle.backgroundColor = "#155786";
+      return { style: newStyle };
+    }
+    else {
+      newStyle.backgroundColor = "#876548";
+      return { style: newStyle };
+    }
+  };
 
   const onSelectEvent = useCallback((calEvent) => {
     window.clearTimeout(clickRef?.current)
@@ -210,7 +207,7 @@ const EventCalendar = () => {
                 components={{
                   toolbar: CustomToolbar,
                 }}
-                eventPropGetter={customEventProps}
+                eventPropGetter={customEventPropGetter}
                 onSelectSlot={(slotInfo) => {
                   setDate(new Date(slotInfo.start));
                   setView('day');

@@ -10,6 +10,8 @@ import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 import BlogTitles from "./pages/BlogTitles";
 import BlogPost from "./pages/BlogPost";
+import Hirek from "./pages/Hirek";
+import HirekPost from "./pages/HirekPost";
 import Layout from "./components/Layout";
 
 const queryClient = new QueryClient();
@@ -27,6 +29,8 @@ const App = () => (
             <Route path="edzoink" element={<Teachers />} />
             <Route path="blog" element={<BlogTitles />} />
             <Route path="blog/:id" element={<BlogPost />} />
+            <Route path="hirek" element={<Hirek />} />
+            <Route path="hirek/:id" element={<HirekPost />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Route>

@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Activity, Calendar, User, Phone, Menu } from "lucide-react";
+import { Activity, Calendar, User, Phone, Menu, Newspaper } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { motion, useAnimation } from "framer-motion";
@@ -27,7 +27,6 @@ const Header = ({ scrollToSection }: HeaderProps) => {
       setIsMenuOpen(false);
     }
   };
-
 
   useEffect(() => {
     const sequence = async () => {
@@ -80,6 +79,14 @@ const Header = ({ scrollToSection }: HeaderProps) => {
                 >
                   <Activity size={16} className="mr-2" /> Aktuális
                 </Button>
+                <Link to="/hirek">
+                  <Button
+                    variant="ghost"
+                    className="text-white hover:bg-red-500/50 w-full justify-start px-4 py-3"
+                  >
+                    <Newspaper size={16} className="mr-2" /> Hírek
+                  </Button>
+                </Link>
                 <Button
                   onClick={() => handleNavClick('events')}
                   variant="ghost"
@@ -126,6 +133,15 @@ const Header = ({ scrollToSection }: HeaderProps) => {
               >
                 <Activity size={16} className="mr-1" /> Aktuális
               </Button>
+              <Link to="/hirek">
+                <Button
+                  variant="ghost"
+                  className="text-white hover:bg-red-500/50"
+                  size="sm"
+                >
+                  <Newspaper size={16} className="mr-1" /> Hírek
+                </Button>
+              </Link>
               <Button
                 onClick={() => scrollToSection('events')}
                 variant="ghost"
