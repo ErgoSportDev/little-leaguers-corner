@@ -116,7 +116,7 @@ const HirekPost = () => {
 
             {post.long_desc && (
               <div className="prose prose-lg max-w-none">
-                <div className="mt-10 mb-16 text-gray-700 text-[1.1rem] leading-[1.7]">
+                <div className="mt-10 mb-16 text-gray-700 text-[1.1rem] leading-[1.7] markdown text-justify">
                   <ReactMarkdown rehypePlugins={[rehypeRaw]}>{post.long_desc}</ReactMarkdown>
                 </div>
               </div>
