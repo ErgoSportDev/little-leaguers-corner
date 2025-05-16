@@ -30,7 +30,7 @@ const Gallery = () => {
     <>
       <section className="pb-16 pt-[8rem] bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 id="test-id" className="text-3xl font-bold text-center mb-12">Aktuális</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">Aktuális</h2>
 
           {news.map((e, index) => (
             <div key={e.id}>
