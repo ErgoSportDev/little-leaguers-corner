@@ -8,7 +8,7 @@ const Footer = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="bg-red-600 text-white py-12 px-4"
+      className="bg-gradient-to-b from-red-500 from-0% via-red-600 via-50% to-red-700 to-100% text-white py-12 px-4"
     >
       <div id="contact" className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 place-items-center">
         {/* Contact Information */}
@@ -25,7 +25,7 @@ const Footer = () => {
             </div>
             <div className="flex items-center gap-3">
               <MapPin className="h-5 w-5" />
-              <span>123 Sport utca, Fitnesz Város</span>
+              <span>2016 Leányfalu, Móricz Zsigmond út 126.</span>
             </div>
           </div>
         </div>

@@ -5,11 +5,14 @@ import supabase from "../supabase-client";
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import moment from "moment";
+import ReactMarkdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
 
 interface NewsPost {
   id: string;
   title: string;
-  desc: string;
+  short_desc: string;
+  long_desc: string;
   picture: string;
   highlight: boolean;
   created_at: string;
@@ -107,31 +110,32 @@ const HirekPost = () => {
               )}
               <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{post.title}</h1>
               <div className="mt-2 text-sm text-gray-500">
-                {moment(post.created_at).format("YYYY. MMMM DD.")}
+                {moment(post.created_at).format("YYYY/MM/DD")}
               </div>
             </header>
 
-            {post.picture && (
-              <div className="aspect-[16/9] w-full overflow-hidden rounded-lg mb-10">
-                <img 
-                  src={post.picture} 
-                  alt={post.title} 
-                  className="w-full h-full object-cover" 
-                />
+            {post.long_desc && (
+              <div className="prose prose-lg max-w-none">
+                <div className="mt-10 mb-16 text-gray-700 text-[1.1rem] leading-[1.7]">
+                  <ReactMarkdown rehypePlugins={[rehypeRaw]}>{post.long_desc}</ReactMarkdown>
+                </div>
               </div>
             )}
 
-            <div className="prose prose-lg max-w-none">
-              <p className="lead text-xl text-gray-600 mb-8">{post.desc}</p>
-              <div className="mt-10 mb-16 text-gray-700 text-[1.1rem] leading-[1.7]">
-                {post.content || post.desc}
+            {post.picture && (
+              <div className="w-full overflow-hidden rounded-lg mb-10">
+                <img
+                  src={post.picture}
+                  alt={post.title}
+                  className="w-full h-full object-cover"
+                />
               </div>
-            </div>
+            )}
           </article>
           <div className="flex justify-center mt-8">
-            <button 
-              onClick={scrollToTop} 
-              type="button" 
+            <button
+              onClick={scrollToTop}
+              type="button"
               className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br shadow-lg shadow-red-500/50 font-medium rounded-full text-sm px-5 py-2.5 text-center"
             >
               <svg className="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 14">

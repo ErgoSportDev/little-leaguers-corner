@@ -13,7 +13,7 @@ const BlogTitles = () => {
 
   //fetching from supabase
   const fetchNews = async () => {
-    const { data, error } = await supabase.from("Blog").select("id, title, created_at, short_story, author");
+    const { data, error } = await supabase.from("Blog").select("id, title, created_at, short_story, author").order('created_at', { ascending: false });
     if (error) {
       console.log("Error fetching: ", error);
     } else {
@@ -65,7 +65,7 @@ const BlogTitles = () => {
         </div>
         <div className="grid gap-8 lg:grid-cols-2">
           {blog.map((e) => (
-            <article key={e.id} className="p-6 bg-white rounded-lg border border-gray-200 shadow-lg hover:shadow-md dark:bg-gray-800 dark:border-gray-700">
+            <article key={e.id} className="w-mav h-max p-6 bg-white rounded-lg border border-gray-200 shadow-lg hover:shadow-md dark:bg-gray-800 dark:border-gray-700">
               <div className="flex justify-between items-center mb-5 text-gray-500">
                 <div className="flex items-center space-x-4">
                   {authorSelector(e)}

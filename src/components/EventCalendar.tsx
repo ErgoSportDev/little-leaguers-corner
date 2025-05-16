@@ -124,7 +124,7 @@ const EventCalendar = () => {
       border: "none",
       backgroundColor: "" // Initialize the backgroundColor property
     };
-    
+
     if (event.location === 'Leányfalu') {
       newStyle.backgroundColor = "rgba(220,38,38)";
       return { style: newStyle };

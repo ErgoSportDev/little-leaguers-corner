@@ -10,7 +10,8 @@ import moment from "moment";
 interface NewsItem {
   id: string;
   title: string;
-  desc: string;
+  long_desc: string;
+  short_desc: string;
   picture: string;
   highlight: boolean;
   created_at: string;
@@ -18,7 +19,6 @@ interface NewsItem {
 
 const Hirek = () => {
   const [news, setNews] = useState<NewsItem[]>([]);
-  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -28,11 +28,10 @@ const Hirek = () => {
   const fetchNews = async () => {
     setLoading(true);
     const { data, error } = await supabase.from("News").select("*").order('created_at', { ascending: false });
-    
+
     if (error) {
       console.log("Error fetching news: ", error);
     } else {
-      console.log("News data:", data);
       setNews(data || []);
     }
     setLoading(false);
@@ -47,109 +46,52 @@ const Hirek = () => {
             Legfrissebb hírek és események az Ergo Sport világából
           </p>
         </div>
-        
-        <div className="flex justify-end mb-4 space-x-2">
-          <Button 
-            variant={viewMode === 'grid' ? "default" : "outline"} 
-            size="icon"
-            onClick={() => setViewMode('grid')}
-            aria-label="Grid view"
-          >
-            <Grid2X2 className="h-4 w-4" />
-          </Button>
-          <Button 
-            variant={viewMode === 'list' ? "default" : "outline"} 
-            size="icon"
-            onClick={() => setViewMode('list')}
-            aria-label="List view"
-          >
-            <List className="h-4 w-4" />
-          </Button>
-        </div>
-        
+
         {loading ? (
           <div className="flex justify-center">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-700"></div>
           </div>
         ) : (
           <>
-            {viewMode === 'grid' ? (
-              <div className="grid gap-8 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
-                {news.map((item) => (
-                  <Card key={item.id} className="overflow-hidden hover:shadow-lg transition-shadow">
-                    <div className="h-48 overflow-hidden">
-                      <img 
-                        src={item.picture} 
-                        alt={item.title} 
-                        className="w-full h-full object-cover transition-transform hover:scale-105" 
-                      />
-                    </div>
-                    <CardHeader className="p-4">
+            <div className="grid gap-8 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
+              {news.map((item) => (
+                <Card key={item.id} className="w-mav h-max overflow-hidden hover:shadow-lg transition-shadow">
+                  <div className="h-48 overflow-hidden">
+                    <img
+                      src={item.picture}
+                      alt={item.title}
+                      className="w-full h-full object-cover transition-transform hover:scale-105"
+                    />
+                  </div>
+                  <CardHeader className="p-4">
+                    <Link to={`/hirek/${item.id}`}>
                       <CardTitle className="text-lg">{item.title}</CardTitle>
-                      <CardDescription className="text-xs">
-                        {moment(item.created_at).format("YYYY. MMMM DD.")}
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent className="p-4 pt-0">
-                      <p className="line-clamp-3 text-sm">{item.desc}</p>
-                    </CardContent>
-                    <CardFooter className="p-4 flex justify-end">
-                      {item.highlight && (
-                        <span className="mr-auto px-2 py-1 bg-red-100 text-red-800 text-xs rounded-full">
-                          Kiemelt
-                        </span>
-                      )}
-                      <Link to={`/hirek/${item.id}`} className="text-red-600 hover:underline text-sm">
-                        Tovább olvasom →
-                      </Link>
-                    </CardFooter>
-                  </Card>
-                ))}
-              </div>
-            ) : (
-              <div className="space-y-4">
-                {news.map((item) => (
-                  <Card key={item.id} className="overflow-hidden hover:shadow-lg transition-shadow">
-                    <div className="flex flex-col md:flex-row">
-                      <div className="md:w-1/3 h-48 md:h-auto">
-                        <img 
-                          src={item.picture} 
-                          alt={item.title} 
-                          className="w-full h-full object-cover" 
-                        />
-                      </div>
-                      <div className="md:w-2/3 p-4">
-                        <CardHeader className="p-0 pb-2">
-                          <div className="flex justify-between items-center">
-                            <CardTitle>{item.title}</CardTitle>
-                            {item.highlight && (
-                              <span className="px-2 py-1 bg-red-100 text-red-800 text-xs rounded-full">
-                                Kiemelt
-                              </span>
-                            )}
-                          </div>
-                          <CardDescription>
-                            {moment(item.created_at).format("YYYY. MMMM DD.")}
-                          </CardDescription>
-                        </CardHeader>
-                        <CardContent className="p-0 py-2">
-                          <p className="line-clamp-3">{item.desc}</p>
-                        </CardContent>
-                        <CardFooter className="p-0 pt-2 flex justify-end">
-                          <Link to={`/hirek/${item.id}`} className="text-red-600 hover:underline">
-                            Tovább olvasom →
-                          </Link>
-                        </CardFooter>
-                      </div>
-                    </div>
-                  </Card>
-                ))}
-              </div>
-            )}
-            
+                    </Link>
+                    <CardDescription className="text-xs">
+                      {moment(item.created_at).format("YYYY/MM/DD")}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="p-4 pt-0">
+                    <p className="line-clamp-3 text-sm">{item.short_desc}</p>
+                  </CardContent>
+                  <CardFooter className="p-4 flex justify-end self-end">
+                    {item.highlight && (
+                      <span className="mr-auto px-2 py-1 bg-red-100 text-red-800 text-xs rounded-full">
+                        Kiemelt
+                      </span>
+                    )}
+                    <Link to={`/hirek/${item.id}`} className="inline-flex items-center font-medium text-primary-600 dark:text-primary-500 hover:underline">
+                      Olvasd Tovább
+                      <svg className="ml-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
+                    </Link>
+                  </CardFooter>
+                </Card>
+              ))}
+            </div>
+
             {news.length === 0 && !loading && (
               <div className="text-center py-12">
-                <p className="text-gray-500">Nincsenek elérhető hírek.</p>
+                <p className="text-gray-500">Nincs hír! 🤷‍♂️☹</p>
               </div>
             )}
           </>
