@@ -125,16 +125,16 @@ const EventCalendar = () => {
       backgroundColor: "" // Initialize the backgroundColor property
     };
     
-    if (event.event_type === 'vezérelt gyakorlás') {
-      newStyle.backgroundColor = "#167152";
+    if (event.location === 'Leányfalu') {
+      newStyle.backgroundColor = "rgba(220,38,38)";
       return { style: newStyle };
     }
-    else if (event.event_type === 'nyitott gyakorlás') {
-      newStyle.backgroundColor = "#155786";
+    else if (event.location === 'Tahitótfalu') {
+      newStyle.backgroundColor = "#3786c9";
       return { style: newStyle };
     }
     else {
-      newStyle.backgroundColor = "#876548";
+      newStyle.backgroundColor = "#904ba1";
       return { style: newStyle };
     }
   };

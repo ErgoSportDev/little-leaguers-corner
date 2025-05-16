@@ -37,7 +37,7 @@ const BlogPost = () => {
 
       if (error) {
         console.error("Error fetching blog post:", error);
-        setError("Couldn't load the blog post. Please try again later.");
+        setError("Ez a bejegyzés jelenleg nem elérhető. 😞");
       } else {
         console.log(data)
         setPost(data);
@@ -77,10 +77,6 @@ const BlogPost = () => {
     }
   };
 
-  // Sports activities - If no sports data is available, use a default message
-  const sportsActivities = post?.sports ? post.sports.split(",").map(sport => sport.trim()) :
-    ["Futball", "Úszás", "Torna", "Aerobik"];
-
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
@@ -92,9 +88,11 @@ const BlogPost = () => {
   if (error) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen gap-4">
-        <p className="text-xl text-red-600">{error}</p>
+        <p className="text-xl text-black">{error}</p>
         <Button asChild>
-          <Link to="/blog">Go back to blog</Link>
+          <Link to="/blog" className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br">
+            Vissza a blog bejegyzésekhez
+          </Link>
         </Button>
       </div>
     );
@@ -103,9 +101,11 @@ const BlogPost = () => {
   if (!post) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen gap-4">
-        <p className="text-xl">Blog post not found</p>
+        <p className="text-xl">Bejegyzés nem elérhető. ❌📑</p>
         <Button asChild>
-          <Link to="/blog">Go back to blog</Link>
+          <Link to="/blog" className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br">
+            Vissza a blog bejegyzésekhez
+          </Link>
         </Button>
       </div>
     );
