@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Activity, Calendar, User, Phone, Menu,Newspaper, Pencil } from "lucide-react";
+import { Activity, Calendar, User, Phone, Menu, Newspaper, Pencil } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { motion, useAnimation } from "framer-motion";
@@ -113,11 +113,11 @@ const Header = ({ scrollToSection }: HeaderProps) => {
                   </Button>
                 </Link>
                 <Button
-                  onClick={() => scrollToSection('contact')}
+                  onClick={() => { toggleMenu(); scrollToSection('contact'); }}
                   variant="ghost"
                   className="text-white hover:bg-red-500/50 w-full justify-start px-4 py-3"
                 >
-                  <Phone size={16} className="mr-2" /> Kapcsolat
+                  <Phone size={16} className="mr-2" /> Kapcsolatt
                 </Button>
                 <Link to="/hirek" className="text-white hover:bg-red-500/50 w-full justify-start">
                   <Button
