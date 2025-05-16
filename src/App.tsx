@@ -9,6 +9,7 @@ import Teachers from "./pages/Teachers";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 import BlogTitles from "./pages/BlogTitles";
+import BlogPost from "./pages/BlogPost";
 import Layout from "./components/Layout";
 
 const queryClient = new QueryClient();
@@ -25,6 +26,7 @@ const App = () => (
             <Route index element={<Index />} />
             <Route path="edzoink" element={<Teachers />} />
             <Route path="blog" element={<BlogTitles />} />
+            <Route path="blog/:id" element={<BlogPost />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Route>

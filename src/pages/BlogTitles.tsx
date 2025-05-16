@@ -2,11 +2,10 @@
 import supabase from "../supabase-client";
 import { useEffect, useState } from "react";
 import moment from "moment";
+import { Link } from "react-router-dom";
 
-const BlogTitles = (props) => {
-
-  const [blog, setBlogs] = useState([])
-  const [show, setShowNews] = useState([])
+const BlogTitles = () => {
+  const [blog, setBlogs] = useState([]);
 
   useEffect(() => {
     fetchNews();
@@ -18,11 +17,8 @@ const BlogTitles = (props) => {
     if (error) {
       console.log("Error fetching: ", error);
     } else {
-      console.log(data)
-      setBlogs(data)
-      console.log(data[0].created_at)
-      console.log(moment().diff(moment('2025-05-10T21:16:07.754044+00:00'), 'days'))
-      // setNews(filterNewsToShow(data))
+      console.log(data);
+      setBlogs(data);
     }
   };
 
@@ -36,7 +32,7 @@ const BlogTitles = (props) => {
               {e.author}
             </span>
           </>
-        )
+        );
       case "Regi":
         return (
           <>
@@ -45,7 +41,7 @@ const BlogTitles = (props) => {
               {e.author}
             </span>
           </>
-        )
+        );
       case "Csenge":
         return (
           <>
@@ -54,10 +50,11 @@ const BlogTitles = (props) => {
               {e.author}
             </span>
           </>
-        )
+        );
       default:
+        return null;
     }
-  }
+  };
 
   return (
     <section className="bg-white dark:bg-gray-900 py-36">
@@ -79,13 +76,15 @@ const BlogTitles = (props) => {
                   <span className="text-sm">{moment().diff(moment(e.created_at), 'days')} napja</span>
                 }
               </div>
-              <h2 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white"><a href="#">{e.title}</a></h2>
+              <h2 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                <Link to={`/blog/${e.id}`}>{e.title}</Link>
+              </h2>
               <p className="mb-5 font-light text-gray-500 dark:text-gray-400">{e.short_story}</p>
               <div className="flex justify-end items-center">
-                <a href="#" className="inline-flex items-center font-medium text-primary-600 dark:text-primary-500 hover:underline">
+                <Link to={`/blog/${e.id}`} className="inline-flex items-center font-medium text-primary-600 dark:text-primary-500 hover:underline">
                   Olvasd Tovább
                   <svg className="ml-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
-                </a>
+                </Link>
               </div>
             </article>
           ))}
