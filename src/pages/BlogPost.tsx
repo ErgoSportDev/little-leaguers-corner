@@ -13,6 +13,7 @@ interface BlogPost {
   content: string;
   author: string;
   created_at: string;
+  sports?: string;
 }
 
 const BlogPost = () => {
@@ -56,6 +57,10 @@ const BlogPost = () => {
         return "";
     }
   };
+
+  // Sports activities - If no sports data is available, use a default message
+  const sportsActivities = post?.sports ? post.sports.split(",").map(sport => sport.trim()) : 
+    ["Futball", "Úszás", "Torna", "Aerobik"];
 
   if (loading) {
     return (
@@ -124,7 +129,25 @@ const BlogPost = () => {
             
             <div className="prose prose-lg max-w-none">
               <p className="lead text-xl text-gray-600 mb-8">{post.short_story}</p>
-              <div className="mt-10" dangerouslySetInnerHTML={{ __html: post.content }} />
+              <div className="mt-10 mb-16" dangerouslySetInnerHTML={{ __html: post.content }} />
+              
+              {/* Sports Activities Section */}
+              <div className="bg-gray-50 p-6 rounded-lg border border-gray-200 mt-12">
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">Gyerek Sport Foglalkozások</h2>
+                <p className="text-gray-600 mb-4">
+                  Ebben a cikkben az alábbi sport tevékenységekről olvashatunk, amelyekkel a gyerekek megismerkedtek:
+                </p>
+                <ul className="list-disc pl-5 space-y-2">
+                  {sportsActivities.map((sport, index) => (
+                    <li key={index} className="text-gray-800">{sport}</li>
+                  ))}
+                </ul>
+                <div className="mt-6">
+                  <p className="text-gray-600 italic">
+                    A rendszeres sportolás fejleszti a gyerekek motorikus képességeit, támogatja a fizikai és mentális fejlődésüket, valamint segíti a csapatmunkát és az önfegyelmet.
+                  </p>
+                </div>
+              </div>
             </div>
           </article>
         </div>
