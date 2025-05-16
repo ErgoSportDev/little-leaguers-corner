@@ -13,7 +13,7 @@ const BlogTitles = () => {
 
   //fetching from supabase
   const fetchNews = async () => {
-    const { data, error } = await supabase.from("Blog").select("*");
+    const { data, error } = await supabase.from("Blog").select("id, title, created_at, short_story, author");
     if (error) {
       console.log("Error fetching: ", error);
     } else {
@@ -27,7 +27,7 @@ const BlogTitles = () => {
       case "Luca":
         return (
           <>
-            <img className="w-7 h-7 rounded-full" src="/lovable-uploads/Luca.jpg" alt="Jese Leos avatar" />
+            <img className="w-7 h-7 rounded-full" src="/lovable-uploads/Luca.jpg" alt="Kép Lucáról" />
             <span className="font-medium dark:text-white">
               {e.author}
             </span>
@@ -36,7 +36,7 @@ const BlogTitles = () => {
       case "Regi":
         return (
           <>
-            <img className="w-7 h-7 rounded-full" src="/lovable-uploads/Regi.png" alt="Jese Leos avatar" />
+            <img className="w-7 h-7 rounded-full" src="/lovable-uploads/Regi.png" alt="Kép Regiről" />
             <span className="font-medium dark:text-white">
               {e.author}
             </span>
@@ -45,7 +45,7 @@ const BlogTitles = () => {
       case "Csenge":
         return (
           <>
-            <img className="w-7 h-7 rounded-full" src="/lovable-uploads/Luca.jpg" alt="Jese Leos avatar" />
+            <img className="w-7 h-7 rounded-full" src="/lovable-uploads/Luca.jpg" alt="Kép Csengéről" />
             <span className="font-medium dark:text-white">
               {e.author}
             </span>
@@ -57,7 +57,7 @@ const BlogTitles = () => {
   };
 
   return (
-    <section className="bg-white dark:bg-gray-900 py-36">
+    <section className="bg-gray-50 dark:bg-gray-900 py-36">
       <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
         <div className="mx-auto max-w-screen-sm text-center lg:mb-16 mb-8">
           <h2 className="mb-4 text-3xl lg:text-4xl tracking-tight font-[700] text-black dark:text-white">Ergo Blog</h2>
@@ -65,7 +65,7 @@ const BlogTitles = () => {
         </div>
         <div className="grid gap-8 lg:grid-cols-2">
           {blog.map((e) => (
-            <article key={e.id} className="p-6 bg-white rounded-lg border border-gray-200 shadow-lg dark:bg-gray-800 dark:border-gray-700">
+            <article key={e.id} className="p-6 bg-white rounded-lg border border-gray-200 shadow-lg hover:shadow-md dark:bg-gray-800 dark:border-gray-700">
               <div className="flex justify-between items-center mb-5 text-gray-500">
                 <div className="flex items-center space-x-4">
                   {authorSelector(e)}
