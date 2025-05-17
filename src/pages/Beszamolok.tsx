@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import moment from "moment";
 
-interface NewsItem {
+interface Report {
   id: string;
   title: string;
   long_desc: string;
@@ -17,23 +17,23 @@ interface NewsItem {
   created_at: string;
 }
 
-const Hirek = () => {
-  const [news, setNews] = useState<NewsItem[]>([]);
+const Beszamolok = () => {
+  const [reports, setReports] = useState<Report[]>([]);
   const [loading, setLoading] = useState(true);
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
 
   useEffect(() => {
-    fetchNews();
+    fetchReports();
   }, []);
 
-  const fetchNews = async () => {
+  const fetchReports = async () => {
     setLoading(true);
-    const { data, error } = await supabase.from("News").select("*").order('created_at', { ascending: false });
+    const { data, error } = await supabase.from("Reports").select("*").order('created_at', { ascending: false });
 
     if (error) {
-      console.log("Error fetching news: ", error);
+      console.log("Error fetching reports: ", error);
     } else {
-      setNews(data || []);
+      setReports(data || []);
     }
     setLoading(false);
   };
@@ -46,9 +46,9 @@ const Hirek = () => {
     <section className="bg-gray-50 dark:bg-gray-900 py-36">
       <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
         <div className="mx-auto max-w-screen-sm text-center lg:mb-16 mb-8">
-          <h2 className="mb-4 text-3xl lg:text-4xl tracking-tight font-[700] text-black dark:text-white">Hírek</h2>
+          <h2 className="mb-4 text-3xl lg:text-4xl tracking-tight font-[700] text-black dark:text-white">Beszámolók</h2>
           <p className="font-light text-gray-500 sm:text-xl dark:text-gray-400">
-            Legfrissebb hírek és események az Ergo Sport világából
+            Részletes beszámolók az Ergo Sport eseményeiről és tevékenységeiről
           </p>
         </div>
 
@@ -71,7 +71,7 @@ const Hirek = () => {
           <>
             {viewMode === "grid" ? (
               <div className="grid gap-8 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
-                {news.map((item) => (
+                {reports.map((item) => (
                   <Card key={item.id} className="w-max h-max overflow-hidden hover:shadow-lg transition-shadow">
                     <div className="h-48 overflow-hidden">
                       <img
@@ -81,7 +81,7 @@ const Hirek = () => {
                       />
                     </div>
                     <CardHeader className="p-4">
-                      <Link to={`/hirek/${item.id}`}>
+                      <Link to={`/beszamolok/${item.id}`}>
                         <CardTitle className="text-lg">{item.title}</CardTitle>
                       </Link>
                       <CardDescription className="text-xs">
@@ -97,7 +97,7 @@ const Hirek = () => {
                           Kiemelt
                         </span>
                       )}
-                      <Link to={`/hirek/${item.id}`} className="inline-flex items-center font-medium text-primary-600 dark:text-primary-500 hover:underline">
+                      <Link to={`/beszamolok/${item.id}`} className="inline-flex items-center font-medium text-primary-600 dark:text-primary-500 hover:underline">
                         Olvasd Tovább
                         <svg className="ml-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
                       </Link>
@@ -107,7 +107,7 @@ const Hirek = () => {
               </div>
             ) : (
               <div className="space-y-8">
-                {news.map((item) => (
+                {reports.map((item) => (
                   <Card key={item.id} className="overflow-hidden hover:shadow-lg transition-shadow">
                     <div className="flex flex-col md:flex-row">
                       <div className="md:w-1/4 h-48">
@@ -119,7 +119,7 @@ const Hirek = () => {
                       </div>
                       <div className="md:w-3/4 p-4">
                         <CardHeader className="p-4">
-                          <Link to={`/hirek/${item.id}`}>
+                          <Link to={`/beszamolok/${item.id}`}>
                             <CardTitle className="text-lg">{item.title}</CardTitle>
                           </Link>
                           <CardDescription className="text-xs">
@@ -135,7 +135,7 @@ const Hirek = () => {
                               Kiemelt
                             </span>
                           )}
-                          <Link to={`/hirek/${item.id}`} className="inline-flex items-center font-medium text-primary-600 dark:text-primary-500 hover:underline">
+                          <Link to={`/beszamolok/${item.id}`} className="inline-flex items-center font-medium text-primary-600 dark:text-primary-500 hover:underline">
                             Olvasd Tovább
                             <svg className="ml-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
                           </Link>
@@ -147,9 +147,9 @@ const Hirek = () => {
               </div>
             )}
 
-            {news.length === 0 && !loading && (
+            {reports.length === 0 && !loading && (
               <div className="text-center py-12">
-                <p className="text-gray-500">Nincs hír! 🤷‍♂️☹</p>
+                <p className="text-gray-500">Nincs beszámoló! 🤷‍♂️☹</p>
               </div>
             )}
           </>
@@ -159,4 +159,4 @@ const Hirek = () => {
   );
 };
 
-export default Hirek;
+export default Beszamolok;

@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Activity, Calendar, User, Phone, Menu, Newspaper, Pencil } from "lucide-react";
+import { Activity, Calendar, User, Phone, Menu, Newspaper, Pencil, ClipboardList } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { motion, useAnimation } from "framer-motion";
@@ -127,6 +127,14 @@ const Header = ({ scrollToSection }: HeaderProps) => {
                     <Newspaper size={16} className="mr-2" /> Hírek
                   </Button>
                 </Link>
+                <Link to="/beszamolok" className="text-white hover:bg-red-500/50 w-full justify-start">
+                  <Button
+                    variant="ghost"
+                    onClick={toggleMenu}
+                  >
+                    <ClipboardList size={16} className="mr-2" /> Beszámolók
+                  </Button>
+                </Link>
                 <Link to="/blog" className="text-white hover:bg-red-500/50 w-full justify-start">
                   <Button
                     variant="ghost"
@@ -200,6 +208,15 @@ const Header = ({ scrollToSection }: HeaderProps) => {
                   size="sm"
                 >
                   <Newspaper size={16} className="mr-1" /> Hírek
+                </Button>
+              </Link>
+              <Link to="/beszamolok">
+                <Button
+                  variant="ghost"
+                  className="text-white hover:bg-red-500/50"
+                  size="sm"
+                >
+                  <ClipboardList size={16} className="mr-1" /> Beszámolók
                 </Button>
               </Link>
               <Link to="/blog">

@@ -12,6 +12,8 @@ import BlogTitles from "./pages/BlogTitles";
 import BlogPost from "./pages/BlogPost";
 import Hirek from "./pages/Hirek";
 import HirekPost from "./pages/HirekPost";
+import Beszamolok from "./pages/Beszamolok";
+import BeszamolokPost from "./pages/BeszamolokPost";
 import Layout from "./components/Layout";
 
 const queryClient = new QueryClient();
@@ -31,6 +33,8 @@ const App = () => (
             <Route path="blog/:id" element={<BlogPost />} />
             <Route path="hirek" element={<Hirek />} />
             <Route path="hirek/:id" element={<HirekPost />} />
+            <Route path="beszamolok" element={<Beszamolok />} />
+            <Route path="beszamolok/:id" element={<BeszamolokPost />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Route>
