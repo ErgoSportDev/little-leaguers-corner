@@ -189,7 +189,7 @@ const EventCalendar = () => {
   return (
     <>
       <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 max-sm:px-0">
           <h2 className="text-3xl font-bold text-center mb-12">Közelgő Események</h2>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="flex items-center justify-center">
@@ -199,7 +199,7 @@ const EventCalendar = () => {
                 events={esemenyek}
                 startAccessor="start"
                 endAccessor="end"
-                style={{ height: '32rem', minWidth: 250 }}
+                style={{ height: '32rem', minWidth: 200 }}
                 view={view}
                 date={date}
                 onView={setView}
@@ -217,7 +217,7 @@ const EventCalendar = () => {
                 tooltipAccessor="desc"
               />
             </div>
-            <div ref={containerRef} className="space-y-4 overflow-auto h-[32rem]">
+            <div ref={containerRef} className="space-y-4 overflow-auto h-[32rem] max-sm:mx-4">
               {esemenyek.map((event) => (
                 <Card key={event.id} ref={(el) => (scrollRef.current[event.id] = el)} className="hover:shadow-md transition-shadow">
                   <CardHeader className="space-y-1">
