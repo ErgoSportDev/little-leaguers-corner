@@ -27,7 +27,7 @@ const Index = () => {
   // }, [location, navigate]);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="parentclass min-h-screen flex flex-col bg-gradient-to-br from-[#fca5a5] via-[#bfdbfe] to-[#ddd6fe]">
       <Hero />
       <div id="activities">
         <Gallery />
