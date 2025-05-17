@@ -40,7 +40,7 @@ const HirekPost = () => {
         console.error("Error fetching news post:", error);
         setError("Couldn't load the news post. Please try again later.");
       } else {
-        console.log(data);
+        // console.log(data);
         setPost(data);
       }
       setLoading(false);
@@ -68,7 +68,7 @@ const HirekPost = () => {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen gap-4">
         <p className="text-xl text-red-600">{error}</p>
-        <Button asChild>
+        <Button asChild className="rounded-[3rem] bg-gradient-to-r from-red-500 to-orange-500">
           <Link to="/hirek">Vissza a hírekhez</Link>
         </Button>
       </div>
@@ -78,8 +78,8 @@ const HirekPost = () => {
   if (!post) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen gap-4">
-        <p className="text-xl">A hír nem található</p>
-        <Button asChild>
+        <p className="text-xl">A hír nem található ❌</p>
+        <Button asChild className="rounded-[3rem] bg-gradient-to-r from-red-500 to-orange-500">
           <Link to="/hirek">Vissza a hírekhez</Link>
         </Button>
       </div>

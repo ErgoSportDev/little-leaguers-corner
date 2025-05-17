@@ -17,7 +17,7 @@ const BlogTitles = () => {
     if (error) {
       console.log("Error fetching: ", error);
     } else {
-      console.log(data);
+      // console.log(data);
       setBlogs(data);
     }
   };
@@ -62,6 +62,9 @@ const BlogTitles = () => {
         <div className="mx-auto max-w-screen-sm text-center lg:mb-16 mb-8">
           <h2 className="mb-4 text-3xl lg:text-4xl tracking-tight font-[700] text-black dark:text-white">Ergo Blog</h2>
           <p className="font-light text-gray-500 sm:text-xl dark:text-gray-400">Fedezd fel az Ergo Sport blogját, ahol hasznos tippeket, híreket és inspiráló történeteket találsz a gyerekek sportolásáról!.</p>
+          {blog.length == 0 && (
+            <p className="font-light text-black sm:text-xl dark:text-gray-400 pt-10">Jelenleg még nincsenek posztok. ❌</p>
+          )}
         </div>
         <div className="grid gap-8 lg:grid-cols-2">
           {blog.map((e) => (

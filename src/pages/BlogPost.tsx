@@ -1,27 +1,26 @@
+
 import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import supabase from "../supabase-client";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Calendar, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import moment from "moment";
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 
-interface BlogPostType {
-  id: string;
+interface BlogPost {
+  id: number;
   title: string;
-  content: string;
+  short_story: string;
+  long_story: string;
+  author: string;
   created_at: string;
-  author: string | {
-    name: string;
-    pic: string;
-    job_title: string;
-  };
+  sports?: string;
 }
 
 const BlogPost = () => {
   const { id } = useParams();
-  const [post, setPost] = useState<BlogPostType | null>(null);
+  const [post, setPost] = useState<BlogPost | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -38,8 +37,9 @@ const BlogPost = () => {
 
       if (error) {
         console.error("Error fetching blog post:", error);
-        setError("Failed to load the blog post. Please try again later.");
+        setError("Blog poszt most nem érhető el, próbálkozz késöbb.");
       } else {
+        // console.log(data)
         setPost(data);
       }
       setLoading(false);
@@ -47,6 +47,35 @@ const BlogPost = () => {
 
     fetchBlogPost();
   }, [id]);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  };
+
+  const authorDetails = (author: string) => {
+    switch (author) {
+      case "Luca":
+        return {
+          pic: "/lovable-uploads/Luca.jpg",
+          job_title: "Ergo Sport szakág vezető"
+        };
+      case "Regi":
+        return {
+          pic: "/lovable-uploads/Regi.png",
+          job_title: "Ergo Sport szakmai vezető"
+        };;
+      case "Csenge":
+        return {
+          pic: "/lovable-uploads/Luca.jpg",
+          job_title: "Ergo Sport szakág vezető"
+        };;
+      default:
+        return "";
+    }
+  };
 
   if (loading) {
     return (
@@ -59,9 +88,9 @@ const BlogPost = () => {
   if (error) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen gap-4">
-        <p className="text-xl text-red-600">{error}</p>
-        <Button asChild>
-          <Link to="/blog">Back to Blog</Link>
+        <p className="text-xl text-black">{error}</p>
+        <Button asChild className="rounded-[3rem] bg-gradient-to-r from-red-500 to-orange-500">
+          <Link to="/blog">Vissza a blog cimekhez</Link>
         </Button>
       </div>
     );
@@ -70,15 +99,13 @@ const BlogPost = () => {
   if (!post) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen gap-4">
-        <p className="text-xl">Blog post not found</p>
-        <Button asChild>
-          <Link to="/blog">Back to Blog</Link>
+        <p className="text-xl">Poszt jelenleg nem elérhető 😣 </p>
+        <Button asChild className="rounded-[3rem] bg-gradient-to-r from-red-500 to-orange-500">
+          <Link to="/blog">Vissza a blog cimekhez</Link>
         </Button>
       </div>
     );
   }
-
-  const { title, content, created_at, author } = post;
 
   return (
     <div className="bg-white py-24 sm:py-32">
@@ -91,35 +118,59 @@ const BlogPost = () => {
           >
             <Link to="/blog">
               <ArrowLeft size={16} />
-              Vissza a bloghoz
+              Back to all posts
             </Link>
           </Button>
 
           <article>
             <header className="mb-10">
-              <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{title}</h1>
-              <div className="mt-2 text-sm text-gray-500">
-                {moment(created_at).format("YYYY/MM/DD")}
+              <div className="flex items-center mt-6 text-sm justify-between w-full">
+                <div className="inline-flex items-center gap-x-2">
+                  <img
+                    src={authorDetails(post.author).pic}
+                    alt={`${post.author}' profil képe`}
+                    className="h-[2.5rem] w-[2.5rem] rounded-full bg-gray-100"
+                  />
+                  <div>
+                    <p className="font-bold text-[1.3rem] text-gray-900">{post.author}</p>
+                    <span className="font-normal text-gray-500">{authorDetails(post.author).job_title}</span>
+                  </div>
+                </div>
+                <div className="flex items-center gap-x-1 text-gray-500">
+                  <Calendar size={16} />
+                  <p>{moment(post.created_at).format("YYYY/MM/DD")}</p>
+                </div>
               </div>
-              {typeof author === 'string' ? (
-                <div className="mt-2 text-sm text-gray-500">
-                  Author: {author}
-                </div>
-              ) : author && typeof author === 'object' ? (
-                <div className="mt-2 text-sm text-gray-500">
-                  Author: {author.name}
-                  {author.pic && <img src={author.pic} alt="Author" />}
-                  {author.job_title && <div>{author.job_title}</div>}
-                </div>
-              ) : null}
+              <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl pt-5">{post.title}</h1>
             </header>
 
+            {post.sports != null ?
+              <div className="bg-gradient-to-r from-white to-red-200 p-2 mb-5 rounded-lg mt-12">
+                <div className="">
+                  <p className="text-gray-800 italic text-center">
+                    Sportágak: {post.sports}
+                  </p>
+                </div>
+              </div>
+              :
+              ""}
             <div className="prose prose-lg max-w-none">
+              <p className="lead text-xl text-gray-600 mb-8 text-justify">{post.short_story}</p>
               <div className="mt-10 mb-16 text-gray-700 text-[1.1rem] leading-[1.7] markdown text-justify">
-                <ReactMarkdown rehypePlugins={[rehypeRaw]}>{content}</ReactMarkdown>
+                <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+                  {post.long_story}
+                  </ReactMarkdown>
               </div>
             </div>
           </article>
+          <div className="flex justify-center">
+            <button onClick={scrollToTop} type="button" className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-[10rem] text-sm px-5 py-2.5 text-center me-2 mb-2">
+              <svg className="w-6 h-6 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 14">
+                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13V1m0 0L1 5m4-4 4 4" />
+              </svg>
+              <span className="sr-only">Vissza a tetejére</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>

@@ -24,6 +24,7 @@ interface ReportPost {
   highlight: boolean;
   created_at: string;
   content?: string;
+  pictures: [];
 }
 
 interface ReportImage {
@@ -46,7 +47,7 @@ const BeszamolokPost = () => {
       if (!id) return;
 
       setLoading(true);
-      
+
       try {
         // Fetch report data
         const { data: reportData, error: reportError } = await supabase
@@ -62,20 +63,8 @@ const BeszamolokPost = () => {
           return;
         }
 
-        setPost(reportData);
-        
-        // Fetch related images
-        const { data: imagesData, error: imagesError } = await supabase
-          .from("ReportImages")
-          .select("*")
-          .eq("report_id", id)
-          .order("created_at", { ascending: true });
+        setPost(splitURL(reportData));
 
-        if (imagesError) {
-          console.error("Error fetching report images:", imagesError);
-        } else {
-          setImages(imagesData || []);
-        }
       } catch (err) {
         console.error("Error in data fetching:", err);
         setError("Hiba történt az adatok betöltése során.");
@@ -86,6 +75,11 @@ const BeszamolokPost = () => {
 
     fetchReportPost();
   }, [id]);
+
+  const splitURL = (data) => {
+    data.pictures = data.pictures.split("|")
+    return data
+  }
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -106,7 +100,7 @@ const BeszamolokPost = () => {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen gap-4">
         <p className="text-xl text-red-600">{error}</p>
-        <Button asChild>
+        <Button asChild className="rounded-[3rem] bg-gradient-to-r from-red-500 to-orange-500">
           <Link to="/beszamolok">Vissza a beszámolókhoz</Link>
         </Button>
       </div>
@@ -116,8 +110,8 @@ const BeszamolokPost = () => {
   if (!post) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen gap-4">
-        <p className="text-xl">A beszámoló nem található</p>
-        <Button asChild>
+        <p className="text-xl">A beszámoló nem található ❌</p>
+        <Button asChild className="rounded-[3rem] bg-gradient-to-r from-red-500 to-orange-500">
           <Link to="/beszamolok">Vissza a beszámolókhoz</Link>
         </Button>
       </div>
@@ -152,16 +146,6 @@ const BeszamolokPost = () => {
               </div>
             </header>
 
-            {post.picture && (
-              <div className="w-full overflow-hidden rounded-lg mb-10">
-                <img
-                  src={post.picture}
-                  alt={post.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            )}
-
             {post.long_desc && (
               <div className="prose prose-lg max-w-none">
                 <div className="mt-10 mb-16 text-gray-700 text-[1.1rem] leading-[1.7] markdown text-justify">
@@ -171,24 +155,21 @@ const BeszamolokPost = () => {
             )}
 
             {/* Image Gallery Carousel */}
-            {images.length > 0 && (
+            {post.pictures.length > 0 && (
               <div className="mt-16 mb-10">
-                <h2 className="text-2xl font-bold mb-6">Képgaléria</h2>
+                <h2 className="text-2xl font-bold mb-6">Kapcsolódó Képek</h2>
                 <div className="w-full">
                   <Carousel className="w-full max-w-3xl mx-auto">
                     <CarouselContent>
-                      {images.map((image) => (
-                        <CarouselItem key={image.id}>
+                      {post.pictures.map((image, index) => (
+                        <CarouselItem key={index} >
                           <div className="p-1">
                             <div className="flex flex-col items-center justify-center overflow-hidden rounded-lg">
                               <img
-                                src={image.image_url}
-                                alt={image.caption || "Beszámoló kép"}
-                                className="w-full h-64 object-cover rounded-lg"
+                                src={image}
+                                alt="Beszámoló képei"
+                                className="w-full h-full object-cover rounded-lg"
                               />
-                              {image.caption && (
-                                <p className="text-sm text-gray-600 mt-2">{image.caption}</p>
-                              )}
                             </div>
                           </div>
                         </CarouselItem>
