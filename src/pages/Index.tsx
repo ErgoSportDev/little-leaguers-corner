@@ -27,7 +27,12 @@ const Index = () => {
   // }, [location, navigate]);
 
   return (
-    <div className="parentclass min-h-screen flex flex-col bg-gradient-to-br from-[#fca5a5] via-[#bfdbfe] to-[#ddd6fe]">
+    <div className="parentclass min-h-screen flex flex-col">
+      <div className="fixed inset-0 -z-10 bg-gradient-to-br from-red-100 via-red-400 to-red-700 flex items-center justify-center">
+        {/* <div className="bakgrounddiv w-[50px] h-[25rem]"></div> */}
+        <img src="/lovable-uploads/download.svg" />
+      </div>
+
       <Hero />
       <div id="activities">
         <Gallery />

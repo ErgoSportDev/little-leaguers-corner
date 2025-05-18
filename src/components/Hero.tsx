@@ -69,7 +69,7 @@ const Hero = () => {
           </div>
           <div className="pt-[10vh] min-w-[10rem]">
             <h1 className="relative text-center text-[2rem] text-white font-[800]">
-              MOZGÁS • JÁTÉK • KÖZÖSSÉG
+              KÖZÖSSÉG • MOZGÁS • JÁTÉK
             </h1>
           </div>
           <div className="min-w-[10rem] max-w-[50rem]">

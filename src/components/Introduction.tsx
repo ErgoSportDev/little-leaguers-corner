@@ -30,9 +30,9 @@ const Introduction = () => {
     {/* <div className="h-[4rem] bg-gradient-to-b from-gray-50 to-white">
     </div> */}
     {/* bg-white */}
-    <section className="pb-16 ">
+    <section className="py-16 ">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">Ismerd Meg Edzőinket</h2>
+        <h2 className="text-3xl text-white font-bold text-center mb-12">Ismerd Meg Edzőinket</h2>
         <div className="grid md:grid-cols-3 gap-8">
           {teachers.map((teacher, index) => (
             <motion.div
@@ -40,7 +40,7 @@ const Introduction = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="flex flex-col items-center text-center p-6 rounded-lg shadow-lg bg-white"
+              className="flex flex-col items-center text-center p-6 rounded-lg shadow-lg bg-white/60 backdrop-blur-sm"
             >
               <div className="w-32 h-32 mb-4 rounded-full overflow-hidden bg-gray-100">
                 {teacher.image ? (
