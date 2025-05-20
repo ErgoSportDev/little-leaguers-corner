@@ -15,6 +15,7 @@ import HirekPost from "./pages/HirekPost";
 import Beszamolok from "./pages/Beszamolok";
 import BeszamolokPost from "./pages/BeszamolokPost";
 import Shirts from "./pages/Shirts";
+import ShirtDetail from "./pages/ShirtDetail";
 import Layout from "./components/Layout";
 
 const queryClient = new QueryClient();
@@ -37,6 +38,7 @@ const App = () => (
             <Route path="beszamolok" element={<Beszamolok />} />
             <Route path="beszamolok/:id" element={<BeszamolokPost />} />
             <Route path="polok" element={<Shirts />} />
+            <Route path="polok/:id" element={<ShirtDetail />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Route>

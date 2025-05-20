@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ShoppingCart } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface Shirt {
   id: number;
@@ -76,15 +77,19 @@ const Shirts = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {shirts.map((shirt) => (
           <Card key={shirt.id} className="overflow-hidden flex flex-col h-full">
-            <div className="h-64 overflow-hidden">
+            <Link to={`/polok/${shirt.id}`} className="h-64 overflow-hidden">
               <img 
                 src={shirt.image} 
                 alt={shirt.name} 
                 className="w-full h-full object-cover transition-transform hover:scale-105 duration-300"
               />
-            </div>
+            </Link>
             <CardHeader>
-              <CardTitle>{shirt.name}</CardTitle>
+              <Link to={`/polok/${shirt.id}`}>
+                <CardTitle className="hover:text-red-600 transition-colors">
+                  {shirt.name}
+                </CardTitle>
+              </Link>
               <CardDescription className="text-lg font-medium text-red-600">
                 {shirt.price} Ft
               </CardDescription>
@@ -103,10 +108,12 @@ const Shirts = () => {
               </div>
             </CardContent>
             <CardFooter className="mt-auto">
-              <Button className="w-full bg-red-600 hover:bg-red-700">
-                <ShoppingCart className="mr-2 h-4 w-4" />
-                Kosárba
-              </Button>
+              <Link to={`/polok/${shirt.id}`} className="w-full">
+                <Button className="w-full bg-red-600 hover:bg-red-700">
+                  <ShoppingCart className="mr-2 h-4 w-4" />
+                  Részletek
+                </Button>
+              </Link>
             </CardFooter>
           </Card>
         ))}
