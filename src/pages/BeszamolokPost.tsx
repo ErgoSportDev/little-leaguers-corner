@@ -175,8 +175,14 @@ const BeszamolokPost = () => {
                         </CarouselItem>
                       ))}
                     </CarouselContent>
-                    <CarouselPrevious className="-left-12 sm:-left-16" />
-                    <CarouselNext className="-right-12 sm:-right-16" />
+                    <div className="grid grid-cols-2">
+                      <div className="flex justify-center">
+                        <CarouselPrevious className="relative text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br shadow-lg shadow-red-500/50" />
+                      </div>
+                      <div className="flex justify-center">
+                        <CarouselNext className="relative text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br shadow-lg shadow-red-500/50" />
+                      </div>
+                    </div>
                   </Carousel>
                 </div>
               </div>

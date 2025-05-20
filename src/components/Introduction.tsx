@@ -32,7 +32,7 @@ const Introduction = () => {
     {/* bg-white */}
     <section className="py-16 ">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl text-white font-bold text-center mb-12">Ismerd Meg Edzőinket</h2>
+        <h2 className="text-3xl text-white font-bold text-center mb-12">Ismerd Meg Csapatunkat</h2>
         <div className="grid md:grid-cols-3 gap-8">
           {teachers.map((teacher, index) => (
             <motion.div
@@ -63,7 +63,7 @@ const Introduction = () => {
         </div>
         <div className="mt-10 text-center">
           <Link 
-            to="/edzoink"
+            to="/csapatunk"
             className="inline-flex items-center justify-center bg-red-600 text-white px-6 py-3 rounded-md font-medium hover:bg-red-700 transition-colors"
           >
             Részletes bemutatkozás

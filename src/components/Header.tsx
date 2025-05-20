@@ -109,7 +109,7 @@ const Header = ({ scrollToSection }: HeaderProps) => {
                     variant="ghost"
                     onClick={toggleMenu}
                   >
-                    <User size={16} className="mr-2" /> Edzők
+                    <User size={16} className="mr-2" /> Csapatunk
                   </Button>
                 </Link>
                 <Button
@@ -190,7 +190,7 @@ const Header = ({ scrollToSection }: HeaderProps) => {
                   className="text-white hover:bg-red-500/50"
                   size="sm"
                 >
-                  <User size={16} className="mr-1" /> Edzők
+                  <User size={16} className="mr-1" /> Csapatunk
                 </Button>
               </Link>
               <Button

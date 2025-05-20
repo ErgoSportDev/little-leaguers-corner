@@ -95,7 +95,7 @@ const Teachers = () => {
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.1 }}
             >
-              Edzőink
+              Csapatunk
             </motion.h1>
 
             <motion.div
