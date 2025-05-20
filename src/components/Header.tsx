@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Activity, Calendar, User, Phone, Menu, Newspaper, Pencil, ClipboardList } from "lucide-react";
+import { Activity, Calendar, User, Phone, Menu, Newspaper, Pencil, ClipboardList, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { motion, useAnimation } from "framer-motion";
@@ -143,6 +143,14 @@ const Header = ({ scrollToSection }: HeaderProps) => {
                     <Pencil size={16} className="mr-2" /> Blog
                   </Button>
                 </Link>
+                <Link to="/polok" className="text-white hover:bg-red-500/50 w-full justify-start">
+                  <Button
+                    variant="ghost"
+                    onClick={toggleMenu}
+                  >
+                    <ShoppingBag size={16} className="mr-2" /> Pólók
+                  </Button>
+                </Link>
               </div>
             )}
           </>
@@ -226,6 +234,15 @@ const Header = ({ scrollToSection }: HeaderProps) => {
                   size="sm"
                 >
                   <Pencil size={16} className="mr-1" /> Blog
+                </Button>
+              </Link>
+              <Link to="/polok">
+                <Button
+                  variant="ghost"
+                  className="text-white hover:bg-red-500/50"
+                  size="sm"
+                >
+                  <ShoppingBag size={16} className="mr-1" /> Pólók
                 </Button>
               </Link>
             </div>
