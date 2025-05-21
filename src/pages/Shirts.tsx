@@ -67,8 +67,8 @@ const Shirts = () => {
   ]);
 
   return (
-    <div className="container mx-auto py-24">
-      <h1 className="text-3xl font-bold mb-8 text-center">Ergo Sport Pólók</h1>
+    <div className="container mx-auto py-52">
+      <h1 className="mb-4 text-3xl lg:text-4xl tracking-tight font-[700] text-black dark:text-white text-center">Ergo Sport Pólók</h1>
       <p className="text-center mb-10 max-w-2xl mx-auto">
         Vásárold meg az Ergo Sport hivatalos pólóit! Minden darabunk kényelmes, 
         tartós és tökéletesen képviseli az Ergo Sport szellemiségét.

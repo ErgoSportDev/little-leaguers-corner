@@ -47,8 +47,7 @@ const Hero = () => {
             className="w-full h-full object-cover"
             aria-label="Kids Playing"
           >
-            <source src="https://vwcicmjfgefjlumdetva.supabase.co/storage/v1/object/sign/video/video.mp4?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzhhZGZmZTAyLTEzNTUtNGIwYS1hOGEzLWNjMGI0ZTRhNzNiNSJ9.eyJ1cmwiOiJ2aWRlby92aWRlby5tcDQiLCJpYXQiOjE3NDczMDkxOTIsImV4cCI6MTc2NDU4OTE5Mn0.2ipiDv3LaoYId_TtXR1r6EjUwQMJWWWgDO1nvQK90-U"
-              type="video/mp4" />
+            <source src="https://ik.imagekit.io/xtw0vnarh/video.mp4?updatedAt=1747819323743" type="video/mp4" />
             <img src="/lovable-uploads/logo.png" title="Your browser does not support the <video> tag"></img>
           </video>
           {/* Overlay to ensure text is readable */}
@@ -77,6 +76,7 @@ const Hero = () => {
               Fedezd fel az örömteli mozgás világát az Ergo Sporttal, ahol minden gyerek megtalálhatja
               a számára legizgalmasabb sportágat és kibontakoztathatja tehetségét!
             </p>
+            {/* <img src="https://imagekit.io/public/share/xtw0vnarh/b5819518ef0ad59c61abd0a820e8ce2ec03b4073a4bc4110e3e9f4038b67de88b8abb57987f466ec58e5866544c9b3a93c877e1c8d81ec7e3fe7daccc3deefff532f48b40b2f72a9a7764e2c1b90f461" title="Your browser does not support the <video> tag"></img> */}
           </div>
           <div className="container mx-auto px-4 text-center z-20 relative pb-[14vh] pt-[3vh]">
             <div className="flex flex-wrap justify-center gap-4">
