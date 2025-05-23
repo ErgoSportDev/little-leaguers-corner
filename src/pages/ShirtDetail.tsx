@@ -84,10 +84,10 @@ const ShirtDetail = () => {
         <div className="text-center">
           <h1 className="text-3xl font-bold mb-4">Termék nem található</h1>
           <p className="mb-8">A keresett termék nem található vagy már nem elérhető. ❌</p>
-          <Link to="/polok">
+          <Link to="/felszereles">
             <Button className="rounded-[3rem] bg-gradient-to-r from-red-500 to-orange-500">
               <ArrowLeft className="mr-2 h-4 w-4" />
-              Vissza a pólókhoz
+              Vissza a felszerelésekhez
             </Button>
           </Link>
         </div>
@@ -108,7 +108,7 @@ const ShirtDetail = () => {
           className="mb-8 flex items-center gap-2 hover:bg-gray-100 max-w-3xl mx-auto"
           asChild
         >
-          <Link to="/polok">
+          <Link to="/felszereles">
             <ArrowLeft size={16} />
             Vissza a többi termékhez
           </Link>

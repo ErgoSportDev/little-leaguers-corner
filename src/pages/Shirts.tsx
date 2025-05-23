@@ -53,9 +53,9 @@ const Shirts = () => {
       </div>
 
       <div className="mx-auto max-w-screen-sm text-center lg:mb-16 mb-8">
-        <h1 className="mb-4 text-3xl lg:text-4xl tracking-tight font-[700] text-black dark:text-white text-center">Ergo Sport Pólók</h1>
+        <h1 className="mb-4 text-3xl lg:text-4xl tracking-tight font-[700] text-black dark:text-white text-center">Ergo Sport Felszerelések</h1>
         <p className="text-center font-light text-gray-100 sm:text-xl dark:text-gray-400">
-          Vásárold meg az Ergo Sport hivatalos pólóit! Minden darabunk kényelmes,
+          Vásárold meg az Ergo Sport hivatalos felszereléseit! Minden darabunk kényelmes,
           tartós és tökéletesen képviseli az Ergo Sport szellemiségét.
         </p>
       </div>
@@ -69,7 +69,7 @@ const Shirts = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {items.map((item) => (
               <Card key={item.id} className="bg-white/60 backdrop-blur-sm overflow-hidden flex flex-col h-full border-none shadow-lg hover:shadow-md transition-shadow">
-                <Link to={`/polok/${item.id}`} className="h-64 overflow-hidden">
+                <Link to={`/felszereles/${item.id}`} className="h-64 overflow-hidden">
                   <img
                     src={item.pictures[0]}
                     alt={item.title}
@@ -77,7 +77,7 @@ const Shirts = () => {
                   />
                 </Link>
                 <CardHeader>
-                  <Link to={`/polok/${item.id}`}>
+                  <Link to={`/felszereles/${item.id}`}>
                     <CardTitle className="text-lg">
                       {item.title}
                     </CardTitle>
@@ -90,7 +90,7 @@ const Shirts = () => {
                   <p className="text-gray-600 mb-4">{item.short_desc}</p>
                 </CardContent>
                 <CardFooter className="mt-auto">
-                  <Link to={`/polok/${item.id}`} className="w-full">
+                  <Link to={`/felszereles/${item.id}`} className="w-full">
                     <Button className="w-full bg-red-600 hover:bg-red-700">
                       <ShoppingCart className="mr-2 h-4 w-4" />
                       Részletek

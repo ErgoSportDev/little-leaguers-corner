@@ -73,8 +73,7 @@ const Hero = () => {
           </div>
           <div className="min-w-[10rem] max-w-[50rem]">
             <p className="relative text-center text-white">
-              Fedezd fel az örömteli mozgás világát az Ergo Sporttal, ahol minden gyerek megtalálhatja
-              a számára legizgalmasabb sportágat és kibontakoztathatja tehetségét!
+              Az Ergo Sport közösség teret ad, hogy játékosan fedezd fel Önmagad
             </p>
           </div>
           <div className="container mx-auto px-4 text-center z-20 relative pb-[14vh] pt-[3vh]">

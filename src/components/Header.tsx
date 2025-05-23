@@ -143,12 +143,12 @@ const Header = ({ scrollToSection }: HeaderProps) => {
                     <Pencil size={16} className="mr-2" /> Blog
                   </Button>
                 </Link>
-                <Link to="/polok" className="text-white hover:bg-red-500/50 w-full justify-start">
+                <Link to="/felszereles" className="text-white hover:bg-red-500/50 w-full justify-start">
                   <Button
                     variant="ghost"
                     onClick={toggleMenu}
                   >
-                    <ShoppingBag size={16} className="mr-2" /> Pólók
+                    <ShoppingBag size={16} className="mr-2" /> Felszerelés
                   </Button>
                 </Link>
               </div>
@@ -236,13 +236,13 @@ const Header = ({ scrollToSection }: HeaderProps) => {
                   <Pencil size={16} className="mr-1" /> Blog
                 </Button>
               </Link>
-              <Link to="/polok">
+              <Link to="/felszereles">
                 <Button
                   variant="ghost"
                   className="text-white hover:bg-red-500/50"
                   size="sm"
                 >
-                  <ShoppingBag size={16} className="mr-1" /> Pólók
+                  <ShoppingBag size={16} className="mr-1" /> Felszerelés
                 </Button>
               </Link>
             </div>
