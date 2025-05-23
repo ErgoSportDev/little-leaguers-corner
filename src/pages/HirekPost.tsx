@@ -38,7 +38,7 @@ const HirekPost = () => {
 
       if (error) {
         console.error("Error fetching news post:", error);
-        setError("Couldn't load the news post. Please try again later.");
+        setError("A hír vagy beszámoló most nem érhető el, próbálkozz késöbb.");
       } else {
         // console.log(data);
         setPost(data);
@@ -69,7 +69,7 @@ const HirekPost = () => {
       <div className="flex flex-col items-center justify-center min-h-screen gap-4">
         <p className="text-xl text-red-600">{error}</p>
         <Button asChild className="rounded-[3rem] bg-gradient-to-r from-red-500 to-orange-500">
-          <Link to="/hirek">Vissza a hírekhez</Link>
+          <Link to="/aktualis">Vissza az aktuálisok oldalra</Link>
         </Button>
       </div>
     );
@@ -78,35 +78,40 @@ const HirekPost = () => {
   if (!post) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen gap-4">
-        <p className="text-xl">A hír nem található ❌</p>
+        <p className="text-xl">A hír vagy blog bejegyzés nem található ❌</p>
         <Button asChild className="rounded-[3rem] bg-gradient-to-r from-red-500 to-orange-500">
-          <Link to="/hirek">Vissza a hírekhez</Link>
+          <Link to="/aktualis">Vissza az aktuálisok oldalra</Link>
         </Button>
       </div>
     );
   }
 
   return (
-    <div className="bg-white py-24 sm:py-32">
-      <div className="mx-auto max-w-3xl px-6 lg:px-8">
+    <div className="py-24 sm:py-32">
+
+      <div className="fixed inset-0 -z-10 bg-gradient-to-br from-red-100 via-red-400 to-red-700 flex items-center justify-center">
+        <img src="/lovable-uploads/download.svg" />
+      </div>
+
+      <div className="bg-white/90 backdrop-blur-sm mx-auto max-w-3xl px-6 lg:px-8 rounded-[1rem] shadow-lg p-[1rem]">
         <div className="mx-auto">
           <Button
             variant="ghost"
             className="mb-8 flex items-center gap-2 hover:bg-gray-100"
             asChild
           >
-            <Link to="/hirek">
+            <Link to="/aktualis">
               <ArrowLeft size={16} />
-              Vissza a hírekhez
+              Vissza az aktuálisok oldalra
             </Link>
           </Button>
 
           <article>
             <header className="mb-10">
               {post.highlight && (
-                <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800 mb-4">
-                  Kiemelt hír
-                </div>
+                <span className="mr-[0.5rem] px-2 py-1  bg-gradient-to-r from-red-400 via-red-500 to-red-600 text-white text-xs rounded-full">
+                  Kiemelt
+                </span>
               )}
               <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{post.title}</h1>
               <div className="mt-2 text-sm text-gray-500">

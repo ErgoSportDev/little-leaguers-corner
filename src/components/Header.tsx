@@ -119,22 +119,22 @@ const Header = ({ scrollToSection }: HeaderProps) => {
                 >
                   <Phone size={16} className="mr-2" /> Kapcsolatt
                 </Button>
-                <Link to="/hirek" className="text-white hover:bg-red-500/50 w-full justify-start">
+                {/* <Link to="/hirek" className="text-white hover:bg-red-500/50 w-full justify-start">
                   <Button
                     variant="ghost"
                     onClick={toggleMenu}
                   >
                     <Newspaper size={16} className="mr-2" /> Hírek
                   </Button>
-                </Link>
-                <Link to="/beszamolok" className="text-white hover:bg-red-500/50 w-full justify-start">
+                </Link> */}
+                {/* <Link to="/beszamolok" className="text-white hover:bg-red-500/50 w-full justify-start">
                   <Button
                     variant="ghost"
                     onClick={toggleMenu}
                   >
                     <ClipboardList size={16} className="mr-2" /> Beszámolók
                   </Button>
-                </Link>
+                </Link> */}
                 <Link to="/blog" className="text-white hover:bg-red-500/50 w-full justify-start">
                   <Button
                     variant="ghost"
@@ -187,7 +187,7 @@ const Header = ({ scrollToSection }: HeaderProps) => {
                   className="text-white hover:bg-red-500/50"
                   size="sm"
                 >
-                  <Calendar size={16} className="mr-1" /> Eseményekk
+                  <Calendar size={16} className="mr-1" /> Események
                 </Button>
               </Link>
               <Link
@@ -209,7 +209,7 @@ const Header = ({ scrollToSection }: HeaderProps) => {
               >
                 <Phone size={16} className="mr-1" /> Kapcsolat
               </Button>
-              <Link to="/hirek">
+              {/* <Link to="/hirek">
                 <Button
                   variant="ghost"
                   className="text-white hover:bg-red-500/50"
@@ -217,8 +217,8 @@ const Header = ({ scrollToSection }: HeaderProps) => {
                 >
                   <Newspaper size={16} className="mr-1" /> Hírek
                 </Button>
-              </Link>
-              <Link to="/beszamolok">
+              </Link> */}
+              {/* <Link to="/beszamolok">
                 <Button
                   variant="ghost"
                   className="text-white hover:bg-red-500/50"
@@ -226,7 +226,7 @@ const Header = ({ scrollToSection }: HeaderProps) => {
                 >
                   <ClipboardList size={16} className="mr-1" /> Beszámolók
                 </Button>
-              </Link>
+              </Link> */}
               <Link to="/blog">
                 <Button
                   variant="ghost"

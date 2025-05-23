@@ -37,7 +37,7 @@ const BlogPost = () => {
 
       if (error) {
         console.error("Error fetching blog post:", error);
-        setError("Blog poszt most nem érhető el, próbálkozz késöbb.");
+        setError("Blog bejegyzés most nem érhető el, próbálkozz késöbb.");
       } else {
         // console.log(data)
         setPost(data);
@@ -108,8 +108,13 @@ const BlogPost = () => {
   }
 
   return (
-    <div className="bg-white py-24 sm:py-32">
-      <div className="mx-auto max-w-3xl px-6 lg:px-8">
+    <div className="py-24 sm:py-32">
+
+      <div className="fixed inset-0 -z-10 bg-gradient-to-br from-red-100 via-red-400 to-red-700 flex items-center justify-center">
+        <img src="/lovable-uploads/download.svg" />
+      </div>
+
+      <div className="bg-white/90 backdrop-blur-sm mx-auto max-w-3xl px-6 lg:px-8 rounded-[1rem] shadow-lg p-[1rem]">
         <div className="mx-auto">
           <Button
             variant="ghost"
@@ -159,7 +164,7 @@ const BlogPost = () => {
               <div className="mt-10 mb-16 text-gray-700 text-[1.1rem] leading-[1.7] markdown text-justify">
                 <ReactMarkdown rehypePlugins={[rehypeRaw]}>
                   {post.long_story}
-                  </ReactMarkdown>
+                </ReactMarkdown>
               </div>
             </div>
           </article>
