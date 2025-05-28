@@ -1,0 +1,67 @@
+@property --num {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: false;
+}
+
+#sportok, #gyerekek, #edzok, #helyszinek {
+  transition: --num 6s;
+  counter-set: num var(--num);
+  /* font: 800 40px system-ui; */
+}
+
+#sportok::after {
+  content: counter(num);
+}
+
+#gyerekek::after {
+  content: counter(num);
+}
+
+#edzok::after {
+  content: counter(num);
+}
+
+#helyszinek::after {
+  content: counter(num);
+}
+
+/* Initial state */
+#sportok {
+  --num: 0;
+}
+
+/* Final state triggered by JS */
+#sportok.animate {
+  --num: 15;
+}
+
+/* Initial state */
+#gyerekek {
+  --num: 0;
+}
+
+/* Final state triggered by JS */
+#gyerekek.animate {
+  --num: 30;
+}
+
+/* Initial state */
+#edzok {
+  --num: 0;
+}
+
+/* Final state triggered by JS */
+#edzok.animate {
+  --num: 3;
+}
+
+/* Initial state */
+#helyszinek {
+  --num: 0;
+}
+
+/* Final state triggered by JS */
+#helyszinek.animate {
+  --num: 2;
+}
