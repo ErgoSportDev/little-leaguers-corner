@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import "../styles/counter.css";
 import { useEffect, useRef, useState } from "react";
+import RollToRightImg from "@/components/RollToRightImg";
 
 const Teachers = () => {
 
@@ -45,19 +46,19 @@ const Teachers = () => {
   const rotate = useTransform(
     scrollYProgress,
     [0, 1],
-    ["0deg", "180deg"]
+    ["0deg", "720deg"]
   );
 
-  const y = useTransform(
+  const x = useTransform(
     scrollYProgress,
     [0, 1],
-    ["0px", "200px"],
+    ["0vw", "100vw"],
   );
 
   const scale = useTransform(
     scrollYProgress,
     [0, 1],
-    [1, 1.3],
+    [0.5, 1.3],
   );
 
   const teachers = [
@@ -161,30 +162,25 @@ const Teachers = () => {
             Ismerd meg az Ergo Sport filozófiáját
           </p>
         </div>
-        {/* <motion.div
-          ref={targetRef}
-          style={{
-            rotate,
-            y
-          }}
-          className="mx-auto size-48 bg-indigo-500"
-        /> */}
+
+        <div className="pt-[15rem]">
+          <RollToRightImg
+            imgSrc={"/lovable-uploads/image1.png"}
+            left={"-10vw"}
+            right={"100vw"}
+            rotateStart={"0deg"}
+            rotateEnd={"1080deg"}
+          />
+        </div>
 
         <motion.div
-          // ref={targetRef}
-          // style={{
-          // rotate,
-          // y,
-          // scale
-          // }}
           initial={{ opacity: 0, scale: 0 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{
             duration: 0.5,
             scale: { type: 'spring', visualDuration: 0.4, bounce: 0.5 }
           }}
-          // transition={{ delay: 2 * 0.2 }}
-          className="mt-[20rem] container p-0 mx-auto">
+          className=" container p-0 mx-auto">
           <div className="bg-white/90 backdrop-blur-sm rounded-lg m-4 shadow-xl">
             <h2 className="pl-5 pt-5 font-bold text-xl">Az Ergo Sport filozófiája</h2>
             <p className="p-5 text-justify text-gray-600">
@@ -213,12 +209,6 @@ const Teachers = () => {
 
 
         <motion.div
-          // ref={targetRef}
-          // style={{
-          // rotate,
-          // y,
-          // scale
-          // }}
           initial={{ opacity: 0, scale: 0 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{
@@ -299,12 +289,6 @@ const Teachers = () => {
         </div>
 
         <motion.div
-          // ref={targetRef}
-          // style={{
-          // rotate,
-          // y,
-          // scale
-          // }}
           initial={{ opacity: 0, scale: 0 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{
@@ -352,13 +336,6 @@ const Teachers = () => {
         </motion.div>
 
         <motion.div
-          // ref={targetRef}
-          // style={{
-          // rotate,
-          // y,
-          // scale
-
-          // }}
           className="mt-[20rem] container p-0 mx-auto"
           initial={{ opacity: 0, scale: 0 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -409,12 +386,6 @@ const Teachers = () => {
         </motion.div>
 
         <motion.div
-          // ref={targetRef}
-          // style={{
-          // rotate,
-          // y,
-          // scale
-          // }}
           className="mt-[20rem] container p-0 mx-auto"
           initial={{ opacity: 0, scale: 0 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -490,7 +461,7 @@ const Teachers = () => {
         </div>
 
         <motion.div
-          className="mt-[20rem] container p-0 pb-[20rem] mx-auto"
+          className="mt-[20rem] container p-0 pb-[5rem] mx-auto"
           initial={{ opacity: 0, scale: 0 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{
@@ -521,6 +492,28 @@ const Teachers = () => {
             </ul>
           </div>
         </motion.div>
+
+        <RollToRightImg
+          imgSrc={"/lovable-uploads/basketball.png"}
+          left={"-10vw"}
+          right={"100vw"}
+          rotateStart={"0deg"}
+          rotateEnd={"720deg"}
+        />
+        <RollToRightImg
+          imgSrc={"/lovable-uploads/football.png"}
+          left={"100vw"}
+          right={"10vw"}
+          rotateStart={"720deg"}
+          rotateEnd={"0deg"}
+        />
+        <RollToRightImg
+          imgSrc={"/lovable-uploads/baseball.png"}
+          left={"-10vw"}
+          right={"100vw"}
+          rotateStart={"0deg"}
+          rotateEnd={"720deg"}
+        />
 
       </section>
 
