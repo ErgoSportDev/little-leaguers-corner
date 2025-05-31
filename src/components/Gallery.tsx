@@ -18,7 +18,7 @@ const Gallery = () => {
     if (error) {
       console.log("Error fetching: ", error);
     } else {
-      console.log(data)
+      // console.log(data)
       setNews(data)
     }
   };
