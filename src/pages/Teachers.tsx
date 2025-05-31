@@ -37,30 +37,6 @@ const Teachers = () => {
     return () => observer.disconnect();
   }, []);
 
-  const targetRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ["start end", "end start"],
-  });
-
-  const rotate = useTransform(
-    scrollYProgress,
-    [0, 1],
-    ["0deg", "720deg"]
-  );
-
-  const x = useTransform(
-    scrollYProgress,
-    [0, 1],
-    ["0vw", "100vw"],
-  );
-
-  const scale = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [0.5, 1.3],
-  );
-
   const teachers = [
     {
       name: "Tóth Regina",
@@ -95,7 +71,7 @@ const Teachers = () => {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col pt-36">
+    <div className="min-h-screen flex flex-col pt-36 overflow-x-hidden">
       <div className="fixed inset-0 -z-10 bg-gradient-to-br from-red-100 via-red-400 to-red-700 flex items-center justify-center">
         <img src={`${import.meta.env.BASE_URL}/lovable-uploads/download.svg`} />
       </div>

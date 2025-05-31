@@ -176,8 +176,8 @@ const EventCalendar = () => {
           <span className="text-center font-bold">
             {props.label}
           </span>
-          <span className="place-self-end">
-            <button type="button" className="place-self-end hover:bg-gray-200 text-gray-500 rounded-md" onClick={() => props.onNavigate('NEXT')}>
+          <span className="ml-auto">
+            <button type="button" className="hover:bg-gray-200 text-gray-500 rounded-md" onClick={() => props.onNavigate('NEXT')}>
               <ChevronRight />
             </button>
           </span>
@@ -200,7 +200,7 @@ const EventCalendar = () => {
                 events={esemenyek}
                 startAccessor="start"
                 endAccessor="end"
-                style={{ height: '32rem', minWidth: 200 }}
+                style={{ height: '32rem', minWidth: 200, maxWidth: 500 }}
                 view={view}
                 date={date}
                 onView={setView}
@@ -220,7 +220,7 @@ const EventCalendar = () => {
             </div>
             <div ref={containerRef} className="space-y-4 overflow-auto h-[32rem] max-sm:mx-4">
               {esemenyek.map((event) => (
-                <Card key={event.id} ref={(el) => (scrollRef.current[event.id] = el)} className="hover:shadow-md transition-shadow">
+                <Card key={event.id} ref={(el) => (scrollRef.current[event.id] = el)} className="bg-white hover:shadow-md transition-shadow">
                   <CardHeader className="space-y-1">
                     <CardTitle className="text-xl">{event.title}</CardTitle>
                     <CardDescription>
