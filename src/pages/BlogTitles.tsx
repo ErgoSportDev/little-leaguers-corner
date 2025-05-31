@@ -30,7 +30,7 @@ const BlogTitles = () => {
       case "Luca":
         return (
           <>
-            <img className="w-7 h-7 rounded-full" src="/lovable-uploads/Luca.jpg" alt="Kép Lucáról" />
+            <img className="w-7 h-7 rounded-full" src={`${import.meta.env.BASE_URL}/lovable-uploads/Luca.jpg`} alt="Kép Lucáról" />
             <span className="font-medium dark:text-white">
               {e.author}
             </span>
@@ -39,7 +39,7 @@ const BlogTitles = () => {
       case "Regi":
         return (
           <>
-            <img className="w-7 h-7 rounded-full" src="/lovable-uploads/Regi.png" alt="Kép Regiről" />
+            <img className="w-7 h-7 rounded-full" src={`${import.meta.env.BASE_URL}/lovable-uploads/Regi.png`} alt="Kép Regiről" />
             <span className="font-medium dark:text-white">
               {e.author}
             </span>
@@ -48,7 +48,7 @@ const BlogTitles = () => {
       case "Csenge":
         return (
           <>
-            <img className="w-7 h-7 rounded-full" src="/lovable-uploads/Luca.jpg" alt="Kép Csengéről" />
+            <img className="w-7 h-7 rounded-full" src={`${import.meta.env.BASE_URL}/lovable-uploads/Csenge.png`} alt="Kép Csengéről" />
             <span className="font-medium dark:text-white">
               {e.author}
             </span>
@@ -63,7 +63,7 @@ const BlogTitles = () => {
     <section className="py-36">
 
       <div className="fixed inset-0 -z-10 bg-gradient-to-br from-red-100 via-red-400 to-red-700 flex items-center justify-center">
-        <img src="/lovable-uploads/download.svg" />
+        <img src={`${import.meta.env.BASE_URL}/lovable-uploads/download.svg`} />
       </div>
 
       <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">

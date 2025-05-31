@@ -47,8 +47,9 @@ const Hero = () => {
             className="w-full h-full object-cover"
             aria-label="Kids Playing"
           >
-          <source src="https://ik.imagekit.io/xtw0vnarh/ergovid.mp4?updatedAt=1748005679189" type="video/mp4" />
-            <img src="/lovable-uploads/logo.png" title="Your browser does not support the <video> tag"></img>
+          {/* <source src="https://ik.imagekit.io/xtw0vnarh/ergovid.mp4?updatedAt=1748005679189" type="video/mp4" /> */}
+          <source src={`${import.meta.env.BASE_URL}/lovable-uploads/ergovid.mp4`} type="video/mp4" />
+            <img src={`${import.meta.env.BASE_URL}/lovable-uploads/logo.png`} title="Your browser does not support the <video> tag"></img>
           </video>
           {/* Overlay to ensure text is readable */}
           <div className="absolute inset-0 bg-black/30 z-10"></div>
@@ -58,7 +59,7 @@ const Hero = () => {
           <div className="relative z-10">
             {showLogo && (
               <motion.img
-                src="/lovable-uploads/logo.png"
+                src={`${import.meta.env.BASE_URL}/lovable-uploads/logo.png`}
                 alt="Ergo Sport Logo"
                 initial={{ opacity: 1, scale: 0, y: 0, }}
                 animate={controls}

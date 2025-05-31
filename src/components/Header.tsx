@@ -59,7 +59,7 @@ const Header = ({ scrollToSection }: HeaderProps) => {
             <Link to="/">
               <div className="bg-gradient-to-b from-[#ff0000] to-[#b91c1ce6] p-2 rounded-full">
                 <motion.img
-                  src="/lovable-uploads/logo.png"
+                  src={`${import.meta.env.BASE_URL}/lovable-uploads/logo.png`}
                   className="w-[2rem] h-[2rem] rounded-[2rem]"
                   alt="Ergo Sport Logo"
                   initial={{ opacity: 1, scale: 0, y: -100, }}
@@ -159,7 +159,7 @@ const Header = ({ scrollToSection }: HeaderProps) => {
             <Link to="/">
               <div className="bg-gradient-to-b from-[#ff0000] to-[#b91c1ce6] p-2 rounded-full">
                 <motion.img
-                  src="/lovable-uploads/logo.png"
+                  src={`${import.meta.env.BASE_URL}/lovable-uploads/logo.png`}
                   className="w-[1.6rem] h-[1.6rem] rounded-[1rem]"
                   alt="Ergo Sport Logo"
                   initial={{ opacity: 1, scale: 0, y: -100, }}
