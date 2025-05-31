@@ -13,6 +13,8 @@ const EventCalendar = () => {
   const [date, setDate] = useState(new Date());
   const [esemenyek, setEsemenyek] = useState([]);
 
+  let oneMonthBefore = moment().subtract(1, 'months').format('YYYY-MM-DD');
+
   const containerRef = useRef(null);
   const scrollRef = useRef({});
   const clickRef = useRef(null)
@@ -68,7 +70,11 @@ const EventCalendar = () => {
 
   //fetching from supabase
   const fetchTodos = async () => {
-    const { data, error } = await supabase.from("Events").select("*").order('start', { ascending: true });
+    const { data, error } = await supabase
+      .from("Events")
+      .select("*")
+      .gte('start', oneMonthBefore)
+      .order('start', { ascending: true });
     if (error) {
       console.log("Error fetching: ", error);
     } else {
@@ -188,7 +194,7 @@ const EventCalendar = () => {
 
   return (
     <>
-    {/* bg-gray-50 */}
+      {/* bg-gray-50 */}
       <section className="py-16 bg-white ">
         <div className="container mx-auto px-4 max-sm:px-0">
           <h2 className="text-3xl font-bold text-center mb-12">Közelgő Események</h2>
