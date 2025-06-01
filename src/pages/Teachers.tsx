@@ -46,7 +46,7 @@ const Teachers = () => {
       specialization: "Gyermek és ifjúság nevelés a sport szellemiségében",
       education: "Testnevelési Egyetem Osztatlan tanár képzés, továbbképzések",
       image: `${import.meta.env.BASE_URL}/lovable-uploads/Regi.png`,
-      motto: "Az ember igazi jelleme játék közben nyilvánul meg"
+      motto: "Mozogj, játssz, légy kint - és találd meg, ki vagy bent"
     },
     {
       name: "Horváth Luca",
@@ -65,7 +65,7 @@ const Teachers = () => {
       experience: "12 év szakmai tapasztalat",
       specialization: "Művészi torna, egyensúly fejlesztés, rugalmasság fokozása",
       education: "Sporttudományi Egyetem, Tornász szakképesítés",
-      image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7",
+      image: `${import.meta.env.BASE_URL}/lovable-uploads/Csenge.jpg`,
       motto: "A sport nemcsak testnevelés, hanem léleknek is az egyik legerőteljesebb nevelőeszköze"
     }
   ];

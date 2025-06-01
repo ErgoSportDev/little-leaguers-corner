@@ -69,7 +69,7 @@ const BlogPost = () => {
         };;
       case "Csenge":
         return {
-          pic: `${import.meta.env.BASE_URL}/lovable-uploads/Regi.png`,
+          pic: `${import.meta.env.BASE_URL}/lovable-uploads/Csenge.jpg`,
           job_title: "Ergo Sport szakág vezető"
         };;
       default:

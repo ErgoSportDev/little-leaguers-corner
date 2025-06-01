@@ -48,7 +48,7 @@ const BlogTitles = () => {
       case "Csenge":
         return (
           <>
-            <img className="w-7 h-7 rounded-full" src={`${import.meta.env.BASE_URL}/lovable-uploads/Csenge.png`} alt="Kép Csengéről" />
+            <img className="w-7 h-7 rounded-full" src={`${import.meta.env.BASE_URL}/lovable-uploads/Csenge.jpg`} alt="Kép Csengéről" />
             <span className="font-medium dark:text-white">
               {e.author}
             </span>

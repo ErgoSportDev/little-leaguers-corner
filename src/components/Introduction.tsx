@@ -21,7 +21,7 @@ const Introduction = () => {
       name: "Ferbert Csenge",
       role: "Ergo Sport szakág vezető",
       //description: "Ergo Sport szakág vezető, Ferbert Csenge",
-      image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7"
+      image: `${import.meta.env.BASE_URL}/lovable-uploads/Csenge.jpg`
     }
   ];
 
