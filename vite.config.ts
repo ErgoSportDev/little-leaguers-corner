@@ -14,7 +14,7 @@ export default defineConfig(({ mode }) => ({
     mode === 'development' &&
     componentTagger(),
   ].filter(Boolean),
-  base: '/little-leaguers-corner/',
+  // base: '/little-leaguers-corner/',
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

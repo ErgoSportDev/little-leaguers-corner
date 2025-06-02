@@ -29,7 +29,7 @@ const Index = () => {
   return (
     <div className="parentclass min-h-screen flex flex-col">
       <div className="fixed inset-0 -z-10 bg-gradient-to-br from-red-100 via-red-400 to-red-700 flex items-center justify-center">
-        <img src={`${import.meta.env.BASE_URL}/lovable-uploads/download.svg`} alt="Ergo Sport Logo" />
+        <img src="/lovable-uploads/download.svg" alt="Ergo Sport Logo" />
       </div>
 
       <Hero />

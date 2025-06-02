@@ -45,7 +45,7 @@ const Teachers = () => {
       experience: "5+ év szakmai tapasztalat",
       specialization: "Gyermek és ifjúság nevelés a sport szellemiségében",
       education: "Testnevelési Egyetem Osztatlan tanár képzés, továbbképzések",
-      image: `${import.meta.env.BASE_URL}/lovable-uploads/Regi.png`,
+      image: "/lovable-uploads/Regi.png",
       motto: "Mozogj, játssz, légy kint - és találd meg, ki vagy bent"
     },
     {
@@ -55,7 +55,7 @@ const Teachers = () => {
       experience: "8 év szakmai tapasztalat",
       specialization: "Úszástechnikák, vízhez szoktatás, úszásoktatás minden korosztálynak",
       education: "Sportoktatói diploma, Úszóedzői minősítés",
-      image: `${import.meta.env.BASE_URL}/lovable-uploads/Luca.jpg`,
+      image: "/lovable-uploads/Luca.jpg",
       motto: "Az ember igazi jelleme játék közben nyilvánul meg"
     },
     {
@@ -65,7 +65,7 @@ const Teachers = () => {
       experience: "12 év szakmai tapasztalat",
       specialization: "Művészi torna, egyensúly fejlesztés, rugalmasság fokozása",
       education: "Sporttudományi Egyetem, Tornász szakképesítés",
-      image: `${import.meta.env.BASE_URL}/lovable-uploads/Csenge.jpg`,
+      image: "/lovable-uploads/Csenge.jpg",
       motto: "A sport nemcsak testnevelés, hanem léleknek is az egyik legerőteljesebb nevelőeszköze"
     }
   ];
@@ -73,7 +73,7 @@ const Teachers = () => {
   return (
     <div className="min-h-screen flex flex-col pt-36 overflow-x-hidden">
       <div className="fixed inset-0 -z-10 bg-gradient-to-br from-red-100 via-red-400 to-red-700 flex items-center justify-center">
-        <img src={`${import.meta.env.BASE_URL}/lovable-uploads/download.svg`} />
+        <img src="/lovable-uploads/download.svg" />
       </div>
 
       <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6">
@@ -141,7 +141,7 @@ const Teachers = () => {
 
         <div className="pt-[15rem]">
           <RollToRightImg
-            imgSrc={`${import.meta.env.BASE_URL}/lovable-uploads/image1.png`}
+            imgSrc="/lovable-uploads/image1.png"
             left={"-10vw"}
             right={"100vw"}
             rotateStart={"0deg"}
@@ -179,7 +179,7 @@ const Teachers = () => {
           }}
         >
           <div className="container mx-auto">
-            <img src={`${import.meta.env.BASE_URL}/lovable-uploads/image3.png`} />
+            <img src="/lovable-uploads/image3.png" />
           </div>
         </motion.div>
 
@@ -241,7 +241,7 @@ const Teachers = () => {
                 scale: { type: 'spring', visualDuration: 0.7, bounce: 0.5 }
               }}
             >
-              <img src={`${import.meta.env.BASE_URL}/lovable-uploads/image2.png`} className="mx-auto rounded-lg shadow-xl" />
+              <img src="/lovable-uploads/image2.png" className="mx-auto rounded-lg shadow-xl" />
             </motion.div>
             <motion.div
               initial={{
@@ -259,7 +259,7 @@ const Teachers = () => {
                 scale: { type: 'spring', visualDuration: 0.7, bounce: 0.5 },
               }}
             >
-              <img src={`${import.meta.env.BASE_URL}/lovable-uploads/image5.jpg`} className="mx-auto rounded-lg shadow-xl" />
+              <img src="/lovable-uploads/image5.jpg" className="mx-auto rounded-lg shadow-xl" />
             </motion.div>
           </div>
         </div>
@@ -308,7 +308,7 @@ const Teachers = () => {
             scale: { type: 'spring', visualDuration: 0.7, bounce: 0.5 },
           }}
         >
-          <img src={`${import.meta.env.BASE_URL}/lovable-uploads/image4.jpg`} className="mx-auto rounded-lg shadow-xl" />
+          <img src="/lovable-uploads/image4.jpg" className="mx-auto rounded-lg shadow-xl" />
         </motion.div>
 
         <motion.div
@@ -358,7 +358,7 @@ const Teachers = () => {
             scale: { type: 'spring', visualDuration: 0.7, bounce: 0.5 },
           }}
         >
-          <img src={`${import.meta.env.BASE_URL}/lovable-uploads/image7.jpg`} className="mx-auto rounded-lg shadow-xl" />
+          <img src="/lovable-uploads/image7.jpg" className="mx-auto rounded-lg shadow-xl" />
         </motion.div>
 
         <motion.div
@@ -413,7 +413,7 @@ const Teachers = () => {
                 scale: { type: 'spring', visualDuration: 0.7, bounce: 0.5 }
               }}
             >
-              <img src={`${import.meta.env.BASE_URL}/lovable-uploads/image6.jpg`} className="mx-auto rounded-lg shadow-xl" />
+              <img src="/lovable-uploads/image6.jpg" className="mx-auto rounded-lg shadow-xl" />
             </motion.div>
             <motion.div
               initial={{
@@ -431,7 +431,7 @@ const Teachers = () => {
                 scale: { type: 'spring', visualDuration: 0.7, bounce: 0.5 },
               }}
             >
-              <img src={`${import.meta.env.BASE_URL}/lovable-uploads/image8.jpg`} className="mx-auto rounded-lg shadow-xl" />
+              <img src="/lovable-uploads/image8.jpg" className="mx-auto rounded-lg shadow-xl" />
             </motion.div>
           </div>
         </div>
@@ -470,21 +470,21 @@ const Teachers = () => {
         </motion.div>
 
         <RollToRightImg
-          imgSrc={`${import.meta.env.BASE_URL}/lovable-uploads/basketball.png`}
+          imgSrc="/lovable-uploads/basketball.png"
           left={"-10vw"}
           right={"100vw"}
           rotateStart={"0deg"}
           rotateEnd={"720deg"}
         />
         <RollToRightImg
-          imgSrc={`${import.meta.env.BASE_URL}/lovable-uploads/football.png`}
+          imgSrc="/lovable-uploads/football.png"
           left={"100vw"}
           right={"10vw"}
           rotateStart={"720deg"}
           rotateEnd={"0deg"}
         />
         <RollToRightImg
-          imgSrc={`${import.meta.env.BASE_URL}/lovable-uploads/baseball.png`}      
+          imgSrc="/lovable-uploads/baseball.png" 
           left={"-10vw"}
           right={"100vw"}
           rotateStart={"0deg"}
@@ -499,7 +499,7 @@ const Teachers = () => {
           <dl className="grid max-w-screen-xl grid-cols-2 gap-4 p-4 mx-auto text-gray-900 md:grid-cols-4 dark:text-white sm:p-8">
             <div className="flex flex-col items-center justify-center rounded-[1rem] shadow-xl p-5 border border-black">
               <dt id="sportok" ref={numberRef} className={`number ${inView ? "animate" : ""}` + " mb-2 text-3xl font-extrabold"}></dt>
-              <dd className="text-gray-500 dark:text-gray-400">Sportok</dd>
+              <dd className="text-gray-500 dark:text-gray-400">Sportág</dd>
             </div>
             <div className="flex flex-col items-center justify-center rounded-[1rem] shadow-xl p-5 border border-black">
               <dt id="gyerekek" ref={numberRef} className={`number ${inView ? "animate" : ""}` + " mb-2 text-3xl font-extrabold"}></dt>
@@ -507,11 +507,11 @@ const Teachers = () => {
             </div>
             <div className="flex flex-col items-center justify-center rounded-[1rem] shadow-xl p-5 border border-black">
               <dt id="edzok" ref={numberRef} className={`number ${inView ? "animate" : ""}` + " mb-2 text-3xl font-extrabold"}></dt>
-              <dd className="text-gray-500 dark:text-gray-400">Edzők</dd>
+              <dd className="text-gray-500 dark:text-gray-400">Edző</dd>
             </div>
             <div className="flex flex-col items-center justify-center rounded-[1rem] shadow-xl p-5 border border-black">
               <dt id="helyszinek" ref={numberRef} className={`number ${inView ? "animate" : ""}` + " mb-2 text-3xl font-extrabold"}></dt>
-              <dd className="text-gray-500 dark:text-gray-400">Helyszinek</dd>
+              <dd className="text-gray-500 dark:text-gray-400">Helyszin</dd>
             </div>
           </dl>
         </div>

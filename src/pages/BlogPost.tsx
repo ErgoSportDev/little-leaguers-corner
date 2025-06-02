@@ -59,17 +59,17 @@ const BlogPost = () => {
     switch (author) {
       case "Luca":
         return {
-          pic: `${import.meta.env.BASE_URL}/lovable-uploads/Luca.jpg`,
+          pic: "/lovable-uploads/Luca.jpg",
           job_title: "Ergo Sport szakág vezető"
         };
       case "Regi":
         return {
-          pic: `${import.meta.env.BASE_URL}/lovable-uploads/Regi.png`,
+          pic: "/lovable-uploads/Regi.png",
           job_title: "Ergo Sport szakmai vezető"
         };;
       case "Csenge":
         return {
-          pic: `${import.meta.env.BASE_URL}/lovable-uploads/Csenge.jpg`,
+          pic: "/lovable-uploads/Csenge.jpg",
           job_title: "Ergo Sport szakág vezető"
         };;
       default:
@@ -111,7 +111,7 @@ const BlogPost = () => {
     <div className="py-24 sm:py-32">
 
       <div className="fixed inset-0 -z-10 bg-gradient-to-br from-red-100 via-red-400 to-red-700 flex items-center justify-center">
-        <img  src={`${import.meta.env.BASE_URL}/lovable-uploads/download.svg`} />
+        <img  src="/lovable-uploads/download.svg" />
       </div>
 
       <div className="bg-white/90 backdrop-blur-sm mx-auto max-w-3xl px-6 lg:px-8 rounded-[1rem] shadow-lg p-[1rem]">

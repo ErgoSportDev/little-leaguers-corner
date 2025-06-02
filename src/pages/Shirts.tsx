@@ -49,7 +49,7 @@ const Shirts = () => {
     <div className="container mx-auto py-52">
 
       <div className="fixed inset-0 -z-10 bg-gradient-to-br from-red-100 via-red-400 to-red-700 flex items-center justify-center">
-        <img src={`${import.meta.env.BASE_URL}/lovable-uploads/download.svg`} />
+        <img src="/lovable-uploads/download.svg" />
       </div>
 
       <div className="mx-auto max-w-screen-sm text-center lg:mb-16 mb-8">

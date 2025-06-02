@@ -99,7 +99,7 @@ const ShirtDetail = () => {
     <div className="container mx-auto py-24">
 
       <div className="fixed inset-0 -z-10 bg-gradient-to-br from-red-100 via-red-400 to-red-700 flex items-center justify-center">
-        <img src={`${import.meta.env.BASE_URL}/lovable-uploads/download.svg`} />
+        <img src="/lovable-uploads/download.svg" />
       </div>
 
       <div className="bg-white/90 backdrop-blur-sm rounded-[1rem] shadow-lg p-[1rem]">

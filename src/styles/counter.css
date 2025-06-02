@@ -33,7 +33,7 @@
 
 /* Final state triggered by JS */
 #sportok.animate {
-  --num: 15;
+  --num: 25;
 }
 
 /* Initial state */
@@ -43,7 +43,7 @@
 
 /* Final state triggered by JS */
 #gyerekek.animate {
-  --num: 30;
+  --num: 99;
 }
 
 /* Initial state */
