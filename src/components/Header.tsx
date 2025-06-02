@@ -156,6 +156,7 @@ const Header = ({ scrollToSection }: HeaderProps) => {
                     variant="ghost"
                     className="text-white bg-gradient-to-r from-amber-500 to-pink-500"
                     size="sm"
+                    onClick={toggleMenu}
                   >
                     <CirclePlus size={16} className="mr-1" /> Jelentkezés
                   </Button>
