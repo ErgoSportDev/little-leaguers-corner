@@ -69,7 +69,7 @@ const BlogTitles = () => {
       <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
         <div className="mx-auto max-w-screen-sm text-center lg:mb-16 mb-8">
           <h2 className="mb-4 text-3xl lg:text-4xl tracking-tight font-[700] text-black dark:text-white">Ergo Blog</h2>
-          <p className="font-light text-gray-100 sm:text-xl dark:text-gray-100">Fedezd fel az Ergo Sport blogját, ahol hasznos tippeket, híreket és inspiráló történeteket találsz a gyerekek sportolásáról!.</p>
+          <p className="font-light text-gray-100 sm:text-xl dark:text-gray-100">Fedezd fel az Ergo Sport blogját, ahol hasznos tippeket, híreket és inspiráló történeteket találsz a gyerekek sportolásáról!</p>
         </div>
         {loading ? (
           <div className="flex justify-center">

@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Activity, Calendar, User, Phone, Menu, Newspaper, Pencil, ClipboardList, ShoppingBag } from "lucide-react";
+import { Activity, Calendar, User, Phone, Menu, Newspaper, Pencil, ClipboardList, ShoppingBag, CirclePlus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { motion, useAnimation } from "framer-motion";
@@ -151,6 +151,15 @@ const Header = ({ scrollToSection }: HeaderProps) => {
                     <ShoppingBag size={16} className="mr-2" /> Felszerelés
                   </Button>
                 </Link>
+                <Link to="/jelentkezes">
+                  <Button
+                    variant="ghost"
+                    className="text-white bg-gradient-to-r from-amber-500 to-pink-500"
+                    size="sm"
+                  >
+                    <CirclePlus size={16} className="mr-1" /> Jelentkezés
+                  </Button>
+                </Link>
               </div>
             )}
           </>
@@ -243,6 +252,15 @@ const Header = ({ scrollToSection }: HeaderProps) => {
                   size="sm"
                 >
                   <ShoppingBag size={16} className="mr-1" /> Felszerelés
+                </Button>
+              </Link>
+              <Link to="/jelentkezes">
+                <Button
+                  variant="ghost"
+                  className="text-white bg-gradient-to-r from-amber-500 to-pink-500"
+                  size="sm"
+                >
+                  <CirclePlus size={16} className="mr-1" /> Jelentkezés
                 </Button>
               </Link>
             </div>

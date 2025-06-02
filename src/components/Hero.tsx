@@ -80,7 +80,7 @@ const Hero = () => {
           <div className="container mx-auto px-4 text-center z-20 relative pb-[14vh] pt-[3vh]">
             <div className="flex flex-wrap justify-center gap-4">
               <Link
-                to="/csapatunk"
+                to="/jelentkezes"
                 className="drop-shadow-md hover:drop-shadow-xl bg-red-600 text-white p-5 py-2 rounded-[2rem] text-[2rem] font-[700] hover:bg-red-500 transition-colors"
               >
                 <span className="m-10">JELENTKEZZ</span>

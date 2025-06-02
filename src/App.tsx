@@ -7,6 +7,7 @@ import { HashRouter , Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Teachers from "./pages/Teachers";
 import NotFound from "./pages/NotFound";
+import Apply from "./pages/Apply";
 import ScrollToTop from "./components/ScrollToTop";
 import BlogTitles from "./pages/BlogTitles";
 import BlogPost from "./pages/BlogPost";
@@ -35,6 +36,7 @@ const App = () => (
             <Route path="blog/:id" element={<BlogPost />} />
             <Route path="aktualis" element={<Hirek />} />
             <Route path="aktualis/:id" element={<HirekPost />} />
+            <Route path="jelentkezes" element={<Apply />} />
             {/* <Route path="beszamolok" element={<Beszamolok />} /> */}
             {/* <Route path="beszamolok/:id" element={<BeszamolokPost />} /> */}
             <Route path="felszereles" element={<Shirts />} />

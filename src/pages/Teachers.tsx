@@ -532,8 +532,7 @@ const Teachers = () => {
               Csatlakozz most, és élvezd a sport minden percét!
             </p>
             <Link
-              to="/"
-              state={{ scrollTo: 'test-id' }}
+              to="/jelentkezes"
               className="drop-shadow-md hover:drop-shadow-xl bg-black text-white p-5 py-2 rounded-[2rem] text-[1.5rem] font-[600] hover:bg-red-500 transition-colors"
             >
               <span className="m-5">🏀 Jelentkezek! ⚽</span>
