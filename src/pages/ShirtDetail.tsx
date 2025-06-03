@@ -32,9 +32,11 @@ const ShirtDetail = () => {
   const [loading, setLoading] = useState(true);
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const sizes = ["XS", "S", "M", "L", "XL", "XXL"];
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const [customerEmail, setCustomerEmail] = useState("");
   const [emailValid, setEmailValid] = useState(true);
+  const [respMessage, setRespMessage] = useState(null);
+  const [orderLoader, setOrderLoader] = useState(false);
 
   useEffect(() => {
     fetchShopItem();
@@ -53,28 +55,50 @@ const ShirtDetail = () => {
   };
 
   const emailOrder = async (message) => {
-    console.log("emailkuldes")
-    await fetch("https://vwcicmjfgefjlumdetva.supabase.co/functions/v1/email-send-shop", {
-      method: "POST",
-      headers: corsHeaders,
-      body: JSON.stringify({
-        subject: "Termék Rendelés",
-        message: message
-      }),
-    });
+    try {
+      setOrderLoader(true)
+      const response = await fetch("https://vwcicmjfgefjlumdetva.supabase.co/functions/v1/email-send-shop", {
+        method: "POST",
+        headers: corsHeaders,
+        body: JSON.stringify({
+          subject: "Termék Rendelés",
+          message: message
+        }),
+      });
+
+      if (response.ok) {
+        setOrderLoader(false)
+        setRespMessage("A megrendelés sikeresen megtörtént! Hamarosan felvesszük Önnel a kapcsolatot emailben a további teendőkkel és részletekkel kapcsolatban. ✅")
+      } else {
+        setOrderLoader(false)
+        setRespMessage("Hiba történt a rendelés során, kérlek próbáld újra később. ❌")
+      }
+
+    } catch (error) {
+      setOrderLoader(false)
+      setRespMessage("Hiba történt a rendelés során, kérlek próbáld újra később. ❌")
+    }
   }
+
+  // return new Response("ok", {
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //     "Access-Control-Allow-Origin": "*",
+  //     "Access-Control-Allow-Headers": "*"
+  //   },
+  //   status: 200
+  // });
 
   const orderItem = () => {
     if (selectedSize) {
       if (isValidEmail(customerEmail)) {
         setEmailValid(true)
-        let message = "Termek" + {shirt.title}`
+        let message = "Újabb Termék Került Megrendelésre!<br><br><strong>Termék:</strong> " + shirt.title + "<br> <strong>Méret:</strong> " + selectedSize + "<br> <strong>Megrendelő:</strong> " + customerEmail
         emailOrder(message)
       } else {
         setEmailValid(false)
       }
     }
-
   }
 
   const splitURL = (data) => {
@@ -146,18 +170,6 @@ const ShirtDetail = () => {
           <Link to="/felszereles">
             <ArrowLeft size={16} />
             Vissza a többi termékhez
-          </Link>
-        </Button>
-
-        <Button
-          variant="ghost"
-          className="mb-8 flex items-center gap-2 hover:bg-gray-100 max-w-3xl mx-auto"
-          asChild
-          onClick={emailOrder}
-        >
-          <Link to="">
-            <ArrowLeft size={16} />
-            Email Test
           </Link>
         </Button>
 
@@ -235,9 +247,6 @@ const ShirtDetail = () => {
             {!selectedSize && <span className="text-red-400">Kérem válasszon méretet!</span>}
           </div>
 
-
-
-
           <Dialog open={open} onClose={setOpen} className="relative z-10">
             <DialogBackdrop
               transition
@@ -253,33 +262,51 @@ const ShirtDetail = () => {
                   <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                     <div className="sm:flex sm:items-start">
                       <div className="mx-auto flex size-12 shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:size-10">
-                        {/* <ExclamationTriangleIcon aria-hidden="true" className="size-6 text-red-600" /> */}💎
+                        {/* <ExclamationTriangleIcon aria-hidden="true" className="size-6 text-red-600" /> */}👕
                       </div>
                       <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                         <DialogTitle as="h3" className="text-base font-semibold text-gray-900">
                           {shirt.title} megrendelése
                         </DialogTitle>
-                        <div className="mt-2">
-                          <p className="text-sm text-gray-500 pb-5">
-                            A megrendelés leadásához kérjük, adja meg e-mail címét, hogy a rendelés részleteiről és állapotáról értesíteni tudjuk.
-                          </p>
-                          <div className="mb-6">
-                            <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">E-mail Cím</label>
-                            <input
-                              value={customerEmail}
-                              onChange={(e) => setCustomerEmail(e.target.value)}
-                              type="email"
-                              id="email"
-                              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                              placeholder="gipsz.jakab@email.com"
-                              required />
-                            {!emailValid && <span className="text-red-400 text-sm">Email formátuma nem megfelelő!</span>}
+                        {respMessage != null ?
+                          <div className="pt-10 pb-5 font-semibold">
+                            <span className="text-lg">
+                              {respMessage}
+                            </span>
                           </div>
-                          <div className="mb-6">
-                            <span className="block mb-2 text-sm font-medium text-gray-900 dark:text-white pb-2">Választott Méret</span>
-                            <span className="rounded-full text-xxl border bg-red-300 text-white border-red-400 text-center pl-[10px] pr-[10px] p-[7px]">{selectedSize}</span>
+                          :
+                          <div className="mt-2">
+                            <p className="text-sm text-gray-500 pb-5">
+                              A megrendelés leadásához kérjük, adja meg e-mail címét, hogy a rendelés részleteiről és állapotáról értesíteni tudjuk.
+                            </p>
+                            <div className="mb-6">
+                              <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">E-mail Cím</label>
+                              <input
+                                value={customerEmail}
+                                onChange={(e) => setCustomerEmail(e.target.value)}
+                                type="email"
+                                id="email"
+                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="gipsz.jakab@email.com"
+                                required />
+                              {!emailValid && <span className="text-red-400 text-sm">Email formátuma nem megfelelő!</span>}
+                            </div>
+                            <div className="mb-6">
+                              <span className="block mb-2 text-sm font-medium text-gray-900 dark:text-white pb-2">Választott Méret</span>
+                              <span className="rounded-full text-xxl border bg-red-300 text-white border-red-400 text-center pl-[10px] pr-[10px] p-[7px]">{selectedSize}</span>
+                            </div>
                           </div>
-                        </div>
+                        }
+                        {orderLoader &&
+                          <div role="status">
+                            <svg aria-hidden="true" className="inline w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-red-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor" />
+                              <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill" />
+                            </svg>
+                            <span className="pl-3">Kérem Várjon!</span>
+                            <span className="sr-only">Betöltés...</span>
+                          </div>
+                        }
                       </div>
                     </div>
                   </div>
