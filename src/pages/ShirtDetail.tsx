@@ -6,6 +6,9 @@ import { Button } from "@/components/ui/button";
 import { Shirt as LucideShirt, ShoppingCart, ArrowLeft } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import supabase from "../supabase-client";
+import { corsHeaders } from "../cors"
+import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react'
+// import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 import {
   Carousel,
   CarouselContent,
@@ -29,6 +32,9 @@ const ShirtDetail = () => {
   const [loading, setLoading] = useState(true);
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const sizes = ["XS", "S", "M", "L", "XL", "XXL"];
+  const [open, setOpen] = useState(true);
+  const [customerEmail, setCustomerEmail] = useState("");
+  const [emailValid, setEmailValid] = useState(true);
 
   useEffect(() => {
     fetchShopItem();
@@ -46,10 +52,39 @@ const ShirtDetail = () => {
     setLoading(false);
   };
 
+  const emailOrder = async (message) => {
+    console.log("emailkuldes")
+    await fetch("https://vwcicmjfgefjlumdetva.supabase.co/functions/v1/email-send-shop", {
+      method: "POST",
+      headers: corsHeaders,
+      body: JSON.stringify({
+        subject: "Termék Rendelés",
+        message: message
+      }),
+    });
+  }
+
+  const orderItem = () => {
+    if (selectedSize) {
+      if (isValidEmail(customerEmail)) {
+        setEmailValid(true)
+        let message = "Termek" + {shirt.title}`
+        emailOrder(message)
+      } else {
+        setEmailValid(false)
+      }
+    }
+
+  }
+
   const splitURL = (data) => {
     data.pictures = data.pictures.split("|")
     return data
   }
+
+  const isValidEmail = (email) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
 
   if (loading) {
     return (
@@ -111,6 +146,18 @@ const ShirtDetail = () => {
           <Link to="/felszereles">
             <ArrowLeft size={16} />
             Vissza a többi termékhez
+          </Link>
+        </Button>
+
+        <Button
+          variant="ghost"
+          className="mb-8 flex items-center gap-2 hover:bg-gray-100 max-w-3xl mx-auto"
+          asChild
+          onClick={emailOrder}
+        >
+          <Link to="">
+            <ArrowLeft size={16} />
+            Email Test
           </Link>
         </Button>
 
@@ -180,11 +227,85 @@ const ShirtDetail = () => {
             <Button
               className="w-full bg-red-600 hover:bg-red-700 h-12 text-lg"
               disabled={!selectedSize}
+              onClick={() => setOpen(true)}
             >
               <ShoppingCart className="mr-2 h-5 w-5" />
               Megrendelem
             </Button>
+            {!selectedSize && <span className="text-red-400">Kérem válasszon méretet!</span>}
           </div>
+
+
+
+
+          <Dialog open={open} onClose={setOpen} className="relative z-10">
+            <DialogBackdrop
+              transition
+              className="fixed inset-0 bg-gray-500/75 transition-opacity data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in"
+            />
+
+            <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
+              <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                <DialogPanel
+                  transition
+                  className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all data-closed:translate-y-4 data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in sm:my-8 sm:w-full sm:max-w-lg data-closed:sm:translate-y-0 data-closed:sm:scale-95"
+                >
+                  <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <div className="sm:flex sm:items-start">
+                      <div className="mx-auto flex size-12 shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:size-10">
+                        {/* <ExclamationTriangleIcon aria-hidden="true" className="size-6 text-red-600" /> */}💎
+                      </div>
+                      <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                        <DialogTitle as="h3" className="text-base font-semibold text-gray-900">
+                          {shirt.title} megrendelése
+                        </DialogTitle>
+                        <div className="mt-2">
+                          <p className="text-sm text-gray-500 pb-5">
+                            A megrendelés leadásához kérjük, adja meg e-mail címét, hogy a rendelés részleteiről és állapotáról értesíteni tudjuk.
+                          </p>
+                          <div className="mb-6">
+                            <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">E-mail Cím</label>
+                            <input
+                              value={customerEmail}
+                              onChange={(e) => setCustomerEmail(e.target.value)}
+                              type="email"
+                              id="email"
+                              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                              placeholder="gipsz.jakab@email.com"
+                              required />
+                            {!emailValid && <span className="text-red-400 text-sm">Email formátuma nem megfelelő!</span>}
+                          </div>
+                          <div className="mb-6">
+                            <span className="block mb-2 text-sm font-medium text-gray-900 dark:text-white pb-2">Választott Méret</span>
+                            <span className="rounded-full text-xxl border bg-red-300 text-white border-red-400 text-center pl-[10px] pr-[10px] p-[7px]">{selectedSize}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                    <button
+                      type="button"
+                      onClick={orderItem}
+                      className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-red-500 sm:ml-3 sm:w-auto"
+                    >
+                      Megrendelés
+                    </button>
+                    <button
+                      type="button"
+                      data-autofocus
+                      onClick={() => setOpen(false)}
+                      className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-xs ring-1 ring-gray-300 ring-inset hover:bg-gray-50 sm:mt-0 sm:w-auto"
+                    >
+                      Vissza
+                    </button>
+                  </div>
+                </DialogPanel>
+              </div>
+            </div>
+          </Dialog>
+
+
         </div>
       </div>
     </div>
