@@ -59,9 +59,10 @@ const ShirtDetail = () => {
       setOrderLoader(true)
       const response = await fetch("https://vwcicmjfgefjlumdetva.supabase.co/functions/v1/email-send-shop", {
         method: "POST",
-        headers: corsHeaders,
+        headers: {
+          "Content-Type": "application/json"
+        },
         body: JSON.stringify({
-          subject: "Termék Rendelés",
           message: message
         }),
       });
@@ -79,15 +80,6 @@ const ShirtDetail = () => {
       setRespMessage("Hiba történt a rendelés során, kérlek próbáld újra később. ❌")
     }
   }
-
-  // return new Response("ok", {
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //     "Access-Control-Allow-Origin": "*",
-  //     "Access-Control-Allow-Headers": "*"
-  //   },
-  //   status: 200
-  // });
 
   const orderItem = () => {
     if (selectedSize) {

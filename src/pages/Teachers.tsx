@@ -503,7 +503,7 @@ const Teachers = () => {
             </div>
             <div className="flex flex-col items-center justify-center rounded-[1rem] shadow-xl p-5 border border-black">
               <dt id="gyerekek" ref={numberRef} className={`number ${inView ? "animate" : ""}` + " mb-2 text-3xl font-extrabold"}></dt>
-              <dd className="text-gray-500 dark:text-gray-400">Gyerekek</dd>
+              <dd className="text-gray-500 dark:text-gray-400">Tag</dd>
             </div>
             <div className="flex flex-col items-center justify-center rounded-[1rem] shadow-xl p-5 border border-black">
               <dt id="edzok" ref={numberRef} className={`number ${inView ? "animate" : ""}` + " mb-2 text-3xl font-extrabold"}></dt>
