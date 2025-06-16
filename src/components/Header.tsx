@@ -117,7 +117,7 @@ const Header = ({ scrollToSection }: HeaderProps) => {
                   variant="ghost"
                   className="text-white hover:bg-red-500/50 w-full justify-start px-4 py-3"
                 >
-                  <Phone size={16} className="mr-2" /> Kapcsolatt
+                  <Phone size={16} className="mr-2" /> Kapcsolat
                 </Button>
                 {/* <Link to="/hirek" className="text-white hover:bg-red-500/50 w-full justify-start">
                   <Button
