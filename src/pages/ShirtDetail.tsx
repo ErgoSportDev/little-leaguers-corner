@@ -31,7 +31,7 @@ const ShirtDetail = () => {
   const [shirt, setShirt] = useState<Shirt | null>(null);
   const [loading, setLoading] = useState(true);
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
-  const sizes = ["XS", "S", "M", "L", "XL", "XXL"];
+  const sizes = ["128", "140", "152", "164", "XS", "S", "M", "L", "XL", "XXL"];
   const [open, setOpen] = useState(false);
   const [customerEmail, setCustomerEmail] = useState("");
   const [emailValid, setEmailValid] = useState(true);
