@@ -19,7 +19,7 @@ const EventCalendar = () => {
   const today = moment();
   let oneMonthBefore = moment().subtract(1, 'months').format('YYYY-MM-DD');
   const endOfSummerDate = moment(`${currentYear}-10-31T23:50:00`);
-  const endOfWinterDate = moment(`${currentYear}-05-31T23:50:00`);
+  const endOfWinterDate = moment(`${currentYear}-03-31T23:50:00`);
   let isSummerSchedule = ""
 
   const containerRef = useRef(null);
