@@ -12,8 +12,15 @@ const EventCalendar = () => {
   const [view, setView] = useState('month');
   const [date, setDate] = useState(new Date());
   const [esemenyek, setEsemenyek] = useState([]);
+  const [singleEvents, setSingleEvents] = useState([]);
+  const [recurringEvents, setRecurringEvents] = useState([]);
 
+  const currentYear = moment().year();
+  const today = moment();
   let oneMonthBefore = moment().subtract(1, 'months').format('YYYY-MM-DD');
+  const endOfSummerDate = moment(`${currentYear}-10-31T23:50:00`);
+  const endOfWinterDate = moment(`${currentYear}-05-31T23:50:00`);
+  let isSummerSchedule = ""
 
   const containerRef = useRef(null);
   const scrollRef = useRef({});
@@ -65,10 +72,30 @@ const EventCalendar = () => {
   }
 
   useEffect(() => {
-    fetchTodos();
+    determineSchedule()
   }, []);
 
-  //fetching from supabase
+  useEffect(() => {
+    fetchTodos();
+    fetchRecurring();
+  }, []);
+
+  useEffect(() => {
+    let finalFormArr = singleEvents.concat(recurringEvents) //concatanate single and recurring events into one array
+    finalFormArr.sort((a, b) => a.start - b.start); //needs to be sorted so the cards show up in correct order
+    setEsemenyek(finalFormArr)
+  }, [recurringEvents, singleEvents]);
+
+  //determines if it is summer schedule or winter and sets the isSummerSchedue STRING ‼‼‼
+  const determineSchedule = () => {
+    if (today.isBefore(endOfSummerDate) && today.isAfter(endOfWinterDate)) {
+      isSummerSchedule = "TRUE"
+    } else {
+      isSummerSchedule = "FALSE"
+    }
+  }
+
+  //fetching events from supabase
   const fetchTodos = async () => {
     const { data, error } = await supabase
       .from("Events")
@@ -78,12 +105,69 @@ const EventCalendar = () => {
     if (error) {
       console.log("Error fetching: ", error);
     } else {
-      // console.log(data)
-      setEsemenyek(createDate(data))
+      setSingleEvents(createDate(data))
     }
   };
 
-  //manipulating data
+  //fetching recurring events from supabase
+  const fetchRecurring = async () => {
+    const { data, error } = await supabase
+      .from("RecurringEvents")
+      .select("*")
+      .eq("summer_schedule", isSummerSchedule)
+      .order('start', { ascending: true });
+    if (error) {
+      console.log("Error fetching: ", error);
+    } else {
+      setRecurringEvents(addRecurringTrainings(data))
+    }
+  };
+
+  //expands the recurring events till the end of the given schedule
+  const addRecurringTrainings = (data) => {
+    let recurringEvents = [];
+    let currentScheduleEnd = moment()
+
+    if (isSummerSchedule == "TRUE") {
+      currentScheduleEnd = endOfSummerDate
+    } else {
+      if (endOfSummerDate.isBefore(today)) {
+        currentScheduleEnd = endOfWinterDate.add(1, 'year'); //1 year added since displaying recurring events would not work
+      } else {
+        currentScheduleEnd = endOfWinterDate
+      }
+    }
+
+    //for each event, add weekly recurrences until endDateTime
+    data.forEach(e => {
+      let startMoment = moment(e.start);
+      let endMoment = moment(e.end);
+
+      while (startMoment.isBefore(currentScheduleEnd) && endMoment.isBefore(currentScheduleEnd)) {
+        if (startMoment.isBefore(oneMonthBefore)) {
+          startMoment.add(7, 'days');
+          endMoment.add(7, 'days');
+        } else {
+          recurringEvents.push({
+            created_at: e.created_at,
+            desc: e.desc,
+            end: endMoment.clone().toDate(),
+            id: e.id + startMoment.clone().toDate().toString(),
+            location: e.location,
+            start: startMoment.clone().toDate(),
+            title: e.title
+          });
+
+          startMoment.add(7, 'days'); // add one week for next occurrence
+          endMoment.add(7, 'days');
+        }
+      }
+    });
+
+    return recurringEvents;
+  }
+
+  //converting to date so the cards display it correctly
   const createDate = (event_data) => {
     event_data.forEach((e) => {
       e.start = new Date(e.start)
@@ -127,15 +211,16 @@ const EventCalendar = () => {
     let newStyle = {
       color: 'white',
       borderRadius: "5px",
+      // border: "border: 0px solid blue",
       border: "none",
       backgroundColor: "" // Initialize the backgroundColor property
     };
 
-    if (event.location === 'Leányfalu') {
+    if (event.location.includes('Leányfalu')) {
       newStyle.backgroundColor = "rgba(220,38,38)";
       return { style: newStyle };
     }
-    else if (event.location === 'Tahitótfalu') {
+    else if (event.location.includes('Tahitótfalu')) {
       newStyle.backgroundColor = "#3786c9";
       return { style: newStyle };
     }
