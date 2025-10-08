@@ -52,21 +52,31 @@ const Teachers = () => {
       name: "Horváth Luca",
       role: "Ergo Sport szakág vezető",
       description: "Amióta az eszemet tudom a sport, a mozgás szerves része az életemnek. Nem csak kikapcsolódás és fejlődés, hanem önmegvalósítás és lelki feltöltődés is számomra. Nálam a labdarúgás a befutó, de az össze sportágban képes vagyok megélni egy olyan önfeledt állapotot, ami rengeteget hozzáad a személyiségemhez. A közösség ereje és a játék adaléka olyan helyzetekkel fűszerezi a testem lendületbe ugrását, amivel a lelkem belül mosolyogni tud. Azért hoztuk létre az Ergo Sportot mert szeretném, ha ezt az érzést amit a sport nekem nyújtani tud mások is megízlelhetnék. Szerintem mindenkinek van egy sportja és ha ezt elég korán megtalálja az Ember, akkor, egész életét mankóként kíséri végig. Szeretek gyerekekkel foglalkozni, mert ők igazán őszintén élik meg a játék örömét, és az, az energia amit közben mozgatnak rendkívül felemelő érzés. Amit ezért viszontadhatok, az a figyelmem, ami segít kibontani a bennük lakozó tehetségüket, amiben boldogan önmaguk lehetnek. Mellettem pedig egy olyan Csapat áll, akik ugyanazzal az odaadással és szakmai hozzáértésükkel, minden lehetőséget megadnak a gyerekeknek ahhoz hogy megtalálják önmagukat a mozgás örömében. Várom hogy megismerjük egymást!",
-      experience: "8 év szakmai tapasztalat",
-      specialization: "Úszástechnikák, vízhez szoktatás, úszásoktatás minden korosztálynak",
-      education: "Sportoktatói diploma, Úszóedzői minősítés",
+      experience: "10+ év szakmai tapasztalat",
+      specialization: "Sportszervezés az önismeret tükrében",
+      education: "Sport- és rekreáció szerevező, MLSZ Grassgroots C licence, Sport mentáltréner MSC folyamatban",
       image: "/lovable-uploads/Luca.jpg",
       motto: "Az ember igazi jelleme játék közben nyilvánul meg"
     },
     {
       name: "Ferbert Csenge",
-      role: "Ergo Sport szakág vezető",
-      description: "Kedves Ergosok! Rólam még kevés szó esett itt a Facebook csoportban, mert nem vagyok egy nagy író, de ami késik az nem múlik. 2 éve végeztem a Testnevelesi egyetemen osztatlan tanári képzésen. Egyetemi képzésemmel  párhuzamosan elvégzetem IWI nemzetközi fitnesz instruktór  képzését. Egyeteme mellett végig dolgozatm úszó oktatóként. Egyetem elvégzését követően  haza költöztem a Dunakanyarba és Tahitótfaluba helyezkedtem  el, mint testnevelő. Tanítás mellett úszást oktatok a dunabogdanyi tanuszodában és segéd oktatóként síelés tartok Budakalászon. Mindig fejleszteni akarom magam, ezért is jelentkeztem izgő-mozgó torna tanfolyamra, amelyen az ovis gyermekek mozgás fejlesztéséről tanulunk.",
+      role: "Ergo Sport edző",
+      description: "2 éve végeztem a Testnevelési Egyetemen osztatlan tanárképzésen. Egyetemi tanulmányaimmal párhuzamosan elvégzetem IWI nemzetközi fitness instruktor képzést. Egyetem mellett végig dolgoztam úszó oktatóként. Egyetem elvégzését követően haza költöztem a Dunakanyarba és Tahitótfaluba helyezkedtem el, mint testnevelő. Tanítás mellett úszást oktatok a dunabogdányi tanuszodában és segéd oktatóként síelés tartok Budakalászon. Mindig fejleszteni akarom magam, ezért is jelentkeztem Izgő-mozgó torna tanfolyamra, amelyen az ovis gyermekek mozgás fejlesztéséről tanulunk.",
       experience: "12 év szakmai tapasztalat",
-      specialization: "Művészi torna, egyensúly fejlesztés, rugalmasság fokozása",
-      education: "Sporttudományi Egyetem, Tornász szakképesítés",
+      specialization: "Úszásoktatás",
+      education: "Testnevelési Egyetem Osztatlan tanárképzés, Izgő-mozgó torna, IWI nemzetközi fitness instruktor",
       image: "/lovable-uploads/Csenge.jpg",
       motto: "A sport nemcsak testnevelés, hanem léleknek is az egyik legerőteljesebb nevelőeszköze"
+    },
+    {
+      name: "Lukács Lili",
+      role: "Ergo Sport segédedző/segítő",
+      description: "Lukács Lilien Anna vagyok, 15 éves, aktív lovas sportoló. Lovas sport edzőnek tanulok. Azért szeretnék gyerekekkel dolgozni, mert örömmel vagyok köztük, és szeretném jobban megismerni a gyerekekkel való edzést.",
+      experience: "Gyerek táborokban segítő",
+      // specialization: "Úszásoktatás",
+      education: "Testnevelési Egyetem Osztatlan tanárképzés, Izgő-mozgó torna, IWI nemzetközi fitness instruktor",
+      image: "/lovable-uploads/Lili.jpg",
+      motto: "Csak azok képesek nagy dolgokra, akik mernek nagyot álmodni. - Jókai Mór"
     }
   ];
 
@@ -92,6 +102,7 @@ const Teachers = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.2 }}
+                className={index === 3 ? "md:col-start-2" : ""}
               >
                 <Card className="border-none shadow-xl h-full flex flex-col bg-white/90 backdrop-blur-sm">
                   <CardHeader className="text-center">
@@ -115,7 +126,7 @@ const Teachers = () => {
                     <p className="text-gray-600 mb-4 text-justify">{teacher.description}</p>
                     <div className="space-y-2 text-sm text-gray-700">
                       <p><strong>Tapasztalat:</strong> {teacher.experience}</p>
-                      <p><strong>Szakterület:</strong> {teacher.specialization}</p>
+                      {teacher.specialization && <p><strong>Szakterület:</strong> {teacher.specialization}</p> }
                       <p><strong>Végzettség:</strong> {teacher.education}</p>
                     </div>
                   </CardContent>
@@ -484,7 +495,7 @@ const Teachers = () => {
           rotateEnd={"0deg"}
         />
         <RollToRightImg
-          imgSrc="/lovable-uploads/baseball.png" 
+          imgSrc="/lovable-uploads/baseball.png"
           left={"-10vw"}
           right={"100vw"}
           rotateStart={"0deg"}

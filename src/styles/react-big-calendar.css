@@ -78,6 +78,19 @@ button.rbc-input::-moz-focus-inner {
   bottom: 0;
 }
 
+/* Hide scrollbar in Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge, and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
 .rbc-ellipsis,
 .rbc-show-more,
 .rbc-row-segment .rbc-event-content,
@@ -89,6 +102,7 @@ button.rbc-input::-moz-focus-inner {
 }
 
 @media only screen and (max-width: 500px) {
+
   rbc-ellipsis,
   .rbc-show-more,
   .rbc-row-segment .rbc-event-content,
@@ -98,6 +112,7 @@ button.rbc-input::-moz-focus-inner {
 }
 
 @media only screen and (min-width: 768px) and (max-width: 900px) {
+
   rbc-ellipsis,
   .rbc-show-more,
   .rbc-row-segment .rbc-event-content,
