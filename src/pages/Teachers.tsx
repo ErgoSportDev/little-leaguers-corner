@@ -70,11 +70,11 @@ const Teachers = () => {
     },
     {
       name: "Lukács Lili",
-      role: "Ergo Sport segédedző/segítő",
+      role: "Ergo Sport segítő",
       description: "Lukács Lilien Anna vagyok, 15 éves, aktív lovas sportoló. Lovas sport edzőnek tanulok. Azért szeretnék gyerekekkel dolgozni, mert örömmel vagyok köztük, és szeretném jobban megismerni a gyerekekkel való edzést.",
       experience: "Gyerek táborokban segítő",
       // specialization: "Úszásoktatás",
-      education: "Testnevelési Egyetem Osztatlan tanárképzés, Izgő-mozgó torna, IWI nemzetközi fitness instruktor",
+      // education: "Testnevelési Egyetem Osztatlan tanárképzés, Izgő-mozgó torna, IWI nemzetközi fitness instruktor",
       image: "/lovable-uploads/Lili.jpg",
       motto: "Csak azok képesek nagy dolgokra, akik mernek nagyot álmodni. - Jókai Mór"
     }
@@ -126,8 +126,8 @@ const Teachers = () => {
                     <p className="text-gray-600 mb-4 text-justify">{teacher.description}</p>
                     <div className="space-y-2 text-sm text-gray-700">
                       <p><strong>Tapasztalat:</strong> {teacher.experience}</p>
-                      {teacher.specialization && <p><strong>Szakterület:</strong> {teacher.specialization}</p> }
-                      <p><strong>Végzettség:</strong> {teacher.education}</p>
+                      {teacher.specialization && <p><strong>Szakterület:</strong> {teacher.specialization}</p>}
+                      {teacher.education && <p><strong>Végzettség:</strong> {teacher.education}</p>}
                     </div>
                   </CardContent>
                   <CardFooter className="border-t pt-4">

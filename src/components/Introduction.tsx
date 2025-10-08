@@ -19,13 +19,13 @@ const Introduction = () => {
     },
     {
       name: "Ferbert Csenge",
-      role: "Ergo Sport szakág vezető",
+      role: "Ergo Sport edző",
       //description: "Ergo Sport szakág vezető, Ferbert Csenge",
       image: "/lovable-uploads/Csenge.jpg"
     },
     {
       name: "Lukács Lili",
-      role: "Ergo Sport segédedző/segítő",
+      role: "Ergo Sport segítő",
       //description: "Ergo Sport szakág vezető, Ferbert Csenge",
       image: "/lovable-uploads/Lili.jpg"
     }
