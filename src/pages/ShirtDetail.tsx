@@ -24,6 +24,7 @@ interface Shirt {
   pictures: [];
   long_desc: string;
   sizes: string[];
+  available_colors: string[];
 }
 
 const ShirtDetail = () => {
@@ -31,6 +32,7 @@ const ShirtDetail = () => {
   const [shirt, setShirt] = useState<Shirt | null>(null);
   const [loading, setLoading] = useState(true);
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
+  const [selectedColor, setSelectedColor] = useState<string | null>('DEFAULT');
   const sizes = ["128", "140", "152", "164", "XS", "S", "M", "L", "XL", "XXL"];
   const [open, setOpen] = useState(false);
   const [customerEmail, setCustomerEmail] = useState("");
@@ -44,12 +46,12 @@ const ShirtDetail = () => {
 
   const fetchShopItem = async () => {
     setLoading(true);
-    const { data, error } = await supabase.from("Shop").select('id, title, price, pictures, long_desc').eq("id", id).single();
+    const { data, error } = await supabase.from("Shop").select('id, title, price, pictures, long_desc, available_colors').eq("id", id).single();
 
     if (error) {
       console.log("Error fetching news: ", error);
     } else {
-      setShirt(splitURL(data));
+      setShirt(splitColors(splitURL(data)));
     }
     setLoading(false);
   };
@@ -82,10 +84,10 @@ const ShirtDetail = () => {
   }
 
   const orderItem = () => {
-    if (selectedSize) {
+    if (selectedSize && selectedColor != "DEFAULT") {
       if (isValidEmail(customerEmail)) {
         setEmailValid(true)
-        let message = "Újabb Termék Került Megrendelésre!<br><br><strong>Termék:</strong> " + shirt.title + "<br> <strong>Méret:</strong> " + selectedSize + "<br> <strong>Megrendelő:</strong> " + customerEmail
+        let message = "Újabb Termék Került Megrendelésre!<br><br><strong>Termék:</strong> " + shirt.title + "<br> <strong>Méret:</strong> " + selectedSize + "<br> <strong>Szín:</strong> " + selectedColor + "<br> <strong>Megrendelő:</strong> " + customerEmail
         emailOrder(message)
       } else {
         setEmailValid(false)
@@ -98,8 +100,17 @@ const ShirtDetail = () => {
     return data
   }
 
+  const splitColors = (data) => {
+    data.available_colors = data.available_colors.split("|")
+    return data
+  }
+
   const isValidEmail = (email) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
+  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedColor(event.target.value);
   };
 
   if (loading) {
@@ -228,15 +239,32 @@ const ShirtDetail = () => {
               </div>
             </div>
 
+            <div className="mb-8">
+              <h2 className="text-lg font-medium mb-3">Színek:</h2>
+              <div className="flex flex-wrap gap-2">
+                <select
+                  id="countries"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5"
+                  value={selectedColor}
+                  onChange={handleChange}
+                >
+                  <option value="DEFAULT" disabled>Válassz Színt...</option>
+                  {shirt.available_colors.map((color) => (
+                    <option value={color} key={color}>{color}</option>
+                  ))}
+                </select>
+              </div>
+            </div>
+
             <Button
               className="w-full bg-red-600 hover:bg-red-700 h-12 text-lg"
-              disabled={!selectedSize}
+              disabled={!selectedSize || selectedColor == "DEFAULT"}
               onClick={() => setOpen(true)}
             >
               <ShoppingCart className="mr-2 h-5 w-5" />
               Megrendelem
             </Button>
-            {!selectedSize && <span className="text-red-400">Kérem válasszon méretet!</span>}
+            {(!selectedSize || selectedColor == "DEFAULT") && <span className="text-red-400">Kérem válasszon méretet és szín!</span>}
           </div>
 
           <Dialog open={open} onClose={setOpen} className="relative z-10">
@@ -286,6 +314,10 @@ const ShirtDetail = () => {
                             <div className="mb-6">
                               <span className="block mb-2 text-sm font-medium text-gray-900 dark:text-white pb-2">Választott Méret</span>
                               <span className="rounded-full text-xxl border bg-red-300 text-white border-red-400 text-center pl-[10px] pr-[10px] p-[7px]">{selectedSize}</span>
+                            </div>
+                            <div className="mb-6">
+                              <span className="block mb-2 text-sm font-medium text-gray-900 dark:text-white pb-2">Választott Szín</span>
+                              <span className="rounded-full text-xxl border text-gray-600 border-red-400 text-center pl-[10px] pr-[10px] p-[7px]">{selectedColor}</span>
                             </div>
                           </div>
                         }
