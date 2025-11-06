@@ -216,12 +216,22 @@ const EventCalendar = () => {
       backgroundColor: "" // Initialize the backgroundColor property
     };
 
-    if (event.location.includes('Leányfalu')) {
-      newStyle.backgroundColor = "rgba(220,38,38)";
+    console.log("event", event)
+
+    if (event.title.includes('Leányfalu Kicsik') || event.title.includes('Leányfalu Nagyok')) {
+      newStyle.backgroundColor = "rgba(220,38,38)"; //red
       return { style: newStyle };
     }
-    else if (event.location.includes('Tahitótfalu')) {
+    else if (event.title.includes('OVI Ergo')) {
+      newStyle.backgroundColor = "#e9bf18ff";
+      return { style: newStyle };
+    }
+    else if (event.title.includes('Tahi Suli')) {
       newStyle.backgroundColor = "#3786c9";
+      return { style: newStyle };
+    }
+    else if (event.title.includes('Felnőtt ERGO')) {
+      newStyle.backgroundColor = "#41990eff";
       return { style: newStyle };
     }
     else {
